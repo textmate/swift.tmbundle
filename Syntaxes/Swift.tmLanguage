@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>swift</string>
+	</array>
+	<key>keyEquivalent</key>
+	<string>^~S</string>
+	<key>name</key>
+	<string>Swift</string>
+	<key>patterns</key>
+	<array/>
+	<key>scopeName</key>
+	<string>source.swift</string>
+	<key>uuid</key>
+	<string>D133338A-DEED-4ECC-9852-A392C44D10AC</string>
+</dict>
+</plist>
