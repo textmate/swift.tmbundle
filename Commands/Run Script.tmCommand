@@ -8,6 +8,9 @@
 	<string>#!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby -KU
 
 require ENV["TM_SUPPORT_PATH"] + "/lib/tm/executor"
+require ENV["TM_SUPPORT_PATH"] + "/lib/tm/save_current_document"
+
+TextMate.save_current_document
 
 swift_exec="/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift"
 if File.exist?(swift_exec)
