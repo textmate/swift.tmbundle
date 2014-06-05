@@ -13,8 +13,10 @@ require ENV["TM_SUPPORT_PATH"] + "/lib/tm/save_current_document"
 TextMate.save_current_document
 
 swift_exec="/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift"
+sdk_path="/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk"
+
 if File.exist?(swift_exec)
-  command = [swift_exec, "-i", "#{ENV["TM_FILEPATH"]}"]
+  command = [swift_exec, "-sdk", sdk_path, "-i", "#{ENV["TM_FILEPATH"]}"]
   TextMate::Executor.run(command)
 end
 
