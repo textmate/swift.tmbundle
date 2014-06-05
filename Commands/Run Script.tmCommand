@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby -KU
+
+require ENV["TM_SUPPORT_PATH"] + "/lib/tm/executor"
+
+swift_exec="/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift"
+if File.exist?(swift_exec)
+  command = [swift_exec, "-i", "#{ENV["TM_FILEPATH"]}"]
+  TextMate::Executor.run(command)
+end
+
+</string>
+	<key>input</key>
+	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>@r</string>
+	<key>name</key>
+	<string>Run Script</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
+	<key>scope</key>
+	<string>source.swift</string>
+	<key>uuid</key>
+	<string>DDC4B4C0-5B7B-4CB2-AA3F-855F318A68FB</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -2,14 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>contactEmailRot13</key>
-	<string>ohaqyrf@grkgzngr.bet</string>
-	<key>contactName</key>
-	<string>Michael Sheets</string>
-	<key>description</key>
-	<string>Programming language for Cocoa and Cocoa Touch</string>
-	<key>name</key>
-	<string>Swift</string>
+	<key>isDelta</key>
+	<true/>
 	<key>uuid</key>
 	<string>D08F016D-1D07-4BD8-8339-9AB5D151DF31</string>
 </dict>
