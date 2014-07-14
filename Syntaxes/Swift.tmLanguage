@@ -67,7 +67,7 @@
 		<key>array-type</key>
 		<dict>
 			<key>begin</key>
-			<string>\b(Array)(&lt;)</string>
+			<string>\b(Array)(\[)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -82,7 +82,7 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>(&gt;)</string>
+			<string>(\])</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>1</key>
@@ -377,7 +377,7 @@
 		<key>dictionary-type</key>
 		<dict>
 			<key>begin</key>
-			<string>\b(Dictionary)(&lt;)</string>
+			<string>\b(Dictionary)(\[)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -392,7 +392,7 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>(&gt;)</string>
+			<string>(\])</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>1</key>
