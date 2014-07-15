@@ -5,21 +5,16 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby -KU
+	<string>#!/usr/bin/env ruby18
 
 require ENV["TM_SUPPORT_PATH"] + "/lib/tm/executor"
 require ENV["TM_SUPPORT_PATH"] + "/lib/tm/save_current_document"
 
+TextMate.save_if_untitled("swift")
 TextMate.save_current_document
 
-swift_exec="/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift"
-sdk_path="/Applications/Xcode6-Beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk"
-
-if File.exist?(swift_exec)
-  command = [swift_exec, "-sdk", sdk_path, "-i", "#{ENV["TM_FILEPATH"]}"]
-  TextMate::Executor.run(command)
-end
-
+command = ["xcrun --sdk macosx swift -i", "#{ENV["TM_FILEPATH"]}"]
+TextMate::Executor.run(command)
 </string>
 	<key>input</key>
 	<string>document</string>
@@ -37,6 +32,8 @@ end
 	<string>newWindow</string>
 	<key>scope</key>
 	<string>source.swift</string>
+	<key>semanticClass</key>
+	<string>process.run.swift</string>
 	<key>uuid</key>
 	<string>DDC4B4C0-5B7B-4CB2-AA3F-855F318A68FB</string>
 	<key>version</key>
