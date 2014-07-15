@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>subscript(${1:parameters}) -&gt; ${2:ReturnType} {
+	$3
+}
+
+</string>
+	<key>name</key>
+	<string>subscript</string>
+	<key>scope</key>
+	<string>source.swift</string>
+	<key>tabTrigger</key>
+	<string>subscript</string>
+	<key>uuid</key>
+	<string>C87082D9-AF67-41D9-AE32-826D65FAD2A0</string>
+</dict>
+</plist>
