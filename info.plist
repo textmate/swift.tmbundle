@@ -10,6 +10,11 @@
 	<string>Programming language for Cocoa and Cocoa Touch</string>
 	<key>mainMenu</key>
 	<dict>
+		<key>excludedItems</key>
+		<array>
+			<string>D6FDBE1D-10BF-4328-BCC8-28EA92035954</string>
+			<string>08D252B0-4954-404E-BB5B-EED974366791</string>
+		</array>
 		<key>items</key>
 		<array>
 			<string>DDC4B4C0-5B7B-4CB2-AA3F-855F318A68FB</string>
@@ -32,7 +37,6 @@
 			<string>503F02BF-75D5-4BFF-A753-9E6EDCD66449</string>
 			<string>1E0BBD65-5086-44AC-BDCF-F3AA95B9E35E</string>
 			<string>BC0D5CAC-C47D-4AB5-BEFB-D616A4B492FB</string>
-			<string>D6FDBE1D-10BF-4328-BCC8-28EA92035954</string>
 			<string>621BE132-FBCA-41B8-A5FA-C15711EDA218</string>
 			<string>7A034E84-6BF5-4894-9BFF-928F80C173D9</string>
 			<string>C87082D9-AF67-41D9-AE32-826D65FAD2A0</string>

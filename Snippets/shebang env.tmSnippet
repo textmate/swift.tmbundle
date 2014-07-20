@@ -6,12 +6,12 @@
 	<string>#!/usr/bin/env xcrun --sdk macosx swift -i
 </string>
 	<key>name</key>
-	<string>#!/usr/bin/env swift</string>
+	<string>#!/usr/bin/env swift (env)</string>
 	<key>scope</key>
-	<string>L:dyn.caret.begin.document</string>
+	<string>L:source.swift dyn.caret.begin.document</string>
 	<key>tabTrigger</key>
-	<string>swift</string>
+	<string>env</string>
 	<key>uuid</key>
-	<string>D6FDBE1D-10BF-4328-BCC8-28EA92035954</string>
+	<string>08D252B0-4954-404E-BB5B-EED974366791</string>
 </dict>
 </plist>
