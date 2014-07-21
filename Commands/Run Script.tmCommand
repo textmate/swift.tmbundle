@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>beforeRunningCommand</key>
-	<string>nop</string>
+	<string>saveModifiedFiles</string>
 	<key>command</key>
 	<string>#!/usr/bin/env ruby18
 
@@ -11,7 +11,6 @@ require ENV["TM_SUPPORT_PATH"] + "/lib/tm/executor"
 require ENV["TM_SUPPORT_PATH"] + "/lib/tm/save_current_document"
 
 TextMate.save_if_untitled("swift")
-TextMate.save_current_document
 
 command = ["xcrun --sdk macosx swift -i", "#{ENV["TM_FILEPATH"]}"]
 TextMate::Executor.run(command)
