@@ -746,33 +746,6 @@
 				</dict>
 			</array>
 		</dict>
-		<key>landmark-fixme</key>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>meta.landmark.swift</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.control.landmark.fixme.swift</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>meta.toc-list.landmark.fixme.swift</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>swifts landmark //FIXME:</string>
-			<key>match</key>
-			<string>^\s*(\\{2,}\s*(FIXME:)\s+(.*))</string>
-			<key>name</key>
-			<string>keyword.control.untitled</string>
-		</dict>
 		<key>landmark-mark</key>
 		<dict>
 			<key>captures</key>
@@ -800,33 +773,6 @@
 			<key>name</key>
 			<string>keyword.control.untitled</string>
 		</dict>
-		<key>landmark-todo</key>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>meta.landmark.swift</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.control.landmark.todo.swift</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>meta.toc-list.landmark.todo.swift</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>swifts landmark //TODO:</string>
-			<key>match</key>
-			<string>^\s*(\\{2,}\s*(TODO:)\s+(.*))</string>
-			<key>name</key>
-			<string>keyword.control.untitled</string>
-		</dict>
 		<key>landmarks</key>
 		<dict>
 			<key>comment</key>
@@ -836,14 +782,6 @@
 				<dict>
 					<key>include</key>
 					<string>#landmark-mark</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#landmark-fixme</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#landmark-todo</string>
 				</dict>
 			</array>
 		</dict>
