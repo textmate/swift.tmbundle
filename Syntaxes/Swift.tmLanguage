@@ -305,6 +305,10 @@
 					<key>include</key>
 					<string>#in-line-comment</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#landmarks</string>
+				</dict>
 			</array>
 		</dict>
 		<key>comparative-operator</key>
@@ -739,6 +743,45 @@
 					<string>\b(associativity|didSet|get|infix|inout|left|mutating|none|nonmutating|operator|override|postfix|precedence|prefix|right|set|unowned((un)?safe)?|weak|willSet)\b</string>
 					<key>name</key>
 					<string>keyword.other.swift</string>
+				</dict>
+			</array>
+		</dict>
+		<key>landmark-mark</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>meta.landmark.swift</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.landmark.mark.swift</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>meta.toc-list.landmark.mark.swift</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>swifts landmark //MARK:</string>
+			<key>match</key>
+			<string>^\s*(\\{2,}\s*(MARK:)\s+(.*))</string>
+			<key>name</key>
+			<string>keyword.control.untitled</string>
+		</dict>
+		<key>landmarks</key>
+		<dict>
+			<key>comment</key>
+			<string>All landmark types</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#landmark-mark</string>
 				</dict>
 			</array>
 		</dict>
