@@ -12,6 +12,10 @@
 	<string>^~S</string>
 	<key>name</key>
 	<string>Swift</string>
+  <key>foldingStartMarker</key>
+  <string>\{\s*$</string>
+  <key>foldingStopMarker</key>
+  <string>^\s*\}</string>
 	<key>patterns</key>
 	<array>
 		<dict>
