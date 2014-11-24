@@ -291,7 +291,7 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#documentation-comment</string>
+					<string>text.restructuredtext.swiftdoc</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -404,40 +404,6 @@
 				<dict>
 					<key>include</key>
 					<string>$self</string>
-				</dict>
-			</array>
-		</dict>
-		<key>documentation-comment</key>
-		<dict>
-			<key>begin</key>
-			<string>(/\*(\*|!))\s*$</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.comment.begin.swift</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>Documentation comment block</string>
-			<key>end</key>
-			<string>\s*(\*/)\s*$</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.comment.end.swift</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>comment.block.documentation.swift</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>text.restructuredtext</string>
 				</dict>
 			</array>
 		</dict>
@@ -625,18 +591,20 @@
 		</dict>
 		<key>in-line-comment</key>
 		<dict>
-			<key>captures</key>
+			<key>begin</key>
+			<string>//</string>
+			<key>beginCaptures</key>
 			<dict>
-				<key>1</key>
+				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.comment.line.double-slash.swift</string>
+					<string>punctuation.definition.comment.line.swift</string>
 				</dict>
 			</dict>
 			<key>comment</key>
 			<string>In-line comment</string>
-			<key>match</key>
-			<string>(//).*</string>
+			<key>end</key>
+			<string>\n</string>
 			<key>name</key>
 			<string>comment.line.double-slash.swift</string>
 		</dict>
