@@ -8,20 +8,16 @@
 	</array>
 	<key>firstLineMatch</key>
 	<string>^#!/.*\bswift</string>
+	<key>foldingStartMarker</key>
+	<string>\{\s*$</string>
+	<key>foldingStopMarker</key>
+	<string>^\s*\}</string>
 	<key>keyEquivalent</key>
 	<string>^~S</string>
 	<key>name</key>
 	<string>Swift</string>
-  <key>foldingStartMarker</key>
-  <string>\{\s*$</string>
-  <key>foldingStopMarker</key>
-  <string>^\s*\}</string>
 	<key>patterns</key>
 	<array>
-		<dict>
-			<key>include</key>
-			<string>#shebang-line</string>
-		</dict>
 		<dict>
 			<key>include</key>
 			<string>#comment</string>
@@ -53,10 +49,6 @@
 		<dict>
 			<key>include</key>
 			<string>#type</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#boolean</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -214,12 +206,12 @@
 			<key>name</key>
 			<string>comment.block.swift</string>
 		</dict>
-		<key>boolean</key>
+		<key>boolean-literal</key>
 		<dict>
 			<key>match</key>
 			<string>\b(true|false)\b</string>
 			<key>name</key>
-			<string>keyword.constant.boolean.swift</string>
+			<string>constant.language.boolean.swift</string>
 		</dict>
 		<key>branch-statement-keyword</key>
 		<dict>
@@ -418,29 +410,36 @@
 		<key>documentation-comment</key>
 		<dict>
 			<key>begin</key>
-			<string>/\*\*</string>
+			<string>(/\*(\*|!))\s*$</string>
 			<key>beginCaptures</key>
 			<dict>
-				<key>0</key>
+				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.comment.block.documentation.begin.swift</string>
+					<string>punctuation.definition.comment.begin.swift</string>
 				</dict>
 			</dict>
 			<key>comment</key>
-			<string>Documentation comment</string>
+			<string>Documentation comment block</string>
 			<key>end</key>
-			<string>\*/</string>
+			<string>\s*(\*/)\s*$</string>
 			<key>endCaptures</key>
 			<dict>
-				<key>0</key>
+				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.comment.block.documentation.end.swift</string>
+					<string>punctuation.definition.comment.end.swift</string>
 				</dict>
 			</dict>
 			<key>name</key>
 			<string>comment.block.documentation.swift</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>text.restructuredtext</string>
+				</dict>
+			</array>
 		</dict>
 		<key>floating-point-literal</key>
 		<dict>
@@ -756,6 +755,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#boolean-literal</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#floating-point-literal</string>
 				</dict>
 				<dict>
@@ -984,23 +987,6 @@
 			<string>(?&lt;![/=\-+!*%&lt;&gt;&amp;|\^~.])\%(?![/=\-+!*%&lt;&gt;&amp;|\^~.])</string>
 			<key>name</key>
 			<string>keyword.operator.remainder.swift</string>
-		</dict>
-		<key>shebang-line</key>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.comment.line.shebang.swift</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>Shebang line</string>
-			<key>match</key>
-			<string>^(#!).*$</string>
-			<key>name</key>
-			<string>comment.line.shebang.swift</string>
 		</dict>
 		<key>special-literal</key>
 		<dict>
