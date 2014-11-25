@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>// FIXME: </string>
+	<key>name</key>
+	<string>Fixme</string>
+	<key>scope</key>
+	<string>source.swift</string>
+	<key>tabTrigger</key>
+	<string>fixme</string>
+	<key>uuid</key>
+	<string>EE447818-7AF2-4411-9C07-A0BAD447C48F</string>
+</dict>
+</plist>

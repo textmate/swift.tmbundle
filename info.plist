@@ -43,9 +43,28 @@
 			<string>DD4EAC43-BA46-499B-9A3C-88F89B1F69F7</string>
 			<string>476888BD-B068-4F21-A2A6-B1503CD579F3</string>
 			<string>82FA9415-16CB-4BA9-A610-CDA8B36BF925</string>
+			<string>------------------------------------</string>
+			<string>2F648C5B-AB3D-49F3-8FAE-C597134302D7</string>
 		</array>
 		<key>submenus</key>
-		<dict/>
+		<dict>
+			<key>2F648C5B-AB3D-49F3-8FAE-C597134302D7</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>56ED42E0-D05B-4719-A932-F1614BE3C8EA</string>
+					<string>------------------------------------</string>
+					<string>F7737F22-9AFC-46C6-8211-AEF852537800</string>
+					<string>6133C6F7-B011-472C-B6D1-42AA4BC3864A</string>
+					<string>------------------------------------</string>
+					<string>477688BA-323E-4A50-B8B9-0079CAED0D22</string>
+					<string>EE447818-7AF2-4411-9C07-A0BAD447C48F</string>
+					<string>429544B7-A897-4360-A827-CC88FCDBF4FA</string>
+				</array>
+				<key>name</key>
+				<string>Documentation Comments</string>
+			</dict>
+		</dict>
 	</dict>
 	<key>name</key>
 	<string>Swift</string>
