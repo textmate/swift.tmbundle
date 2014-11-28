@@ -20,6 +20,10 @@
 	<array>
 		<dict>
 			<key>include</key>
+			<string>#shebang-line</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#comment</string>
 		</dict>
 		<dict>
@@ -455,7 +459,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.type.funciton.swift</string>
+					<string>entity.type.function.swift</string>
 				</dict>
 			</dict>
 			<key>comment</key>
@@ -956,6 +960,23 @@
 			<key>name</key>
 			<string>keyword.operator.remainder.swift</string>
 		</dict>
+		<key>shebang-line</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.line.shebang.swift</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Shebang line</string>
+			<key>match</key>
+			<string>^(#!).*$</string>
+			<key>name</key>
+			<string>comment.line.shebang.swift</string>
+		</dict>
 		<key>special-literal</key>
 		<dict>
 			<key>match</key>
@@ -979,7 +1000,7 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>string.quoted.double.swift</string>
+					<string>punctuation.definition.string.begin.swift</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -989,7 +1010,7 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>string.quoted.double.swift</string>
+					<string>punctuation.definition.string.end.swift</string>
 				</dict>
 			</dict>
 			<key>name</key>
@@ -998,7 +1019,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\\([0tnr\"\'\\]|x\h{2}|u\h{4}|U\h{8})</string>
+					<string>\\([0tnr\"\'\\]|u\h{8})</string>
 					<key>name</key>
 					<string>constant.character.escape.swift</string>
 				</dict>
@@ -1083,7 +1104,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>protocol-composition-type</string>
+					<string>#protocol-composition-type</string>
 				</dict>
 			</array>
 		</dict>
