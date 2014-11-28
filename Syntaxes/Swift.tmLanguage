@@ -57,6 +57,15 @@
 	</array>
 	<key>repository</key>
 	<dict>
+		<key>access-specifier</key>
+		<dict>
+			<key>comment</key>
+			<string>access-specifier</string>
+			<key>match</key>
+			<string>\b((internal|private|public)(\(\s*set\s*\))?)\b</string>
+			<key>name</key>
+			<string>keyword.other.access-specifier.swift</string>
+		</dict>
 		<key>arithmetic-operator</key>
 		<dict>
 			<key>match</key>
@@ -370,7 +379,7 @@
 			<key>comment</key>
 			<string>declaration-specifier</string>
 			<key>match</key>
-			<string>\b(class|mutating|nonmutating|override|static|unowned((un)?safe)?|weak)\b</string>
+			<string>\b(class|convenience|dynamic|final|lazy|(non)?mutating|optional|override|required|static|unowned((un)?safe)?|weak)\b</string>
 			<key>name</key>
 			<string>keyword.other.declaration-specifier.swift</string>
 		</dict>
@@ -681,6 +690,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#access-specifier</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#operator-declaration-keyword</string>
 				</dict>
 				<dict>
@@ -731,6 +744,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#nil-literal</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#floating-point-literal</string>
 				</dict>
 				<dict>
@@ -758,6 +775,20 @@
 			<string>\b(while|do|for|in)\b</string>
 			<key>name</key>
 			<string>keyword.control.loop.swift</string>
+		</dict>
+		<key>metatype-type</key>
+		<dict>
+			<key>match</key>
+			<string>\.(Type|Protocol)</string>
+			<key>name</key>
+			<string>support.type.metatype.swift</string>
+		</dict>
+		<key>nil-literal</key>
+		<dict>
+			<key>match</key>
+			<string>\b(nil)\b</string>
+			<key>name</key>
+			<string>constant.language.nil.swift</string>
 		</dict>
 		<key>operator</key>
 		<dict>
@@ -905,7 +936,7 @@
 			<key>comment</key>
 			<string>Primitive types</string>
 			<key>match</key>
-			<string>\b(Int|Float|Double|String|Bool|Character)\b</string>
+			<string>\b(U?Int|Float|Double|String|Bool|Character|Void|Any(Object)?)([?!]?\B|\b)</string>
 			<key>name</key>
 			<string>support.type.swift</string>
 		</dict>
@@ -1101,6 +1132,10 @@
 				<dict>
 					<key>include</key>
 					<string>#optional-type</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#metatype-type</string>
 				</dict>
 				<dict>
 					<key>include</key>
