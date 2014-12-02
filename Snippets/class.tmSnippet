@@ -3,9 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>class ${1:name}</string>
+	<string>class ${1:name}${2:: ${3:superclass}}${4:, ${5:protocols}} {
+	$6
+}</string>
 	<key>name</key>
-	<string>class</string>
+	<string>Class</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>

@@ -3,17 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>subscript(${1:parameters}) -&gt; ${2:ReturnType} {
-	$3
+	<string>subscript(${1:parameters}) -&gt; ${2:return type} {
+	get {
+		$3
+	}
+	set${4:($5)} {
+		$6
+	}
 }
-
 </string>
 	<key>name</key>
-	<string>subscript</string>
+	<string>Subscript</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>subscript</string>
+	<string>sub</string>
 	<key>uuid</key>
 	<string>C87082D9-AF67-41D9-AE32-826D65FAD2A0</string>
 </dict>

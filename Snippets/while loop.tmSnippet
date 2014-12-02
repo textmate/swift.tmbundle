@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>if ${1:condition} {
+	<string>while ${1:condition}{
 	$2
 }</string>
 	<key>name</key>
-	<string>if</string>
+	<string>while</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>if</string>
+	<string>while</string>
 	<key>uuid</key>
-	<string>DB6DE730-31AC-4E3D-859D-1F3F5790D718</string>
+	<string>29690D80-BF5C-4C03-9BFD-2A2F459DAEA9</string>
 </dict>
 </plist>

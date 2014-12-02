@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>Array&lt;${1:Type}&gt;</string>
+	<string>${1:class }var ${2:identifier}${3:: ${4:type}${5:?}} = $6</string>
 	<key>name</key>
-	<string>Array</string>
+	<string>Variable</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>Array</string>
+	<string>var</string>
 	<key>uuid</key>
-	<string>DEE982C1-301B-4B87-B342-70DDECADCF8C</string>
+	<string>29B3BBC5-6920-4357-A4A0-60709B64617A</string>
 </dict>
 </plist>

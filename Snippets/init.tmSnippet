@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>init(${1:parameters}) {
-	$2
+	<string>${1:convenience }init${2|?,!|}(${3:parameters}) {
+	$4
 }</string>
 	<key>name</key>
-	<string>init</string>
+	<string>Initializer</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>

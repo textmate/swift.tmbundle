@@ -7,7 +7,7 @@
   $1
 */</string>
 	<key>name</key>
-	<string>documentation block</string>
+	<string>Documentation Block</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>

@@ -3,14 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>class var ${1:name}</string>
+	<string>var ${1:identifier}${2:: ${3:type}${4:?}} = ${5:expression} {
+	willSet${6:($7)} {
+		$8
+	}
+	didSet${9:($10)} {
+		$11
+	}
+}</string>
 	<key>name</key>
-	<string>class-var</string>
+	<string>Variable/Property Observer</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>cv</string>
+	<string>var</string>
 	<key>uuid</key>
-	<string>2335C8D4-4B1A-49B9-B5BB-8CBF4A391D13</string>
+	<string>8B1B605F-466C-4627-BFC3-E425F0E88D8C</string>
 </dict>
 </plist>

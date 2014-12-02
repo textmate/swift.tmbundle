@@ -3,16 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>else if ${1:condition} {
-	$2
+	<string>var ${1:identifier}${2:: ${3:type}${4:?}} {
+	get {
+		$5
+	}
+	set${6:($7)} {
+		$8
+	}
 }</string>
 	<key>name</key>
-	<string>else-if</string>
+	<string>Computed Variable/Property</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>elif</string>
+	<string>var</string>
 	<key>uuid</key>
-	<string>3A6272EA-780F-45F9-992C-220BFD13F430</string>
+	<string>57FC5342-F1B6-4C58-941F-0B84653D02FD</string>
 </dict>
 </plist>

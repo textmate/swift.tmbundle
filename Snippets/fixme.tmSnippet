@@ -5,7 +5,7 @@
 	<key>content</key>
 	<string>// FIXME: </string>
 	<key>name</key>
-	<string>fixme</string>
+	<string>FixMe</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>

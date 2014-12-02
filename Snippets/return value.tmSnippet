@@ -5,7 +5,7 @@
 	<key>content</key>
 	<string>:returns: </string>
 	<key>name</key>
-	<string>returns</string>
+	<string>Return Value</string>
 	<key>scope</key>
 	<string>text.restructuredtext.swiftdoc</string>
 	<key>tabTrigger</key>

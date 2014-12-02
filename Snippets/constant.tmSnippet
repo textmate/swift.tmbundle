@@ -3,16 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>didSet {
-	$1
-}</string>
+	<string>let ${1:identifier}${2:: ${3:type}${4:?}} = $5</string>
 	<key>name</key>
-	<string>didSet</string>
+	<string>Constant</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>didSet</string>
+	<string>let</string>
 	<key>uuid</key>
-	<string>C86F6E90-7401-4237-B389-37C802DB5503</string>
+	<string>7C19722A-E16C-4104-AFFF-83BC296BA91E</string>
 </dict>
 </plist>

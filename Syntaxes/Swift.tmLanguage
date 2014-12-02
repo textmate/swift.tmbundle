@@ -716,7 +716,7 @@
 					<key>comment</key>
 					<string>expression and type keyword</string>
 					<key>match</key>
-					<string>\b(as|dynamicType|is|new|super|self|Self|Type)\b</string>
+					<string>\b(as|dynamicType|is|new|super|self|(new|old)Value|Self|Type)\b</string>
 					<key>name</key>
 					<string>keyword.other.statement.swift</string>
 				</dict>

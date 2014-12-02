@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>set {
-	$1
+	<string>{ (${1:parameters}) -&gt; ${2:return type} in
+	$3
 }</string>
 	<key>name</key>
-	<string>set</string>
+	<string>Closure</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>set</string>
+	<string>fn</string>
 	<key>uuid</key>
-	<string>BC0D5CAC-C47D-4AB5-BEFB-D616A4B492FB</string>
+	<string>C8C6134F-6286-4725-8532-1DD1753AD30D</string>
 </dict>
 </plist>

@@ -3,14 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>static var ${1:name}</string>
+	<string>enum ${1:name}: ${2:type} {
+	$3
+}</string>
 	<key>name</key>
-	<string>static-var</string>
+	<string>Enumeration with Raw Values</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>sv</string>
+	<string>enumraw</string>
 	<key>uuid</key>
-	<string>621BE132-FBCA-41B8-A5FA-C15711EDA218</string>
+	<string>9868B259-9418-4157-ADBD-6B1F05F05572</string>
 </dict>
 </plist>

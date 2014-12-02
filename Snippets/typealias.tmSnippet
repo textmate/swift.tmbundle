@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>typealias ${1:name} = ${2:name}</string>
+	<string>typealias ${1:name} = ${2:existing type}</string>
 	<key>name</key>
-	<string>typealias</string>
+	<string>Type Alias</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>

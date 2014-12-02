@@ -7,7 +7,7 @@
 	$1
 }</string>
 	<key>name</key>
-	<string>deinit</string>
+	<string>Deinitializer</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>

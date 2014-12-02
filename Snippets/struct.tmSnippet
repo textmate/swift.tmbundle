@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>struct ${1:name} {
-	$2
+	<string>struct ${1:name}${2:: ${3:protocols}} {
+	$4
 }</string>
 	<key>name</key>
-	<string>struct</string>
+	<string>Struct</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>

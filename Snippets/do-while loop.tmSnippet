@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>get {
+	<string>do {
 	$1
-}</string>
+} while $2</string>
 	<key>name</key>
-	<string>get</string>
+	<string>do-while</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>get</string>
+	<string>dowhile</string>
 	<key>uuid</key>
-	<string>36C484F7-689B-4EDE-B982-7B050618A38E</string>
+	<string>2EFEB03F-9F39-4B2C-A4CC-9594076F8670</string>
 </dict>
 </plist>

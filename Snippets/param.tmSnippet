@@ -5,7 +5,7 @@
 	<key>content</key>
 	<string>:param: </string>
 	<key>name</key>
-	<string>param</string>
+	<string>Parameter</string>
 	<key>scope</key>
 	<string>comment.block.documentation.swiftdoc</string>
 	<key>tabTrigger</key>
