@@ -233,6 +233,15 @@
 				</dict>
 			</array>
 		</dict>
+		<key>capture-specifier</key>
+		<dict>
+			<key>comment</key>
+			<string>matches weak, unowned, unowned(safe), unowned(unsafe)</string>
+			<key>match</key>
+			<string>\b(weak|unowned(?:\((?:un)?safe\))?)</string>
+			<key>name</key>
+			<string>keyword.other.capture-specifier.swift</string>
+		</dict>
 		<key>code-block</key>
 		<dict>
 			<key>begin</key>
@@ -370,7 +379,7 @@
 			<key>comment</key>
 			<string>declaration-specifier</string>
 			<key>match</key>
-			<string>\b(class|mutating|nonmutating|override|static|unowned((un)?safe)?|weak)\b</string>
+			<string>\b(class|mutating|nonmutating|override|static)\b</string>
 			<key>name</key>
 			<string>keyword.other.declaration-specifier.swift</string>
 		</dict>
@@ -703,6 +712,10 @@
 				<dict>
 					<key>include</key>
 					<string>#declaration-specifier</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#capture-specifier</string>
 				</dict>
 				<dict>
 					<key>include</key>
