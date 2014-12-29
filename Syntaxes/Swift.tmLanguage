@@ -467,20 +467,6 @@
 				</dict>
 			</array>
 		</dict>
-		<key>function-body</key>
-		<dict>
-			<key>comment</key>
-			<string>function-body</string>
-			<key>name</key>
-			<string>meta.function-body.swift</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#code-block</string>
-				</dict>
-			</array>
-		</dict>
 		<key>function-declaration</key>
 		<dict>
 			<key>begin</key>
@@ -495,13 +481,13 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.type.funciton.swift</string>
+					<string>entity.name.function.swift</string>
 				</dict>
 			</dict>
 			<key>comment</key>
 			<string>function-declaration</string>
 			<key>end</key>
-			<string>(?&lt;=\})</string>
+			<string>(?&lt;=\})|$</string>
 			<key>name</key>
 			<string>meta.function-declaration.swift</string>
 			<key>patterns</key>
@@ -519,8 +505,35 @@
 					<string>#function-result</string>
 				</dict>
 				<dict>
-					<key>include</key>
-					<string>#function-body</string>
+					<key>begin</key>
+					<string>\{</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.function.begin.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\}</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.function.end.swift</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>meta.function-declaration.body.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>$self</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>
