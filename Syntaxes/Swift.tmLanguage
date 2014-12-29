@@ -740,7 +740,7 @@
 					<key>match</key>
 					<string>\b(class|deinit|enum|extension|func|import|init|let|protocol|static|struct|subscript|typealias|var)\b</string>
 					<key>name</key>
-					<string>keyword.declaration.swift</string>
+					<string>storage.type.declaration.swift</string>
 				</dict>
 				<dict>
 					<key>comment</key>
