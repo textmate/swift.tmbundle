@@ -1041,77 +1041,92 @@
 		<key>string-literal</key>
 		<dict>
 			<key>begin</key>
-			<string>\"</string>
+			<string>"</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>string.quoted.double.swift</string>
+					<string>punctuation.definition.string.begin.swift</string>
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>\"</string>
+			<string>"</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>string.quoted.double.swift</string>
+					<string>punctuation.definition.string.end.swift</string>
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>meta.literal.string.swift</string>
+			<string>string.quoted.double.swift</string>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\\([0tnr\"\'\\]|x\h{2}|u\h{4}|U\h{8})</string>
+					<string>\\[0\\tnr"']</string>
+					<key>name</key>
+					<string>constant.character.escape.swift</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\\u\{\h{1,8}\}</string>
 					<key>name</key>
 					<string>constant.character.escape.swift</string>
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(\\\()</string>
+					<string>\\\(</string>
 					<key>beginCaptures</key>
 					<dict>
-						<key>1</key>
+						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>support.punctuation.expression.begin.swift</string>
+							<string>punctuation.section.embedded.begin.swift</string>
 						</dict>
 					</dict>
 					<key>contentName</key>
-					<string>meta.expression.swift</string>
+					<string>source.swift</string>
 					<key>end</key>
-					<string>(\))</string>
+					<string>\)</string>
 					<key>endCaptures</key>
 					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.embedded.end.swift</string>
+						</dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>support.punctuation.expression.end.swift</string>
+							<string>source.swift</string>
 						</dict>
 					</dict>
+					<key>name</key>
+					<string>meta.embedded.line.swift</string>
 					<key>patterns</key>
 					<array>
 						<dict>
 							<key>include</key>
-							<string>source.swift</string>
+							<string>$self</string>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>\(</string>
+							<key>comment</key>
+							<string>Nested parens</string>
+							<key>end</key>
+							<string>\)</string>
 						</dict>
 					</array>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(\"|\\)</string>
+					<string>\\.</string>
 					<key>name</key>
-					<string>invalid.illegal.swift</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(.)</string>
-					<key>name</key>
-					<string>string.quoted.double.swift</string>
+					<string>invalid.illegal.unrecognized-escape.swift</string>
 				</dict>
 			</array>
 		</dict>
