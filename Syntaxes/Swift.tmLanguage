@@ -1166,7 +1166,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>protocol-composition-type</string>
+					<string>#protocol-composition-type</string>
 				</dict>
 			</array>
 		</dict>
