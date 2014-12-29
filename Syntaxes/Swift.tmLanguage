@@ -78,7 +78,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.array.begin.swift</string>
+					<string>punctuation.definition.array.begin.swift</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -88,7 +88,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.array.end.swift</string>
+					<string>punctuation.definition.array.end.swift</string>
 				</dict>
 			</dict>
 			<key>name</key>
@@ -397,7 +397,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.dictionary.begin.swift</string>
+					<string>punctuation.definition.dictionary.begin.swift</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -407,7 +407,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.dictionary.end.swift</string>
+					<string>punctuation.definition.dictionary.end.swift</string>
 				</dict>
 			</dict>
 			<key>name</key>
@@ -748,7 +748,7 @@
 					<key>match</key>
 					<string>\b(break|case|continue|default|do|else|fallthrough|if|in|for|return|switch|where|while)\b</string>
 					<key>name</key>
-					<string>keyword.statement.swift</string>
+					<string>keyword.control.statement.swift</string>
 				</dict>
 				<dict>
 					<key>comment</key>
@@ -881,7 +881,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.optional.begin.swift</string>
+					<string>punctuation.definition.optional.begin.swift</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -891,7 +891,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.optional.end.swift</string>
+					<string>punctuation.definition.optional.end.swift</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -968,7 +968,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.protocol.begin.swift</string>
+					<string>punctuation.definition.protocol.begin.swift</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -978,7 +978,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.protocol.end.swift</string>
+					<string>punctuation.definition.protocol.end.swift</string>
 				</dict>
 			</dict>
 			<key>match</key>
