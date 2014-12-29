@@ -495,13 +495,13 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.type.funciton.swift</string>
+					<string>entity.type.function.swift</string>
 				</dict>
 			</dict>
 			<key>comment</key>
 			<string>function-declaration</string>
 			<key>end</key>
-			<string>(?&lt;=\})</string>
+			<string>$</string>
 			<key>name</key>
 			<string>meta.function-declaration.swift</string>
 			<key>patterns</key>
@@ -539,7 +539,7 @@
 			<key>comment</key>
 			<string>function-result</string>
 			<key>end</key>
-			<string>\s*(?=\{)</string>
+			<string>\s*$</string>
 			<key>name</key>
 			<string>meta.function-result.swift</string>
 			<key>patterns</key>
