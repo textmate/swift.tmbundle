@@ -215,7 +215,7 @@
 			<key>match</key>
 			<string>\b(true|false)\b</string>
 			<key>name</key>
-			<string>keyword.constant.boolean.swift</string>
+			<string>constant.language.boolean.swift</string>
 		</dict>
 		<key>branch-statement-keyword</key>
 		<dict>
