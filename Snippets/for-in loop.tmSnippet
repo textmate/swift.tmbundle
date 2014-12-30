@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>set {
-	$1
+	<string>for ${1:item} in ${2:collection} {
+	$3
 }</string>
 	<key>name</key>
-	<string>set</string>
+	<string>for-in</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>set</string>
+	<string>forin</string>
 	<key>uuid</key>
-	<string>BC0D5CAC-C47D-4AB5-BEFB-D616A4B492FB</string>
+	<string>26A26DEC-E9EF-4613-B522-D7EDE7921D68</string>
 </dict>
 </plist>

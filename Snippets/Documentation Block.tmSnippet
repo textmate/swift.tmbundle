@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>willSet {
-	$1
-}</string>
+	<string>/**
+  $1
+*/</string>
 	<key>name</key>
-	<string>willSet</string>
+	<string>Documentation Block</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>willSet</string>
+	<string>**</string>
 	<key>uuid</key>
-	<string>82FA9415-16CB-4BA9-A610-CDA8B36BF925</string>
+	<string>56ED42E0-D05B-4719-A932-F1614BE3C8EA</string>
 </dict>
 </plist>

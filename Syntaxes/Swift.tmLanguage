@@ -8,6 +8,10 @@
 	</array>
 	<key>firstLineMatch</key>
 	<string>^#!/.*\bswift</string>
+	<key>foldingStartMarker</key>
+	<string>\{\s*$</string>
+	<key>foldingStopMarker</key>
+	<string>^\s*\}</string>
 	<key>keyEquivalent</key>
 	<string>^~S</string>
 	<key>name</key>
@@ -50,13 +54,18 @@
 			<key>include</key>
 			<string>#type</string>
 		</dict>
-		<dict>
-			<key>include</key>
-			<string>#boolean</string>
-		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
+		<key>access-specifier</key>
+		<dict>
+			<key>comment</key>
+			<string>access-specifier</string>
+			<key>match</key>
+			<string>\b((internal|private|public)(\(\s*set\s*\))?)\b</string>
+			<key>name</key>
+			<string>keyword.other.access-specifier.swift</string>
+		</dict>
 		<key>arithmetic-operator</key>
 		<dict>
 			<key>match</key>
@@ -210,7 +219,7 @@
 			<key>name</key>
 			<string>comment.block.swift</string>
 		</dict>
-		<key>boolean</key>
+		<key>boolean-literal</key>
 		<dict>
 			<key>match</key>
 			<string>\b(true|false)\b</string>
@@ -304,7 +313,7 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#documentation-comment</string>
+					<string>text.restructuredtext.swiftdoc</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -379,7 +388,7 @@
 			<key>comment</key>
 			<string>declaration-specifier</string>
 			<key>match</key>
-			<string>\b(class|mutating|nonmutating|override|static)\b</string>
+			<string>\b(class|convenience|dynamic|final|lazy|(non)?mutating|optional|override|required|static)\b</string>
 			<key>name</key>
 			<string>keyword.other.declaration-specifier.swift</string>
 		</dict>
@@ -419,33 +428,6 @@
 					<string>$self</string>
 				</dict>
 			</array>
-		</dict>
-		<key>documentation-comment</key>
-		<dict>
-			<key>begin</key>
-			<string>/\*\*</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.comment.block.documentation.begin.swift</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>Documentation comment</string>
-			<key>end</key>
-			<string>\*/</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.comment.block.documentation.end.swift</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>comment.block.documentation.swift</string>
 		</dict>
 		<key>floating-point-literal</key>
 		<dict>
@@ -644,18 +626,20 @@
 		</dict>
 		<key>in-line-comment</key>
 		<dict>
-			<key>captures</key>
+			<key>begin</key>
+			<string>//</string>
+			<key>beginCaptures</key>
 			<dict>
-				<key>1</key>
+				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.comment.line.double-slash.swift</string>
+					<string>punctuation.definition.comment.line.swift</string>
 				</dict>
 			</dict>
 			<key>comment</key>
 			<string>In-line comment</string>
-			<key>match</key>
-			<string>(//).*</string>
+			<key>end</key>
+			<string>\n</string>
 			<key>name</key>
 			<string>comment.line.double-slash.swift</string>
 		</dict>
@@ -728,6 +712,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#access-specifier</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#capture-specifier</string>
 				</dict>
 				<dict>
@@ -754,7 +742,7 @@
 					<key>comment</key>
 					<string>expression and type keyword</string>
 					<key>match</key>
-					<string>\b(as|dynamicType|is|new|super|self|Self|Type)\b</string>
+					<string>\b(as|dynamicType|is|new|super|self|(new|old)Value|Self|Type)\b</string>
 					<key>name</key>
 					<string>keyword.other.statement.swift</string>
 				</dict>
@@ -775,6 +763,14 @@
 				<dict>
 					<key>include</key>
 					<string>#integer-literal</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#boolean-literal</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nil-literal</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -805,6 +801,20 @@
 			<string>\b(while|do|for|in)\b</string>
 			<key>name</key>
 			<string>keyword.control.loop.swift</string>
+		</dict>
+		<key>metatype-type</key>
+		<dict>
+			<key>match</key>
+			<string>\.(Type|Protocol)</string>
+			<key>name</key>
+			<string>support.type.metatype.swift</string>
+		</dict>
+		<key>nil-literal</key>
+		<dict>
+			<key>match</key>
+			<string>\b(nil)\b</string>
+			<key>name</key>
+			<string>constant.language.nil.swift</string>
 		</dict>
 		<key>operator</key>
 		<dict>
@@ -952,7 +962,7 @@
 			<key>comment</key>
 			<string>Primitive types</string>
 			<key>match</key>
-			<string>\b(U?Int(?:8|16|32|64)?|Float(?:80)?|Double|String|Bool|Character)\b</string>
+			<string>\b(U?Int(?:8|16|32|64)?|Float(?:80)?|Double|String|Bool|Character|Void|Any(Object)?)([?!]?\B|\b)</string>
 			<key>name</key>
 			<string>support.type.swift</string>
 		</dict>
@@ -1163,6 +1173,10 @@
 				<dict>
 					<key>include</key>
 					<string>#optional-type</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#metatype-type</string>
 				</dict>
 				<dict>
 					<key>include</key>

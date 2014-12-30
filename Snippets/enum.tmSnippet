@@ -7,7 +7,7 @@
 	$2
 }</string>
 	<key>name</key>
-	<string>enum</string>
+	<string>Enumeration</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>

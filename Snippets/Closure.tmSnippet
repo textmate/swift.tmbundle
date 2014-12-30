@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>if ${1:condition} {
-	$2
+	<string>{ (${1:parameters}) -&gt; ${2:return type} in
+	$3
 }</string>
 	<key>name</key>
-	<string>if</string>
+	<string>Closure</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>if</string>
+	<string>fn</string>
 	<key>uuid</key>
-	<string>DB6DE730-31AC-4E3D-859D-1F3F5790D718</string>
+	<string>C8C6134F-6286-4725-8532-1DD1753AD30D</string>
 </dict>
 </plist>

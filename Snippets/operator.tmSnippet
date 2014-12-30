@@ -3,15 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>operator ${1:type}  ${2:name} {
-	$3
-}</string>
+	<string>${1|infix,prefix,postfix|} operator ${2:name} {${1/(infix)|.*/${1:+\n\tassociativity }/}${3:${1/(infix)|.*/${1:+left}/}}${1/(infix)|.*/${1:+\n\tprecedence }/}${4:${1/(infix)|.*/${1:+level}/}}${1/(infix)|.*/${1:+\n}/}$0}</string>
 	<key>name</key>
-	<string>operator</string>
+	<string>Operator Declaration</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>operator</string>
+	<string>op</string>
 	<key>uuid</key>
 	<string>503F02BF-75D5-4BFF-A753-9E6EDCD66449</string>
 </dict>

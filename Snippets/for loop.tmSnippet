@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>get {
-	$1
+	<string>for ${1:initialization}; ${2:condition}: ${3:increment} {
+	$4
 }</string>
 	<key>name</key>
-	<string>get</string>
+	<string>for</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>get</string>
+	<string>for</string>
 	<key>uuid</key>
-	<string>36C484F7-689B-4EDE-B982-7B050618A38E</string>
+	<string>7AFE396D-BB07-4689-B530-B10426A65536</string>
 </dict>
 </plist>

@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>class var ${1:name}</string>
+	<string>// TODO: </string>
 	<key>name</key>
-	<string>class-var</string>
+	<string>ToDo</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>cv</string>
+	<string>todo</string>
 	<key>uuid</key>
-	<string>2335C8D4-4B1A-49B9-B5BB-8CBF4A391D13</string>
+	<string>429544B7-A897-4360-A827-CC88FCDBF4FA</string>
 </dict>
 </plist>

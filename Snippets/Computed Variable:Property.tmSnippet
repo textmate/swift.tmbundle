@@ -3,14 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>Array&lt;${1:Type}&gt;</string>
+	<string>var ${1:identifier}${2:: ${3:type}${4:?}} {
+	get {
+		$5
+	}
+	set${6:($7)} {
+		$8
+	}
+}</string>
 	<key>name</key>
-	<string>Array</string>
+	<string>Computed Variable/Property</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>Array</string>
+	<string>var</string>
 	<key>uuid</key>
-	<string>DEE982C1-301B-4B87-B342-70DDECADCF8C</string>
+	<string>57FC5342-F1B6-4C58-941F-0B84653D02FD</string>
 </dict>
 </plist>

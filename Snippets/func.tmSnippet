@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>func ${1:name}(${2:arguments}) -&gt; ${3:ReturnType} {
-	$4
+	<string>func ${1:name}(${2:parameters)${3: -&gt; ${4:return type}} {
+	$5
 }</string>
 	<key>name</key>
-	<string>func</string>
+	<string>Function Declaration</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>

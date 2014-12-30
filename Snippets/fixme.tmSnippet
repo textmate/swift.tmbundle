@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>static var ${1:name}</string>
+	<string>// FIXME: </string>
 	<key>name</key>
-	<string>static-var</string>
+	<string>FixMe</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>sv</string>
+	<string>fixme</string>
 	<key>uuid</key>
-	<string>621BE132-FBCA-41B8-A5FA-C15711EDA218</string>
+	<string>EE447818-7AF2-4411-9C07-A0BAD447C48F</string>
 </dict>
 </plist>

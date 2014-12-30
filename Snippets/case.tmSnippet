@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>else {
-	$2
-}</string>
+	<string>case ${1:let $2}${3: where $4}:
+	${5:statements}
+case</string>
 	<key>name</key>
-	<string>else</string>
+	<string>case</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>else</string>
+	<string>case</string>
 	<key>uuid</key>
-	<string>3C5FA0FB-98CA-43BF-8A1E-8D41D3774CD6</string>
+	<string>B5307A9A-8674-4F71-953F-DE03CCC35933</string>
 </dict>
 </plist>

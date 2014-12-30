@@ -7,7 +7,7 @@
 	<key>contactName</key>
 	<string>Michael Sheets</string>
 	<key>description</key>
-	<string>Programming language for Cocoa and Cocoa Touch</string>
+	<string>Innovative programming language for Cocoa and Cocoa Touch</string>
 	<key>mainMenu</key>
 	<dict>
 		<key>excludedItems</key>
@@ -19,34 +19,113 @@
 		<array>
 			<string>DDC4B4C0-5B7B-4CB2-AA3F-855F318A68FB</string>
 			<string>------------------------------------</string>
+      <string>F65BC6C1-15B6-40F0-B88D-F4C067703AB4</string>
+      <string>BBD9BC65-F61D-40EF-B825-F51340AF0F07</string>
+			<string>D1127667-74FF-40CB-89CB-97B219DDC067</string>
+			<string>86A26414-6EE6-4AAC-934C-92233B92F2A7</string>
 			<string>DEE982C1-301B-4B87-B342-70DDECADCF8C</string>
 			<string>2335C8D4-4B1A-49B9-B5BB-8CBF4A391D13</string>
-			<string>069BB595-B201-4059-9CD2-063E693F71AB</string>
-			<string>11460F7A-FD50-4FA2-A82C-814F3DE9E2AA</string>
 			<string>FDA912E2-135B-4BB0-A959-8F405A8AAFF0</string>
 			<string>C86F6E90-7401-4237-B389-37C802DB5503</string>
-			<string>3A6272EA-780F-45F9-992C-220BFD13F430</string>
-			<string>3C5FA0FB-98CA-43BF-8A1E-8D41D3774CD6</string>
-			<string>B7288320-DA99-4876-B545-2F8CF9A57696</string>
-			<string>0A67EEAC-A906-4593-8843-B4B69392C9B0</string>
-			<string>FC5F13CE-FB75-4486-891A-F430BA81C528</string>
 			<string>36C484F7-689B-4EDE-B982-7B050618A38E</string>
-			<string>6C7FBF83-8839-4877-BE5B-4227A1812BF6</string>
-			<string>DB6DE730-31AC-4E3D-859D-1F3F5790D718</string>
-			<string>AF12B861-45EA-4F57-8CCC-6D13CFE75DE0</string>
-			<string>503F02BF-75D5-4BFF-A753-9E6EDCD66449</string>
-			<string>1E0BBD65-5086-44AC-BDCF-F3AA95B9E35E</string>
 			<string>BC0D5CAC-C47D-4AB5-BEFB-D616A4B492FB</string>
 			<string>621BE132-FBCA-41B8-A5FA-C15711EDA218</string>
-			<string>7A034E84-6BF5-4894-9BFF-928F80C173D9</string>
-			<string>C87082D9-AF67-41D9-AE32-826D65FAD2A0</string>
-			<string>DD4EAC43-BA46-499B-9A3C-88F89B1F69F7</string>
-			<string>476888BD-B068-4F21-A2A6-B1503CD579F3</string>
 			<string>82FA9415-16CB-4BA9-A610-CDA8B36BF925</string>
+			<string>------------------------------------</string>
+      <string>2F648C5B-AB3D-49F3-8FAE-C597134302D7</string>
 		</array>
 		<key>submenus</key>
-		<dict/>
+		<dict>
+      <key>2F648C5B-AB3D-49F3-8FAE-C597134302D7</key>
+        <dict>
+          <key>name</key>
+          <string>Documentation Comments</string>
+          <key>items</key>
+          <array>
+          <string>56ED42E0-D05B-4719-A932-F1614BE3C8EA</string>
+          <string>------------------------------------</string>
+          <string>01D17ABF-A787-4D26-8086-3677AC01065D</string>
+          <string>F7737F22-9AFC-46C6-8211-AEF852537800</string>
+          <string>6133C6F7-B011-472C-B6D1-42AA4BC3864A</string>
+          <string>------------------------------------</string>
+          <string>477688BA-323E-4A50-B8B9-0079CAED0D22</string>
+          <string>EE447818-7AF2-4411-9C07-A0BAD447C48F</string>
+          <string>429544B7-A897-4360-A827-CC88FCDBF4FA</string>
+          <string>3A6272EA-780F-45F9-992C-220BFD13F430</string>
+          </array>
+        </dict>
+      <key>BBD9BC65-F61D-40EF-B825-F51340AF0F07</key>
+        <dict>
+          <key>name</key>
+          <string>Control Flow</string>
+          <key>items</key>
+          <array>
+            <string>6C7FBF83-8839-4877-BE5B-4227A1812BF6</string>
+            <string>------------------------------------</string>
+            <string>DD4EAC43-BA46-499B-9A3C-88F89B1F69F7</string>
+            <string>B5307A9A-8674-4F71-953F-DE03CCC35933</string>
+            <string>------------------------------------</string>
+            <string>7AFE396D-BB07-4689-B530-B10426A65536</string>
+            <string>26A26DEC-E9EF-4613-B522-D7EDE7921D68</string>
+            <string>29690D80-BF5C-4C03-9BFD-2A2F459DAEA9</string>
+            <string>2EFEB03F-9F39-4B2C-A4CC-9594076F8670</string>
+          </array>
+        </dict>
+      <key>F65BC6C1-15B6-40F0-B88D-F4C067703AB4</key>
+        <dict>
+          <key>name</key>
+          <string>Declarations</string>
+          <key>items</key>
+          <array>
+						<string>7C19722A-E16C-4104-AFFF-83BC296BA91E</string>
+						<string>29B3BBC5-6920-4357-A4A0-60709B64617A</string>
+						<string>57FC5342-F1B6-4C58-941F-0B84653D02FD</string>
+						<string>8B1B605F-466C-4627-BFC3-E425F0E88D8C</string>
+	          <string>------------------------------------</string>
+						<string>B7288320-DA99-4876-B545-2F8CF9A57696</string>
+						<string>9868B259-9418-4157-ADBD-6B1F05F05572</string>
+	          <string>------------------------------------</string>
+						<string>476888BD-B068-4F21-A2A6-B1503CD579F3</string>
+	          <string>------------------------------------</string>
+						<string>1E0BBD65-5086-44AC-BDCF-F3AA95B9E35E</string>
+						<string>0A67EEAC-A906-4593-8843-B4B69392C9B0</string>
+          </array>
+        </dict>
+			<key>D1127667-74FF-40CB-89CB-97B219DDC067</key>
+				<dict>
+					<key>name</key>
+					<string>Functions/Operators</string>
+					<key>items</key>
+					<array>
+						<string>FC5F13CE-FB75-4486-891A-F430BA81C528</string>
+						<string>C8C6134F-6286-4725-8532-1DD1753AD30D</string>
+						<string>503F02BF-75D5-4BFF-A753-9E6EDCD66449</string>
+					</array>
+				</dict>
+			<key>86A26414-6EE6-4AAC-934C-92233B92F2A7</key>
+				<dict>
+					<key>name</key>
+					<string>Classes/Structs</string>
+					<key>items</key>
+					<array>
+						<string>069BB595-B201-4059-9CD2-063E693F71AB</string>
+						<string>7A034E84-6BF5-4894-9BFF-928F80C173D9</string>
+						<string>AF12B861-45EA-4F57-8CCC-6D13CFE75DE0</string>
+						<string>11460F7A-FD50-4FA2-A82C-814F3DE9E2AA</string>
+						<string>C87082D9-AF67-41D9-AE32-826D65FAD2A0</string>
+					</array>
+				</dict>
+    </dict>
 	</dict>
+	<key>require</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>reStructuredText</string>
+			<key>uuid</key>
+			<string>EBBDFCB4-7F7C-4BC6-820A-067C4173522F</string>
+		</dict>
+	</array>
 	<key>name</key>
 	<string>Swift</string>
 	<key>uuid</key>

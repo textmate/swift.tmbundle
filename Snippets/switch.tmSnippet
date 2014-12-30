@@ -4,9 +4,11 @@
 <dict>
 	<key>content</key>
 	<string>switch ${1:control expression} {
-case ${2:pattern}:
-	$3
-}</string>
+	${2:case}
+	default:
+		
+}
+</string>
 	<key>name</key>
 	<string>switch</string>
 	<key>scope</key>
