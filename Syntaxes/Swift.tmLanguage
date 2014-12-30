@@ -87,7 +87,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.array.begin.swift</string>
+					<string>punctuation.definition.array.begin.swift</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -97,7 +97,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.array.end.swift</string>
+					<string>punctuation.definition.array.end.swift</string>
 				</dict>
 			</dict>
 			<key>name</key>
@@ -242,6 +242,15 @@
 				</dict>
 			</array>
 		</dict>
+		<key>capture-specifier</key>
+		<dict>
+			<key>comment</key>
+			<string>matches weak, unowned, unowned(safe), unowned(unsafe)</string>
+			<key>match</key>
+			<string>\b(weak|unowned(?:\((?:un)?safe\))?)</string>
+			<key>name</key>
+			<string>keyword.other.capture-specifier.swift</string>
+		</dict>
 		<key>code-block</key>
 		<dict>
 			<key>begin</key>
@@ -379,7 +388,7 @@
 			<key>comment</key>
 			<string>declaration-specifier</string>
 			<key>match</key>
-			<string>\b(class|convenience|dynamic|final|lazy|(non)?mutating|optional|override|required|static|unowned((un)?safe)?|weak)\b</string>
+			<string>\b(class|convenience|dynamic|final|lazy|(non)?mutating|optional|override|required|static)\b</string>
 			<key>name</key>
 			<string>keyword.other.declaration-specifier.swift</string>
 		</dict>
@@ -397,7 +406,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.dictionary.begin.swift</string>
+					<string>punctuation.definition.dictionary.begin.swift</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -407,7 +416,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.dictionary.end.swift</string>
+					<string>punctuation.definition.dictionary.end.swift</string>
 				</dict>
 			</dict>
 			<key>name</key>
@@ -440,20 +449,6 @@
 				</dict>
 			</array>
 		</dict>
-		<key>function-body</key>
-		<dict>
-			<key>comment</key>
-			<string>function-body</string>
-			<key>name</key>
-			<string>meta.function-body.swift</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#code-block</string>
-				</dict>
-			</array>
-		</dict>
 		<key>function-declaration</key>
 		<dict>
 			<key>begin</key>
@@ -468,13 +463,13 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.type.function.swift</string>
+					<string>entity.name.function.swift</string>
 				</dict>
 			</dict>
 			<key>comment</key>
 			<string>function-declaration</string>
 			<key>end</key>
-			<string>(?&lt;=\})</string>
+			<string>(?&lt;=\})|$</string>
 			<key>name</key>
 			<string>meta.function-declaration.swift</string>
 			<key>patterns</key>
@@ -492,8 +487,35 @@
 					<string>#function-result</string>
 				</dict>
 				<dict>
-					<key>include</key>
-					<string>#function-body</string>
+					<key>begin</key>
+					<string>\{</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.function.begin.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\}</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.function.end.swift</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>meta.function-declaration.body.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>$self</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>
@@ -694,6 +716,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#capture-specifier</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#operator-declaration-keyword</string>
 				</dict>
 				<dict>
@@ -702,7 +728,7 @@
 					<key>match</key>
 					<string>\b(class|deinit|enum|extension|func|import|init|let|protocol|static|struct|subscript|typealias|var)\b</string>
 					<key>name</key>
-					<string>keyword.declaration.swift</string>
+					<string>storage.type.declaration.swift</string>
 				</dict>
 				<dict>
 					<key>comment</key>
@@ -710,7 +736,7 @@
 					<key>match</key>
 					<string>\b(break|case|continue|default|do|else|fallthrough|if|in|for|return|switch|where|while)\b</string>
 					<key>name</key>
-					<string>keyword.statement.swift</string>
+					<string>keyword.control.statement.swift</string>
 				</dict>
 				<dict>
 					<key>comment</key>
@@ -865,7 +891,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.optional.begin.swift</string>
+					<string>punctuation.definition.optional.begin.swift</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -875,7 +901,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.optional.end.swift</string>
+					<string>punctuation.definition.optional.end.swift</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -936,7 +962,7 @@
 			<key>comment</key>
 			<string>Primitive types</string>
 			<key>match</key>
-			<string>\b(U?Int|Float|Double|String|Bool|Character|Void|Any(Object)?)([?!]?\B|\b)</string>
+			<string>\b(U?Int(?:8|16|32|64)?|Float(?:80)?|Double|String|Bool|Character|Void|Any(Object)?)([?!]?\B|\b)</string>
 			<key>name</key>
 			<string>support.type.swift</string>
 		</dict>
@@ -952,7 +978,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.protocol.begin.swift</string>
+					<string>punctuation.definition.protocol.begin.swift</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -962,7 +988,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.protocol.end.swift</string>
+					<string>punctuation.definition.protocol.end.swift</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -1025,7 +1051,7 @@
 		<key>string-literal</key>
 		<dict>
 			<key>begin</key>
-			<string>\"</string>
+			<string>"</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1035,7 +1061,7 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>\"</string>
+			<string>"</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -1045,57 +1071,72 @@
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>meta.literal.string.swift</string>
+			<string>string.quoted.double.swift</string>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\\([0tnr\"\'\\]|u\h{8})</string>
+					<string>\\[0\\tnr"']</string>
+					<key>name</key>
+					<string>constant.character.escape.swift</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\\u\{\h{1,8}\}</string>
 					<key>name</key>
 					<string>constant.character.escape.swift</string>
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(\\\()</string>
+					<string>\\\(</string>
 					<key>beginCaptures</key>
 					<dict>
-						<key>1</key>
+						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>support.punctuation.expression.begin.swift</string>
+							<string>punctuation.section.embedded.begin.swift</string>
 						</dict>
 					</dict>
 					<key>contentName</key>
-					<string>meta.expression.swift</string>
+					<string>source.swift</string>
 					<key>end</key>
-					<string>(\))</string>
+					<string>\)</string>
 					<key>endCaptures</key>
 					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.embedded.end.swift</string>
+						</dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>support.punctuation.expression.end.swift</string>
+							<string>source.swift</string>
 						</dict>
 					</dict>
+					<key>name</key>
+					<string>meta.embedded.line.swift</string>
 					<key>patterns</key>
 					<array>
 						<dict>
 							<key>include</key>
-							<string>source.swift</string>
+							<string>$self</string>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>\(</string>
+							<key>comment</key>
+							<string>Nested parens</string>
+							<key>end</key>
+							<string>\)</string>
 						</dict>
 					</array>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(\"|\\)</string>
+					<string>\\.</string>
 					<key>name</key>
-					<string>invalid.illegal.swift</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(.)</string>
-					<key>name</key>
-					<string>string.quoted.double.swift</string>
+					<string>invalid.illegal.unrecognized-escape.swift</string>
 				</dict>
 			</array>
 		</dict>
