@@ -183,33 +183,6 @@
 			<key>name</key>
 			<string>keyword.operator.bitwise.swift</string>
 		</dict>
-		<key>block-comment</key>
-		<dict>
-			<key>begin</key>
-			<string>/\*</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.comment.block.begin.swift</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>Block comment</string>
-			<key>end</key>
-			<string>\*/</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.comment.block.end.swift</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>comment.block.swift</string>
-		</dict>
 		<key>boolean</key>
 		<dict>
 			<key>match</key>
@@ -304,17 +277,190 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#documentation-comment</string>
+					<string>#block-doc</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#block-comment</string>
+					<string>#block</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#in-line-comment</string>
+					<string>#inline-doc</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inline</string>
 				</dict>
 			</array>
+			<key>repository</key>
+			<dict>
+				<key>block</key>
+				<dict>
+					<key>begin</key>
+					<string>/\*</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.block.begin.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\*/</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.block.end.swift</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>comment.block.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#nested</string>
+						</dict>
+					</array>
+					<key>repository</key>
+					<dict>
+						<key>nested</key>
+						<dict>
+							<key>begin</key>
+							<string>/\*</string>
+							<key>end</key>
+							<string>\*/</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#block-nested</string>
+								</dict>
+							</array>
+						</dict>
+					</dict>
+				</dict>
+				<key>block-doc</key>
+				<dict>
+					<key>begin</key>
+					<string>/\*\*</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.block.documentation.begin.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\*/</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.block.documentation.end.swift</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>comment.block.documentation.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#nested</string>
+						</dict>
+					</array>
+					<key>repository</key>
+					<dict>
+						<key>nested</key>
+						<dict>
+							<key>begin</key>
+							<string>/\*</string>
+							<key>end</key>
+							<string>\*/</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#block-nested</string>
+								</dict>
+							</array>
+						</dict>
+					</dict>
+				</dict>
+				<key>inline</key>
+				<dict>
+					<key>begin</key>
+					<string>(^[ \t]+)?(?=//)</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.whitespace.comment.leading.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?!\G)</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>//</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.comment.swift</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>\n</string>
+							<key>name</key>
+							<string>comment.line.double-slash.swift</string>
+						</dict>
+					</array>
+				</dict>
+				<key>inline-doc</key>
+				<dict>
+					<key>begin</key>
+					<string>(^[ \t]+)?(?=///)</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.whitespace.comment.leading.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?!\G)</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>///</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.comment.swift</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>\n</string>
+							<key>name</key>
+							<string>comment.line.triple-slash.swift</string>
+						</dict>
+					</array>
+				</dict>
+			</dict>
 		</dict>
 		<key>comparative-operator</key>
 		<dict>
@@ -419,33 +565,6 @@
 					<string>$self</string>
 				</dict>
 			</array>
-		</dict>
-		<key>documentation-comment</key>
-		<dict>
-			<key>begin</key>
-			<string>/\*\*</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.comment.block.documentation.begin.swift</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>Documentation comment</string>
-			<key>end</key>
-			<string>\*/</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.comment.block.documentation.end.swift</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>comment.block.documentation.swift</string>
 		</dict>
 		<key>floating-point-literal</key>
 		<dict>
@@ -641,23 +760,6 @@
 			<string>\b(import)\s+(?:(typealias|struct|class|enum|protocol|var|func)\s+)?((?:\B\$[0-9]+|\b[\w^\d][\w\d]*\b|\B`[\w^\d][\w\d]*`\B|[/=\-+!*%&lt;&gt;&amp;|\^~.]+)(?:\.(?:\B\$[0-9]+|\b[\w^\d][\w\d]*\b|\B`[\w^\d][\w\d]*`\B|[/=\-+!*%&lt;&gt;&amp;|\^~.]+))*)</string>
 			<key>name</key>
 			<string>meta.import.swift</string>
-		</dict>
-		<key>in-line-comment</key>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.comment.line.double-slash.swift</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>In-line comment</string>
-			<key>match</key>
-			<string>(//).*</string>
-			<key>name</key>
-			<string>comment.line.double-slash.swift</string>
 		</dict>
 		<key>increment-decrement-operator</key>
 		<dict>
