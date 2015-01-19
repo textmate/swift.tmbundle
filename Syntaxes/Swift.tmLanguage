@@ -373,6 +373,10 @@
 							<key>include</key>
 							<string>#nested</string>
 						</dict>
+						<dict>
+							<key>include</key>
+							<string>text.restructuredtext#all</string>
+						</dict>
 					</array>
 					<key>repository</key>
 					<dict>
@@ -387,6 +391,10 @@
 								<dict>
 									<key>include</key>
 									<string>#block-nested</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>text.restructuredtext#all</string>
 								</dict>
 							</array>
 						</dict>
