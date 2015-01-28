@@ -375,7 +375,7 @@
 						</dict>
 						<dict>
 							<key>include</key>
-							<string>text.restructuredtext#all</string>
+							<string>text.restructuredtext#tags</string>
 						</dict>
 					</array>
 					<key>repository</key>
@@ -394,7 +394,7 @@
 								</dict>
 								<dict>
 									<key>include</key>
-									<string>text.restructuredtext#all</string>
+									<string>text.restructuredtext#tags</string>
 								</dict>
 							</array>
 						</dict>
