@@ -12,7 +12,7 @@ require ENV["TM_SUPPORT_PATH"] + "/lib/tm/save_current_document"
 
 TextMate.save_if_untitled("swift")
 
-command = ["xcrun", "--sdk", "macosx", "swift", "#{ENV["TM_FILEPATH"]}"]
+command = ["swift", "#{ENV["TM_FILEPATH"]}"]
 TextMate::Executor.run(command)
 </string>
 	<key>input</key>
