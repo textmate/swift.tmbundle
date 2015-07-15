@@ -672,7 +672,7 @@
 			<key>comment</key>
 			<string>declaration-specifier</string>
 			<key>match</key>
-			<string>\b(class|mutating|nonmutating|override|static)\b</string>
+			<string>\b(public|internal|private|convenience|lazy|class|mutating|nonmutating|override|static)\b</string>
 			<key>name</key>
 			<string>keyword.other.declaration-specifier.swift</string>
 		</dict>
