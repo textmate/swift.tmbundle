@@ -679,7 +679,7 @@
 			<key>comment</key>
 			<string>function-result</string>
 			<key>end</key>
-			<string>\s*(?=\{)</string>
+			<string>(?=\{)|$</string>
 			<key>name</key>
 			<string>meta.function-result.swift</string>
 			<key>patterns</key>
