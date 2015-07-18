@@ -402,12 +402,6 @@
 					<key>include</key>
 					<string>#dictionary-type</string>
 				</dict>
-				<dict>
-					<key>match</key>
-					<string>\b(Array|Dictionary)\b</string>
-					<key>name</key>
-					<string>support.type.swift</string>
-				</dict>
 			</array>
 		</dict>
 		<key>comment</key>
