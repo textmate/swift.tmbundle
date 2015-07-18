@@ -52,7 +52,23 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#boolean</string>
+			<string>#builtin-global-function</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#builtin-function</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#builtin-property</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#builtin-static-property</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#builtin-constant</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -183,7 +199,7 @@
 			<key>name</key>
 			<string>keyword.operator.bitwise.swift</string>
 		</dict>
-		<key>boolean</key>
+		<key>boolean-literal</key>
 		<dict>
 			<key>match</key>
 			<string>\b(true|false)\b</string>
@@ -206,6 +222,124 @@
 				</dict>
 			</array>
 		</dict>
+		<key>builtin-class-type</key>
+		<dict>
+			<key>comment</key>
+			<string>Builtin class types</string>
+			<key>match</key>
+			<string>\b(Managed(Buffer|ProtoBuffer)|NonObjectiveCBase|AnyGenerator)\b</string>
+			<key>name</key>
+			<string>support.class.swift</string>
+		</dict>
+		<key>builtin-constant</key>
+		<dict>
+			<key>comment</key>
+			<string>Process is really an enum, but it acts like a constant</string>
+			<key>match</key>
+			<string>\bProcess\b</string>
+			<key>name</key>
+			<string>support.constant.swift</string>
+		</dict>
+		<key>builtin-enum-type</key>
+		<dict>
+			<key>comment</key>
+			<string>Builtin enum types</string>
+			<key>match</key>
+			<string>\b(MirrorDisposition|Bit|ImplicitlyUnwrappedOptional|Optional|UnicodeDecodingResult|QuickLookObject|FloatingPointClassification)\b</string>
+			<key>name</key>
+			<string>support.type.swift</string>
+		</dict>
+		<key>builtin-function</key>
+		<dict>
+			<key>comment</key>
+			<string>Functions provided in the standard library; found by searching ^[ \t]+func\s+(\w+?)[&lt;(]</string>
+			<key>match</key>
+			<string>(?&lt;=\.)(s(tartsWith|ort|u(ccessor|perclassMirror|btract)|amePositionIn)|has(Suffix|Prefix)|next(Object)?|c(haracterAtIndex|o(ntains|untByEnumeratingWithState|pyWithZone)|ustom(Mirror|PlaygroundQuickLook)|lamp)|t(o(IntMax|Opaque|UIntMax)|ake(RetainedValue|UnretainedValue))|i(s(S(trictSu(persetOf|bsetOf)|u(persetOf|bsetOf))|DisjointWith|EmptyInput|ASCII)|n(tersect|itialize(From)?|dex(Of|ForKey)))|object(Enumerator|ForKey|AtIndex)|d(istanceTo|e(s(cendant|troy)|alloc))|un(ion|derestimateCount)|join|p(ut|redecessor)|e(scape|numerate|lementsEqual|xclusiveOr)|keyEnumerator|f(ilter|latMap)|w(ith(CString|U(nsafe(MutablePointer(s|To(Elements|Value))|BufferPointer)|TF8Buffer))|riteTo)|le(ngth|xicographicalCompare)|a(ssign(BackwardFrom|From)|dvancedBy|utorelease)|re(tain|duce|verse|questNativeBuffer|lease)|ge(nerate|t(Mirror|Objects))|m(inElement|ove(Initialize(BackwardFrom|From)|AssignFrom)?|ember|a(p|xElement)))\b</string>
+			<key>name</key>
+			<string>support.function.swift</string>
+		</dict>
+		<key>builtin-global-function</key>
+		<dict>
+			<key>comment</key>
+			<string>Global functions provided in the standard library; found by searching ^func\s+(\w+?)[&lt;(]</string>
+			<key>match</key>
+			<string>\b(s(tride(of(Value)?)?|izeof(Value)?|ort|uffix|pli(ce|t)|wap)|numericCast|transcode|i(sUniquelyReferenced(NonObjC)?|nsert)|zip|overlaps|d(istance|ump|ebugPrint|rop(First|Last))|unsafe(BitCast|Downcast|Unwrap|AddressOf)|join|pr(int|e(condition|fix))|extend|with(Unsafe(MutablePointer(s)?|Pointer(s)?)|ExtendedLifetime|VaList)|lazy|a(ssert(ionFailure)?|nyGenerator|dvance|lignof(Value)?|bs)|re(flect|adLine|move(Range|Last|A(tIndex|ll)))|getVaList|m(in|ax))\b</string>
+			<key>name</key>
+			<string>support.function.swift</string>
+		</dict>
+		<key>builtin-property</key>
+		<dict>
+			<key>comment</key>
+			<string>Properties provided in the standard library; found by searching ^\s+var\s+(\w+?)\W</string>
+			<key>match</key>
+			<string>(?&lt;=\.)(s(t(art(Index)?|ringValue)|ummary)|has(hValue|PointerRepresentation)|nulTerminatedUTF8|c(haracters|ount|apacity)|i(s(S(ign(Minus|aling)|ubnormal)|N(ormal|aN)|Infinite|Zero|Empty|Finite|ASCII)|ndices|dentity)|o(wner|bjectIdentifier)|d(isposition|e(scription|bugDescription))|u(nicodeScalar(s)?|tf(16|8(Start)?)|intValue|ppercaseString)|end(Index)?|value(s|Type)?|keys|quickLookObject|f(irst|loatingPointClass)|l(ittleEndian|owercaseString|ast)|a(llocatedElementCount|rray)|rawValue|memory|b(yteS(ize|wapped)|igEndian|oolValue|uffer|aseAddress))\b</string>
+			<key>name</key>
+			<string>support.variable.swift</string>
+		</dict>
+		<key>builtin-protocol-type</key>
+		<dict>
+			<key>comment</key>
+			<string>Builtin protocol types</string>
+			<key>match</key>
+			<string>\b(Ra(n(domAccessIndexType|geReplaceableCollectionType)|wRepresentable)|GeneratorType|M(irror(Type|PathType)|utable(Sliceable|CollectionType))|B(i(twiseOperationsType|directionalIndexType)|oolean(Type|LiteralConvertible))|S(tr(i(ng(InterpolationConvertible|LiteralConvertible)|deable)|eamable)|i(nkType|gned(NumberType|IntegerType))|e(tAlgebraType|quenceType)|liceable)|Hashable|NilLiteralConvertible|C(o(llectionType|mparable)|ustom(Reflectable|StringConvertible|DebugStringConvertible|PlaygroundQuickLookable|LeafReflectable)|VarArgType)|Inte(rvalType|ger(Type|LiteralConvertible|ArithmeticType))|O(utputStreamType|ptionSetType)|DictionaryLiteralConvertible|Un(signedIntegerType|icode(ScalarLiteralConvertible|CodecType))|E(quatable|rrorType|xten(sibleCollectionType|dedGraphemeClusterLiteralConvertible))|F(orwardIndexType|loat(ingPointType|LiteralConvertible))|A(ny(CollectionType|Object)|rrayLiteralConvertible|bsoluteValuable))\b</string>
+			<key>name</key>
+			<string>support.type.swift</string>
+		</dict>
+		<key>builtin-static-property</key>
+		<dict>
+			<key>comment</key>
+			<string>Static properties provided in the standard library; found by searching ^\s*(class|static)\s+var\s+(\w+?)\W</string>
+			<key>match</key>
+			<string>(?&lt;=\.)(infinity|NaN|quietNaN|allZeros|m(in|ax))\b|(?&lt;=\bProcess\.)(arguments|argc|unsafeArgv)\b</string>
+			<key>name</key>
+			<string>support.variable.swift</string>
+		</dict>
+		<key>builtin-struct-type</key>
+		<dict>
+			<key>comment</key>
+			<string>Builtin struct types</string>
+			<key>match</key>
+			<string>\b(R(e(peat|verse(RandomAccess(Collection|Index)|Collection|Index))|a(nge(Generator)?|wByte))|Generator(Sequence|OfOne)|M(irror|a(nagedBufferPointer|p(Generator|Sequence|Collection)))|Bool|S(t(aticString|ri(ng|deT(hrough(Generator)?|o(Generator)?)))|inkOf|et(Generator|Index)?)|HalfOpenInterval|C(haracter|o(ntiguousArray|llectionOfOne)|OpaquePointer|losedInterval|VaListPointer)|In(t(16|8|32|64)?|dexingGenerator)|Zip2(Generator|Sequence)|ObjectIdentifier|D(ictionary(Generator|Index|Literal)?|ouble)|U(n(safe(Mutable(BufferPointer|Pointer)|BufferPointer(Generator)?|Pointer)|icodeScalar|managed)|TF(16|8|32)|Int(16|8|32|64)?)|PermutationGenerator|E(numerate(Generator|Sequence)|mpty(Generator|Collection))|F(ilter(Generator|Sequence|Collection(Index)?)|loat(80)?)|Lazy(RandomAccessCollection|BidirectionalCollection|Sequence|ForwardCollection)|A(ny(RandomAccess(Collection|Index)|Bidirectional(Collection|Index)|Sequence|Forward(Collection|Index))|utoreleasingUnsafeMutablePointer|rray(Slice)?))\b</string>
+			<key>name</key>
+			<string>support.type.swift</string>
+		</dict>
+		<key>builtin-type</key>
+		<dict>
+			<key>comment</key>
+			<string>Types provided in the standard library; found by searching ^(@objc\s+)?(struct|protocol|class|enum)\s+(\w+)[\s&lt;].+$</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#builtin-class-type</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#builtin-enum-type</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#builtin-protocol-type</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#builtin-struct-type</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#builtin-typealias</string>
+				</dict>
+			</array>
+		</dict>
+		<key>builtin-typealias</key>
+		<dict>
+			<key>comment</key>
+			<string>Builtin typealiases</string>
+			<key>match</key>
+			<string>\b(BooleanLiteralType|StringLiteralType|C(Bool|S(hort|ignedChar)|Char(16|32)?|Int|Double|Unsigned(Short|Char|Int|Long(Long)?)|Float|WideChar|Long(Long)?)|Int(Max|egerLiteralType)|U(nicodeScalarType|IntMax|Word)|PlaygroundQuickLook|ExtendedGraphemeClusterType|Void|Float(32|LiteralType|64)|Word|Any(Class)?)\b</string>
+			<key>name</key>
+			<string>support.type.swift</string>
+		</dict>
 		<key>capture-specifier</key>
 		<dict>
 			<key>comment</key>
@@ -214,6 +348,13 @@
 			<string>\b(weak|unowned(?:\((?:un)?safe\))?)</string>
 			<key>name</key>
 			<string>keyword.other.capture-specifier.swift</string>
+		</dict>
+		<key>coalescing-operator</key>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;![?/=\-+!*%&lt;&gt;&amp;|\^~.])\?\?(?![?/=\-+!*%&lt;&gt;&amp;|\^~.])</string>
+			<key>name</key>
+			<string>keyword.operator.coalescing.swift</string>
 		</dict>
 		<key>code-block</key>
 		<dict>
@@ -898,6 +1039,14 @@
 					<key>include</key>
 					<string>#special-literal</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#boolean-literal</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nil-literal</string>
+				</dict>
 			</array>
 		</dict>
 		<key>logical-operator</key>
@@ -915,6 +1064,13 @@
 			<string>\b(while|do|for|in)\b</string>
 			<key>name</key>
 			<string>keyword.control.loop.swift</string>
+		</dict>
+		<key>nil-literal</key>
+		<dict>
+			<key>match</key>
+			<string>\bnil\b</string>
+			<key>name</key>
+			<string>constant.language.nil.swift</string>
 		</dict>
 		<key>operator</key>
 		<dict>
@@ -963,6 +1119,10 @@
 				<dict>
 					<key>include</key>
 					<string>#type-casting-operator</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#coalescing-operator</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -1052,19 +1212,24 @@
 			<key>patterns</key>
 			<array>
 				<dict>
+					<key>captures</key>
+					<dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>variable.parameter.function.swift</string>
+						</dict>
+					</dict>
+					<key>comment</key>
+					<string>named parameters</string>
+					<key>match</key>
+					<string>\b([\w^\d][\w\d]*)\b\s+\b([\w^\d][\w\d]*)\b</string>
+				</dict>
+				<dict>
 					<key>include</key>
 					<string>$self</string>
 				</dict>
 			</array>
-		</dict>
-		<key>primitive-type</key>
-		<dict>
-			<key>comment</key>
-			<string>Primitive types</string>
-			<key>match</key>
-			<string>\b(U?Int(?:8|16|32|64)?|Float(?:80)?|Double|String|Bool|Character)\b</string>
-			<key>name</key>
-			<string>support.type.swift</string>
 		</dict>
 		<key>protocol-composition-type</key>
 		<dict>
@@ -1106,7 +1271,7 @@
 		<key>range-operator</key>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;![/=\-+!*%&lt;&gt;&amp;|\^~.])\.\.(?:\.)?(?![/=\-+!*%&lt;&gt;&amp;|\^~.])</string>
+			<string>(?&lt;![/=\-+!*%&lt;&gt;&amp;|\^~.])\.\.[.&lt;]?(?![/=\-+!*%&lt;&gt;&amp;|\^~.])</string>
 			<key>name</key>
 			<string>keyword.operator.range.swift</string>
 		</dict>
@@ -1264,7 +1429,7 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#primitive-type</string>
+					<string>#builtin-type</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -1283,7 +1448,7 @@
 		<key>type-casting-operator</key>
 		<dict>
 			<key>match</key>
-			<string>\b(is\b|as(\?\B|\b))</string>
+			<string>\b(is\b|as([!?]\B|\b))</string>
 			<key>name</key>
 			<string>keyword.operator.type-casting.swift</string>
 		</dict>
