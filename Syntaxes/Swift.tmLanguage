@@ -70,6 +70,10 @@
 			<key>include</key>
 			<string>#builtin-constant</string>
 		</dict>
+		<dict>
+			<key>include</key>
+			<string>#section-punctuation</string>
+		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
@@ -768,7 +772,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>\{</string>
+					<string>(\{)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -778,7 +782,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>\}</string>
+					<string>(\})</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -1275,6 +1279,69 @@
 			<string>(?&lt;![/=\-+!*%&lt;&gt;&amp;|\^~.])\%(?![/=\-+!*%&lt;&gt;&amp;|\^~.])</string>
 			<key>name</key>
 			<string>keyword.operator.remainder.swift</string>
+		</dict>
+		<key>section-punctuation</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.scope.begin.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.scope.end.swift</string>
+						</dict>
+					</dict>
+					<key>comment</key>
+					<string>Allows the special return snippet to fire.</string>
+					<key>match</key>
+					<string>(\{)(\})</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.scope.begin.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.scope.end.swift</string>
+						</dict>
+					</dict>
+					<key>comment</key>
+					<string>Allows the special return snippet to fire.</string>
+					<key>match</key>
+					<string>(\()(\))</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.scope.begin.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.scope.end.swift</string>
+						</dict>
+					</dict>
+					<key>comment</key>
+					<string>Allows the special return snippet to fire.</string>
+					<key>match</key>
+					<string>(\[)(\])</string>
+				</dict>
+			</array>
 		</dict>
 		<key>shebang-line</key>
 		<dict>
