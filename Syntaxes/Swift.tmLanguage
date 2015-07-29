@@ -263,7 +263,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(Array|Dictionary|Set)\b</string>
+					<string>\b(Array|Dictionary)\b</string>
 					<key>name</key>
 					<string>support.type.swift</string>
 				</dict>
