@@ -1212,6 +1212,11 @@
 				<dict>
 					<key>captures</key>
 					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.function.swift</string>
+						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
