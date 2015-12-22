@@ -68,6 +68,9 @@ def query(term)
     }
   end
 
+  swift_docs = res.select { |ref| ref.language == 'Swift' }.map { |ref| ref.path }
+  res.reject! { |ref| ref.language != 'Swift' &amp;&amp; swift_docs.include?(ref.path) }
+
   res.sort do |lhs, rhs|
     if lhs.title == '-' &amp;&amp; rhs.title != '-'
       -1
