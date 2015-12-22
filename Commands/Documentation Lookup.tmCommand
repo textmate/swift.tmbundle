@@ -55,6 +55,7 @@ end
 def query(term)
   prefix = %x{if which -s xcode-select; then xcode-select -print-path; else echo /Developer; fi}
   docsets = Dir.glob("{{#{ENV['HOME']},}/Library/Developer/Shared/Documentation/DocSets,#{prefix}/Documentation/DocSets}/*.docset")
+  filter = Regexp.new(ENV['TM_SWIFT_DOCUMENTATION_FILTER'] || '^(?!.*?iOS\.docset)')
 
   res = []
 
@@ -62,7 +63,7 @@ def query(term)
     record = %x{xcrun docsetutil search -skip-text -query #{term.shellescape} #{docset.shellescape}}
     record.scan(%r{^\s*([^/]+)/([^/]+)/(-|[^/]+)/(\S+)\s+(.*?)(?:#(.*))?$}) { |lang, type, title, match, path, fragment|
       path = File.expand_path(path, File.join(docset, 'Contents/Resources/Documents'))
-      next unless File.exists?(path)
+      next unless path =~ filter &amp;&amp; File.exists?(path)
       res &lt;&lt; Ref.new(lang, type, title, match, path, fragment)
     }
   end
