@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby18 -wKU
+require "#{ENV['TM_SUPPORT_PATH']}/lib/exit_codes"
+require "#{ENV['TM_SUPPORT_PATH']}/lib/osx/plist"
+require "#{ENV['TM_SUPPORT_PATH']}/lib/ui"
+require "shellwords"
+
+TYPE_ABBREVIATIONS = {
+  'cl' =&gt; 'class', 'clm' =&gt; 'class method', 'clp' =&gt; 'class property',
+  'instm' =&gt; 'method', 'instp' =&gt; 'property',
+  'struct' =&gt; 'struct', 'structdata' =&gt; 'struct data',
+  'intf' =&gt; 'protocol',
+  'func' =&gt; 'function',
+  'econst' =&gt; 'enum constant', 'enumelt' =&gt; 'enum element', 'enumdata' =&gt; 'enum data',
+  'tdef' =&gt; 'typedef',
+  'macro' =&gt; 'macro',
+}
+
+Ref = Struct.new(:language, :type, :title, :match, :path, :fragment)
+
+class Ref
+  def pretty
+    type = self.type
+    type = TYPE_ABBREVIATIONS[type] if TYPE_ABBREVIATIONS.has_key?(type)
+
+    title = "#{self.title == '-' ? self.match : self.title} (#{type})"
+    if self.path =~ %r{/com\.apple\.adc\.documentation\.(.+?)\.docset/Contents/Resources/Documents/documentation/(.+?)/}
+      "#{title} — #$2/#{self.language} (#$1)"
+    else
+      "#{title} — #{self.language}"
+    end
+  end
+end
+
+def find_lookup_term
+  query = ENV['TM_SELECTED_TEXT'] || ENV['TM_CURRENT_WORD']
+  query = $&amp; if query.to_s =~ /\w*/
+
+  if query.to_s.empty?
+    query = %x{ /usr/bin/pbpaste -pboard find }
+    query = $&amp; if query =~ /\w+/
+    query = TextMate::UI.request_string :title =&gt; 'Documentation Search', :default =&gt; query, :prompt =&gt; 'Search documentation for word'
+    TextMate.exit_discard if query.nil?
+  end
+
+  query
+end
+
+def query(term)
+  prefix = %x{if which -s xcode-select; then xcode-select -print-path; else echo /Developer; fi}
+  docsets = Dir.glob("{{#{ENV['HOME']},}/Library/Developer/Shared/Documentation/DocSets,#{prefix}/Documentation/DocSets}/*.docset")
+
+  res = []
+
+  docsets.each do |docset|
+    record = %x{xcrun docsetutil search -skip-text -query #{term.shellescape} #{docset.shellescape}}
+    record.scan(%r{^\s*([^/]+)/([^/]+)/(-|[^/]+)/(\S+)\s+(.*?)(?:#(.*))?$}) { |lang, type, title, match, path, fragment|
+      path = File.expand_path(path, File.join(docset, 'Contents/Resources/Documents'))
+      next unless File.exists?(path)
+      res &lt;&lt; Ref.new(lang, type, title, match, path, fragment)
+    }
+  end
+
+  res.sort do |lhs, rhs|
+    if lhs.title == '-' &amp;&amp; rhs.title != '-'
+      -1
+    elsif lhs.title != '-' &amp;&amp; rhs.title == '-'
+      1
+    else
+      lhs.pretty &lt;=&gt; rhs.pretty
+    end
+  end
+end
+
+def select_reference(refs)
+  items = refs.map do |ref|
+     { 'title' =&gt; ref.pretty,
+       'url'   =&gt; "file:///#{ref.path}\##{ref.fragment}"
+     }
+  end
+
+  case items.count
+  when 0 then return nil
+  when 1 then return items.first['url']
+  else
+    res = %x{"$DIALOG" menu --items #{items.to_plist.shellescape} }
+    return nil if res.to_s.empty?
+    res = OSX::PropertyList::load(res)
+    res ? res['url'] : nil
+  end
+end
+
+if term = find_lookup_term
+  refs = query(term)
+  TextMate.exit_show_tool_tip "Cannot find documentation for: #{term}" if refs.empty?
+  if url = select_reference(refs)
+    TextMate.exit_show_html "&lt;meta http-equiv='Refresh' content='0;URL=#{url}'&gt;"
+  end
+end
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>^h</string>
+	<key>name</key>
+	<string>Documentation for Word / Selection</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>toolTip</string>
+	<key>scope</key>
+	<string>source.swift</string>
+	<key>semanticClass</key>
+	<string>lookup.define.swift</string>
+	<key>uuid</key>
+	<string>36D8B9E6-4FFE-41FD-AE6D-0A428CD59288</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
