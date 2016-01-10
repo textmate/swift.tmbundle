@@ -13,7 +13,7 @@
 	    ^ (.* \*/)? \s*
 	    (   \}
 	    |   \]
-	    |   (case\b .+ |default):
+	    |   (case\b .+ |default): \s* (/[/*] .*)? $
 	    )
 	</string>
 		<key>increaseIndentPattern</key>
