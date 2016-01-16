@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Typing Pairs: String Interpolation</string>
+	<key>scope</key>
+	<string>L:string.quoted.double.swift punctuation.definition.escape.swift</string>
+	<key>settings</key>
+	<dict>
+		<key>comment</key>
+		<string>Re-enable pairing parentheses for string interpolation</string>
+		<key>smartTypingPairs</key>
+		<array>
+			<array>
+				<string>(</string>
+				<string>)</string>
+			</array>
+		</array>
+	</dict>
+	<key>uuid</key>
+	<string>295B5394-EE1A-481B-8D7B-2EC0874AB284</string>
+</dict>
+</plist>

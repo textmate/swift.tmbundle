@@ -1406,14 +1406,30 @@
 			<key>patterns</key>
 			<array>
 				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.escape.swift</string>
+						</dict>
+					</dict>
 					<key>match</key>
-					<string>\\[0\\tnr"']</string>
+					<string>(\\)[0\\tnr"']</string>
 					<key>name</key>
 					<string>constant.character.escape.swift</string>
 				</dict>
 				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.escape.swift</string>
+						</dict>
+					</dict>
 					<key>match</key>
-					<string>\\u\{\h{1,8}\}</string>
+					<string>(\\)u\{\h{1,8}\}</string>
 					<key>name</key>
 					<string>constant.character.escape.swift</string>
 				</dict>
@@ -1464,8 +1480,16 @@
 					</array>
 				</dict>
 				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.escape.swift</string>
+						</dict>
+					</dict>
 					<key>match</key>
-					<string>\\.</string>
+					<string>(\\).</string>
 					<key>name</key>
 					<string>invalid.illegal.unrecognized-escape.swift</string>
 				</dict>
