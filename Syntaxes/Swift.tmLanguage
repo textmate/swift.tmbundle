@@ -476,7 +476,7 @@
 							<array>
 								<dict>
 									<key>include</key>
-									<string>#block-nested</string>
+									<string>#nested</string>
 								</dict>
 							</array>
 						</dict>
@@ -529,7 +529,7 @@
 							<array>
 								<dict>
 									<key>include</key>
-									<string>#block-nested</string>
+									<string>#nested</string>
 								</dict>
 								<dict>
 									<key>include</key>
