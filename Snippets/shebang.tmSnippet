@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>#!/usr/bin/env xcrun --sdk macosx swift -i
+	<string>#!/usr/bin/env xcrun --sdk macosx swift
 </string>
 	<key>name</key>
 	<string>#!/usr/bin/env swift</string>
