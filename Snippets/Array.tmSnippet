@@ -9,7 +9,7 @@
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>Array</string>
+	<string>A</string>
 	<key>uuid</key>
 	<string>DEE982C1-301B-4B87-B342-70DDECADCF8C</string>
 </dict>

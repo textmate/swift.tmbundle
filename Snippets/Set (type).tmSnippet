@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>Dictionary&lt;${1:KeyType}, ${2:ValueType}&gt;</string>
+	<string>Set&lt;${1:Type}&gt;</string>
 	<key>name</key>
-	<string>Dictionary</string>
+	<string>Set</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>D</string>
+	<string>S</string>
 	<key>uuid</key>
-	<string>FDA912E2-135B-4BB0-A959-8F405A8AAFF0</string>
+	<string>2F76A0AF-575B-48DA-A2F6-886CC4EA0019</string>
 </dict>
 </plist>
