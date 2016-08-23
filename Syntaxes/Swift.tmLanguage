@@ -84,43 +84,6 @@
 			<key>name</key>
 			<string>keyword.operator.arithmetic.swift</string>
 		</dict>
-		<key>array-type</key>
-		<dict>
-			<key>begin</key>
-			<string>\b(Array)(\[)</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>support.type.array.swift</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.array.begin.swift</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(\])</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.array.end.swift</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>meta.array.swift</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>$self</string>
-				</dict>
-			</array>
-		</dict>
 		<key>assignment-operator</key>
 		<dict>
 			<key>match</key>
@@ -210,22 +173,6 @@
 			<key>name</key>
 			<string>constant.language.boolean.swift</string>
 		</dict>
-		<key>branch-statement-keyword</key>
-		<dict>
-			<key>name</key>
-			<string>keyword.control.branch.swift</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#if-statement-keyword</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#switch-statement-keyword</string>
-				</dict>
-			</array>
-		</dict>
 		<key>builtin-class-type</key>
 		<dict>
 			<key>comment</key>
@@ -267,7 +214,7 @@
 			<key>comment</key>
 			<string>Global functions provided in the standard library; found by searching ^func\s+(\w+?)[&lt;(]</string>
 			<key>match</key>
-			<string>\b(s(tride(of(Value)?)?|izeof(Value)?|ort|uffix|pli(ce|t)|wap)|numericCast|transcode|i(sUniquelyReferenced(NonObjC)?|nsert)|zip|overlaps|d(istance|ump|ebugPrint|rop(First|Last))|unsafe(BitCast|Downcast|Unwrap|AddressOf)|join|pr(int|e(condition|fix))|extend|with(Unsafe(MutablePointer(s)?|Pointer(s)?)|ExtendedLifetime|VaList)|lazy|a(ssert(ionFailure)?|nyGenerator|dvance|lignof(Value)?|bs)|re(flect|adLine|move(Range|Last|A(tIndex|ll)))|getVaList|m(in|ax))\b</string>
+			<string>\btype(?=\(of\:)|\b(s(tride(of(Value)?)?|izeof(Value)?|ort|uffix|pli(ce|t)|wap)|numericCast|transcode|i(sUniquelyReferenced(NonObjC)?|nsert)|zip|overlaps|d(istance|ump|ebugPrint|rop(First|Last))|unsafe(BitCast|Downcast|Unwrap|AddressOf)|join|pr(int|e(condition|fix))|extend|with(Unsafe(MutablePointer(s)?|Pointer(s)?)|ExtendedLifetime|VaList)|lazy|a(ssert(ionFailure)?|nyGenerator|dvance|lignof(Value)?|bs)|re(flect|adLine|move(Range|Last|A(tIndex|ll)))|getVaList|m(in|ax))\b</string>
 			<key>name</key>
 			<string>support.function.swift</string>
 		</dict>
@@ -344,15 +291,6 @@
 			<key>name</key>
 			<string>support.type.swift</string>
 		</dict>
-		<key>capture-specifier</key>
-		<dict>
-			<key>comment</key>
-			<string>matches weak, unowned, unowned(safe), unowned(unsafe)</string>
-			<key>match</key>
-			<string>\b(weak|unowned(?:\((?:un)?safe\))?)</string>
-			<key>name</key>
-			<string>keyword.other.capture-specifier.swift</string>
-		</dict>
 		<key>coalescing-operator</key>
 		<dict>
 			<key>match</key>
@@ -389,22 +327,6 @@
 				<dict>
 					<key>include</key>
 					<string>$self</string>
-				</dict>
-			</array>
-		</dict>
-		<key>collection-type</key>
-		<dict>
-			<key>comment</key>
-			<string>Collection types</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#array-type</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#dictionary-type</string>
 				</dict>
 			</array>
 		</dict>
@@ -616,15 +538,6 @@
 			<key>name</key>
 			<string>keyword.operator.comparative.swift</string>
 		</dict>
-		<key>control-transfer-statement-keyword</key>
-		<dict>
-			<key>comment</key>
-			<string>control-transfer-statement</string>
-			<key>match</key>
-			<string>\b(continue|break|fallthrough|return)\b</string>
-			<key>name</key>
-			<string>keyword.control.transfer.swift</string>
-		</dict>
 		<key>custom-operator</key>
 		<dict>
 			<key>patterns</key>
@@ -664,52 +577,6 @@
 				<dict>
 					<key>include</key>
 					<string>#function-declaration</string>
-				</dict>
-			</array>
-		</dict>
-		<key>declaration-specifier</key>
-		<dict>
-			<key>comment</key>
-			<string>declaration-specifier</string>
-			<key>match</key>
-			<string>\b(class|deinit|enum|extension|func|import|init|inout|internal|let|operator|private|protocol|public|static|struct|subscript|typealias|var)\b</string>
-			<key>name</key>
-			<string>keyword.other.declaration-specifier.swift</string>
-		</dict>
-		<key>dictionary-type</key>
-		<dict>
-			<key>begin</key>
-			<string>\b(Dictionary)(\[)</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>support.type.dictionary.swift</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.dictionary.begin.swift</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(\])</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.dictionary.end.swift</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>meta.dictionary.swift</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>$self</string>
 				</dict>
 			</array>
 		</dict>
@@ -872,15 +739,6 @@
 			<key>name</key>
 			<string>meta.identifier.swift</string>
 		</dict>
-		<key>if-statement-keyword</key>
-		<dict>
-			<key>comment</key>
-			<string>if-statement</string>
-			<key>match</key>
-			<string>\b(if|else)\b</string>
-			<key>name</key>
-			<string>keyword.control.if.swift</string>
-		</dict>
 		<key>import-declaration</key>
 		<dict>
 			<key>captures</key>
@@ -888,7 +746,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.other.import.swift</string>
+					<string>keyword.control.import.swift</string>
 				</dict>
 				<key>2</key>
 				<dict>
@@ -960,60 +818,96 @@
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>include</key>
-					<string>#branch-statement-keyword</string>
+					<key>match</key>
+					<string>\b(?:if|else|guard|where|switch|case|default|fallthrough)\b</string>
+					<key>name</key>
+					<string>keyword.control.branch.swift</string>
 				</dict>
 				<dict>
-					<key>include</key>
-					<string>#control-transfer-statement-keyword</string>
+					<key>match</key>
+					<string>\b(?:continue|break|fallthrough|return)\b</string>
+					<key>name</key>
+					<string>keyword.control.transfer.swift</string>
 				</dict>
 				<dict>
-					<key>include</key>
-					<string>#loop-statement-keyword</string>
+					<key>match</key>
+					<string>\b(?:while|repeat|for|in)\b</string>
+					<key>name</key>
+					<string>keyword.control.loop.swift</string>
 				</dict>
 				<dict>
-					<key>include</key>
-					<string>#declaration-specifier</string>
+					<key>match</key>
+					<string>\bdefer\b</string>
+					<key>name</key>
+					<string>keyword.control.defer.swift</string>
 				</dict>
 				<dict>
-					<key>include</key>
-					<string>#capture-specifier</string>
+					<key>match</key>
+					<string>\b(?:do|catch|throws?|rethrows|try)\b|try[?!]\B</string>
+					<key>name</key>
+					<string>keyword.control.exception.swift</string>
 				</dict>
 				<dict>
-					<key>include</key>
-					<string>#operator-declaration-keyword</string>
+					<key>match</key>
+					<string>\b(?:associatedtype|let|operator|typealias|var)\b</string>
+					<key>name</key>
+					<string>keyword.other.declaration-specifier.swift</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(?:class|enum|extension|protocol|struct)\b</string>
+					<key>name</key>
+					<string>storage.type.class.swift</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(?:inout|static|final|lazy|mutating|nonmutating|optional|indirect|required|override|dynamic|convenience)\b</string>
+					<key>name</key>
+					<string>storage.modifier.swift</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(?:func|init|deinit|subscript|didSet|get|set|willSet)\b</string>
+					<key>name</key>
+					<string>storage.type.function.swift</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(?:fileprivate|internal|private|public)\b</string>
+					<key>name</key>
+					<string>keyword.other.declaration-specifier.accessibility.swift</string>
 				</dict>
 				<dict>
 					<key>comment</key>
-					<string>declaration keyword</string>
+					<string>matches weak, unowned, unowned(safe), unowned(unsafe)</string>
 					<key>match</key>
-					<string>\b(class|deinit|enum|extension|func|import|init|inout|internal|let|operator|private|protocol|public|static|struct|subscript|typealias|var)\b</string>
+					<string>\b(?:weak\b|unowned(?:\((?:un)?safe\))?)</string>
 					<key>name</key>
-					<string>storage.type.declaration.swift</string>
+					<string>keyword.other.capture-specifier.swift</string>
 				</dict>
 				<dict>
-					<key>comment</key>
-					<string>statement keyword</string>
 					<key>match</key>
-					<string>\b(break|case|continue|default|defer|do|else|fallthrough|for|guard|if|in|repeat|return|switch|where|while)\b</string>
+					<string>\b(?:operator|prefix|infix|postfix|precedencegroup|higherThan|lowerThan|left|associativity|right|precedence)\b</string>
 					<key>name</key>
-					<string>keyword.control.statement.swift</string>
+					<string>keyword.other.operator.swift</string>
 				</dict>
 				<dict>
-					<key>comment</key>
-					<string>expression and type keyword</string>
 					<key>match</key>
-					<string>\b(as|catch|dynamicType|false|is|nil|rethrows|super|self|Self|throw|throws|true|try|__COLUMN__|__FILE__|__FUNCTION__|__LINE__)\b</string>
+					<string>\b(?:super|self)\b</string>
 					<key>name</key>
-					<string>keyword.other.statement.swift</string>
+					<string>variable.language.swift</string>
 				</dict>
 				<dict>
-					<key>comment</key>
-					<string>other keyword</string>
 					<key>match</key>
-					<string>\b(associativity|convenience|dynamic|didSet|final|get|infix|indirect|lazy|left|mutating|none|nonmutating|optional|override|postfix|precedence|prefix|Protocol|required|right|set|Type|unowned|weak|willSet)\b</string>
+					<string>\B(?:#file|#line|#column|#function|#dsohandle)\b|\b(?:__FILE__|__LINE__|__COLUMN__|__FUNCTION__|__DSO_HANDLE__)\b</string>
 					<key>name</key>
-					<string>keyword.other.swift</string>
+					<string>support.variable.swift</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(?:dynamicType|Protocol|Type)\b</string>
+					<key>name</key>
+					<string>keyword.operator.other.swift</string>
 				</dict>
 			</array>
 		</dict>
@@ -1035,15 +929,19 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#special-literal</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#boolean-literal</string>
 				</dict>
 				<dict>
 					<key>include</key>
 					<string>#nil-literal</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>object "literals" used in playgrounds</string>
+					<key>match</key>
+					<string>\B(?:#colorLiteral|#imageLiteral|#fileLiteral)\b</string>
+					<key>name</key>
+					<string>support.function.object-literal.swift</string>
 				</dict>
 			</array>
 		</dict>
@@ -1053,15 +951,6 @@
 			<string>(?&lt;![/=\-+!*%&lt;&gt;&amp;|\^~.])(!|&amp;&amp;|\|\|)(?![/=\-+!*%&lt;&gt;&amp;|\^~.])</string>
 			<key>name</key>
 			<string>keyword.operator.logical.swift</string>
-		</dict>
-		<key>loop-statement-keyword</key>
-		<dict>
-			<key>comment</key>
-			<string>loop-statement</string>
-			<key>match</key>
-			<string>\b(while|do|for|in)\b</string>
-			<key>name</key>
-			<string>keyword.control.loop.swift</string>
 		</dict>
 		<key>nil-literal</key>
 		<dict>
@@ -1127,15 +1016,6 @@
 					<string>#custom-operator</string>
 				</dict>
 			</array>
-		</dict>
-		<key>operator-declaration-keyword</key>
-		<dict>
-			<key>comment</key>
-			<string>operator-declaration</string>
-			<key>match</key>
-			<string>\b(operator|prefix|infix|postfix)\b</string>
-			<key>name</key>
-			<string>keyword.other.operator.swift</string>
 		</dict>
 		<key>optional-type</key>
 		<dict>
@@ -1365,13 +1245,6 @@
 			<key>name</key>
 			<string>comment.line.shebang.swift</string>
 		</dict>
-		<key>special-literal</key>
-		<dict>
-			<key>match</key>
-			<string>\b__(FILE|LINE|COLUMN|FUNCTION)__\b</string>
-			<key>name</key>
-			<string>keyword.other.literal.swift</string>
-		</dict>
 		<key>storage-type</key>
 		<dict>
 			<key>match</key>
@@ -1495,15 +1368,6 @@
 				</dict>
 			</array>
 		</dict>
-		<key>switch-statement-keyword</key>
-		<dict>
-			<key>comment</key>
-			<string>switch-statement</string>
-			<key>match</key>
-			<string>\b(switch|case|default|where)\b</string>
-			<key>name</key>
-			<string>keyword.control.switch.swift</string>
-		</dict>
 		<key>ternary-operator</key>
 		<dict>
 			<key>match</key>
@@ -1523,15 +1387,17 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#collection-type</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#optional-type</string>
 				</dict>
 				<dict>
 					<key>include</key>
 					<string>#protocol-composition-type</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\bSelf\b</string>
+					<key>name</key>
+					<string>variable.language.swift</string>
 				</dict>
 			</array>
 		</dict>
