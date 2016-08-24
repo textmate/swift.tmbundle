@@ -28,6 +28,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#closure-parameter</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#literal</string>
 		</dict>
 		<dict>
@@ -37,10 +41,6 @@
 		<dict>
 			<key>include</key>
 			<string>#declaration</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#storage-type</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -93,15 +93,13 @@
 		</dict>
 		<key>attribute</key>
 		<dict>
-			<key>comment</key>
-			<string>attribute</string>
 			<key>name</key>
 			<string>meta.attribute.swift</string>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>((@)(\B\$[0-9]+|\b[\w^\d][\w\d]*\b|\B`[\w^\d][\w\d]*`\B))(\()</string>
+					<string>((@)(\b[\w^\d][\w\d]*\b|\B`[\w^\d][\w\d]*`\B))(\()</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -155,7 +153,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>((@)(\B\$[0-9]+|\b[\w^\d][\w\d]*\b|\B`[\w^\d][\w\d]*`\B))</string>
+					<string>((@)(\b[\w^\d][\w\d]*\b|\B`[\w^\d][\w\d]*`\B))</string>
 				</dict>
 			</array>
 		</dict>
@@ -165,13 +163,6 @@
 			<string>(?&lt;![/=\-+!*%&lt;&gt;&amp;|\^~.])(&amp;|\||\^|&lt;&lt;|&gt;&gt;)(?![/=\-+!*%&lt;&gt;&amp;|\^~.])</string>
 			<key>name</key>
 			<string>keyword.operator.bitwise.swift</string>
-		</dict>
-		<key>boolean-literal</key>
-		<dict>
-			<key>match</key>
-			<string>\b(true|false)\b</string>
-			<key>name</key>
-			<string>constant.language.boolean.swift</string>
 		</dict>
 		<key>builtin-class-type</key>
 		<dict>
@@ -290,6 +281,13 @@
 			<string>\b(BooleanLiteralType|StringLiteralType|C(Bool|S(hort|ignedChar)|Char(16|32)?|Int|Double|Unsigned(Short|Char|Int|Long(Long)?)|Float|WideChar|Long(Long)?)|Int(Max|egerLiteralType)|U(nicodeScalarType|IntMax|Word)|PlaygroundQuickLook|ExtendedGraphemeClusterType|Void|Float(32|LiteralType|64)|Word|Any(Class)?)\b</string>
 			<key>name</key>
 			<string>support.type.swift</string>
+		</dict>
+		<key>closure-parameter</key>
+		<dict>
+			<key>match</key>
+			<string>\$[0-9]+</string>
+			<key>name</key>
+			<string>variable.other.closure-parameter.swift</string>
 		</dict>
 		<key>coalescing-operator</key>
 		<dict>
@@ -531,12 +529,12 @@
 				</dict>
 			</dict>
 		</dict>
-		<key>comparative-operator</key>
+		<key>comparison-operator</key>
 		<dict>
 			<key>match</key>
 			<string>(?&lt;![/=\-+!*%&lt;&gt;&amp;|\^~.])((=|!)==?|(&lt;|&gt;)=?|~=)(?![/=\-+!*%&lt;&gt;&amp;|\^~.])</string>
 			<key>name</key>
-			<string>keyword.operator.comparative.swift</string>
+			<string>keyword.operator.comparison.swift</string>
 		</dict>
 		<key>custom-operator</key>
 		<dict>
@@ -583,7 +581,7 @@
 		<key>function-declaration</key>
 		<dict>
 			<key>begin</key>
-			<string>\b(func)\s+(\B\$[0-9]+|\b[\w^\d][\w\d]*\b|\B`[\w^\d][\w\d]*`\B|[/=\-+!*%&lt;&gt;&amp;|\^~.]+)\s*(?=\(|&lt;)</string>
+			<string>\b(func)\s+(\b[\w^\d][\w\d]*\b|\B`[\w^\d][\w\d]*`\B|[/=\-+!*%&lt;&gt;&amp;|\^~.]+)\s*(?=\(|&lt;)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -709,15 +707,6 @@
 					<string>$self</string>
 				</dict>
 			</array>
-		</dict>
-		<key>identifier</key>
-		<dict>
-			<key>comment</key>
-			<string>identifier</string>
-			<key>match</key>
-			<string>(\B\$[0-9]+|\b[\w^\d][\w\d]*\b|\B`[\w^\d][\w\d]*`\B)</string>
-			<key>name</key>
-			<string>meta.identifier.swift</string>
 		</dict>
 		<key>import-declaration</key>
 		<dict>
@@ -864,12 +853,16 @@
 					<string>#string-literal</string>
 				</dict>
 				<dict>
-					<key>include</key>
-					<string>#boolean-literal</string>
+					<key>match</key>
+					<string>\b(true|false)\b</string>
+					<key>name</key>
+					<string>constant.language.boolean.swift</string>
 				</dict>
 				<dict>
-					<key>include</key>
-					<string>#nil-literal</string>
+					<key>match</key>
+					<string>\bnil\b</string>
+					<key>name</key>
+					<string>constant.language.nil.swift</string>
 				</dict>
 				<dict>
 					<key>comment</key>
@@ -887,13 +880,6 @@
 			<string>(?&lt;![/=\-+!*%&lt;&gt;&amp;|\^~.])(!|&amp;&amp;|\|\|)(?![/=\-+!*%&lt;&gt;&amp;|\^~.])</string>
 			<key>name</key>
 			<string>keyword.operator.logical.swift</string>
-		</dict>
-		<key>nil-literal</key>
-		<dict>
-			<key>match</key>
-			<string>\bnil\b</string>
-			<key>name</key>
-			<string>constant.language.nil.swift</string>
 		</dict>
 		<key>numeric-literal</key>
 		<dict>
@@ -999,7 +985,7 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#comparative-operator</string>
+					<string>#comparison-operator</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -1048,43 +1034,6 @@
 				<dict>
 					<key>include</key>
 					<string>#custom-operator</string>
-				</dict>
-			</array>
-		</dict>
-		<key>optional-type</key>
-		<dict>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>support.type.optional.swift</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.optional.begin.swift</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(&gt;)</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.optional.end.swift</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>\b(Optional)(&lt;)</string>
-			<key>name</key>
-			<string>meta.optional.swift</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>$self</string>
 				</dict>
 			</array>
 		</dict>
@@ -1142,43 +1091,6 @@
 					<key>match</key>
 					<string>\b([\w^\d][\w\d]*)\b\s+\b([\w^\d][\w\d]*)\b</string>
 				</dict>
-				<dict>
-					<key>include</key>
-					<string>$self</string>
-				</dict>
-			</array>
-		</dict>
-		<key>protocol-composition-type</key>
-		<dict>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>support.type.protocol.swift</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.protocol.begin.swift</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(&gt;)</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.protocol.end.swift</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>\b(protocol)(&lt;)</string>
-			<key>name</key>
-			<string>meta.protocol.swift</string>
-			<key>patterns</key>
-			<array>
 				<dict>
 					<key>include</key>
 					<string>$self</string>
@@ -1278,13 +1190,6 @@
 			<string>^(#!).*$</string>
 			<key>name</key>
 			<string>comment.line.shebang.swift</string>
-		</dict>
-		<key>storage-type</key>
-		<dict>
-			<key>match</key>
-			<string>\b(var|func|let|class|enum|struct|protocol|extension|typealias)\b</string>
-			<key>name</key>
-			<string>storage.type.swift</string>
 		</dict>
 		<key>string-literal</key>
 		<dict>
@@ -1418,14 +1323,6 @@
 				<dict>
 					<key>include</key>
 					<string>#builtin-type</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#optional-type</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#protocol-composition-type</string>
 				</dict>
 				<dict>
 					<key>match</key>
