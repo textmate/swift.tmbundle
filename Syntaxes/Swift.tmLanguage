@@ -580,26 +580,6 @@
 				</dict>
 			</array>
 		</dict>
-		<key>floating-point-literal</key>
-		<dict>
-			<key>name</key>
-			<string>constant.numeric.floating-point.swift</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>comment</key>
-					<string>floating-point-literal -&gt; (decimal-literal)(decimal-fraction)?(decimal-exponent)?</string>
-					<key>match</key>
-					<string>\b([0-9][0-9_]*)(\.([0-9][0-9_]*))?([eE][+\-]?([0-9][0-9_]*))?\b</string>
-				</dict>
-				<dict>
-					<key>comment</key>
-					<string>floating-point-literal -&gt; (hexadecimal-literal)(hexadecimal-fraction)?(hexadecimal-exponent)</string>
-					<key>match</key>
-					<string>\b(0x\h[\h_]*)(\.(0x\h[\h_]*))?([pP][+\-]?(0x\h[\h_]*))\b</string>
-				</dict>
-			</array>
-		</dict>
 		<key>function-declaration</key>
 		<dict>
 			<key>begin</key>
@@ -773,46 +753,6 @@
 			<key>name</key>
 			<string>keyword.operator.increment-or-decrement.swift</string>
 		</dict>
-		<key>integer-literal</key>
-		<dict>
-			<key>name</key>
-			<string>constant.numeric.integer.swift</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>comment</key>
-					<string>binary-literal</string>
-					<key>match</key>
-					<string>(\B\-|\b)(0b[01][01_]*)\b</string>
-					<key>name</key>
-					<string>constant.numeric.integer.binary.swift</string>
-				</dict>
-				<dict>
-					<key>comment</key>
-					<string>octal-literal</string>
-					<key>match</key>
-					<string>(\B\-|\b)(0o[0-7][0-7_]*)\b</string>
-					<key>name</key>
-					<string>constant.numeric.integer.octal.swift</string>
-				</dict>
-				<dict>
-					<key>comment</key>
-					<string>decimal-literal</string>
-					<key>match</key>
-					<string>(\B\-|\b)([0-9][0-9_]*)\b</string>
-					<key>name</key>
-					<string>constant.numeric.integer.decimal.swift</string>
-				</dict>
-				<dict>
-					<key>comment</key>
-					<string>hexadecimal-literal</string>
-					<key>match</key>
-					<string>(\B\-|\b)(0x\h[\h_]*)\b</string>
-					<key>name</key>
-					<string>constant.numeric.integer.hexadecimal.swift</string>
-				</dict>
-			</array>
-		</dict>
 		<key>keyword</key>
 		<dict>
 			<key>patterns</key>
@@ -843,7 +783,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(?:do|catch|throws?|rethrows|try)\b|try[?!]\B</string>
+					<string>\b(?:do|catch|throws?|rethrows|try)\b|\btry[?!]\B</string>
 					<key>name</key>
 					<string>keyword.control.exception.swift</string>
 				</dict>
@@ -917,11 +857,7 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#integer-literal</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#floating-point-literal</string>
+					<string>#numeric-literal</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -958,6 +894,104 @@
 			<string>\bnil\b</string>
 			<key>name</key>
 			<string>constant.language.nil.swift</string>
+		</dict>
+		<key>numeric-literal</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>comment</key>
+					<string>0.1, -4_2.5, 6.022e23, 10E-5</string>
+					<key>match</key>
+					<string>(\B\-|\b)(?&lt;![^.]\.)[0-9][0-9_]*(?:\.[0-9][0-9_]*)?(?:[eE][+\-]?[0-9][0-9_]*)?\b(?!\.[0-9])</string>
+					<key>name</key>
+					<string>constant.numeric.float.decimal.swift</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>-0x1.ap2_3, 0x31p-4</string>
+					<key>match</key>
+					<string>(\B\-|\b)(?&lt;![^.]\.)(0x\h[\h_]*)(?:\.\h[\h_]*)?[pP][+\-]?[0-9][0-9_]*\b(?!\.[0-9])</string>
+					<key>name</key>
+					<string>constant.numeric.float.hexadecimal.swift</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>0x1p, 0x1p_2, 0x1.5pa, 0x1.1p+1f, 0x1pz</string>
+					<key>match</key>
+					<string>(\B\-|\b)(?&lt;![^.]\.)(0x\h[\h_]*)(?:\.\h[\h_]*)?(?:[pP][+\-]?\w*)\b(?!\.[0-9])</string>
+					<key>name</key>
+					<string>invalid.illegal.numeric.float.invalid-exponent.swift</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>0x1.5w (note that 0x1.f may be a valid expression)</string>
+					<key>match</key>
+					<string>(\B\-|\b)(?&lt;![^.]\.)(0x\h[\h_]*)\.[0-9][\w.]*</string>
+					<key>name</key>
+					<string>invalid.illegal.numeric.float.missing-exponent.swift</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>-.5, .2f (note that 1.-.5 may be a valid expression)</string>
+					<key>match</key>
+					<string>(?&lt;=\s|^)\-?\.[0-9][\w.]*</string>
+					<key>name</key>
+					<string>invalid.illegal.numeric.float.missing-leading-zero.swift</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>0b_0_1, 0x_1p+3q</string>
+					<key>match</key>
+					<string>(\B\-|\b)0[box]_[\h_]*(?:[pPeE][+-]?\w+)?[\w.]+</string>
+					<key>name</key>
+					<string>invalid.illegal.numeric.leading-underscore.swift</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>tuple positional member: not really a numeric literal, but not invalid</string>
+					<key>match</key>
+					<string>(?&lt;=[^.]\.)[0-9][0-9_]*\b</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>0b010, 0b1_0</string>
+					<key>match</key>
+					<string>(\B\-|\b)(?&lt;![^.]\.)0b[01][01_]*\b(?!\.[0-9])</string>
+					<key>name</key>
+					<string>constant.numeric.integer.binary.swift</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>0o1, 0o7_3</string>
+					<key>match</key>
+					<string>(\B\-|\b)(?&lt;![^.]\.)0o[0-7][0-7_]*\b(?!\.[0-9])</string>
+					<key>name</key>
+					<string>constant.numeric.integer.octal.swift</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>02, 3_456</string>
+					<key>match</key>
+					<string>(\B\-|\b)(?&lt;![^.]\.)[0-9][0-9_]*\b(?!\.[0-9])</string>
+					<key>name</key>
+					<string>constant.numeric.integer.decimal.swift</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>0x4, 0xF_7</string>
+					<key>match</key>
+					<string>(\B\-|\b)(?&lt;![^.]\.)0x\h[\h_]*\b(?!\.[0-9])</string>
+					<key>name</key>
+					<string>constant.numeric.integer.hexadecimal.swift</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(\B\-|\b)[0-9][\w.]*</string>
+					<key>name</key>
+					<string>invalid.illegal.numeric.other.swift</string>
+				</dict>
+			</array>
 		</dict>
 		<key>operator</key>
 		<dict>
