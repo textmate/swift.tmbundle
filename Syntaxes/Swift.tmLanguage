@@ -20,6 +20,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#conditional-compilation</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#comment</string>
 		</dict>
 		<dict>
@@ -535,6 +539,98 @@
 			<string>(?&lt;![/=\-+!*%&lt;&gt;&amp;|\^~.])((=|!)==?|(&lt;|&gt;)=?|~=)(?![/=\-+!*%&lt;&gt;&amp;|\^~.])</string>
 			<key>name</key>
 			<string>keyword.operator.comparison.swift</string>
+		</dict>
+		<key>conditional-compilation</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>^\s*(?:#if|#elseif)\s+</string>
+					<key>end</key>
+					<string>(?=\s*(?://|/\*))|$</string>
+					<key>name</key>
+					<string>meta.preprocessor.conditional.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#logical-operator</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.control.import.swift</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>support.constant.platform.architecture.swift</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>\b(arch)\s*\(\s*(?:(arm|arm64|powerpc64|powerpc64le|i386|x86_64|s390x)|\w+)\s*\)</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.control.import.swift</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>support.constant.platform.os.swift</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>\b(os)\s*\(\s*(?:(macOS|OSX|iOS|tvOS|watchOS|Android|Linux|FreeBSD|Windows|PS4)|\w+)\s*\)</string>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>\b(swift)\s*\(</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.control.import.swift</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>\)|$</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>match</key>
+									<string>&gt;=</string>
+									<key>name</key>
+									<string>keyword.operator.comparison.swift</string>
+								</dict>
+								<dict>
+									<key>match</key>
+									<string>\b[0-9]+(?:\.[0-9]+)*\b</string>
+									<key>name</key>
+									<string>constant.numeric.swift</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>^\s*#endif\s+</string>
+					<key>end</key>
+					<string>(?=\s*(?://|/\*))|$</string>
+					<key>name</key>
+					<string>meta.preprocessor.swift</string>
+				</dict>
+			</array>
 		</dict>
 		<key>custom-operator</key>
 		<dict>
