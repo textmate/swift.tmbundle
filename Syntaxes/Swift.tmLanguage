@@ -230,7 +230,122 @@
 					<key>include</key>
 					<string>#comments</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#literals</string>
+				</dict>
 			</array>
+		</dict>
+		<key>literals</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#numeric</string>
+				</dict>
+			</array>
+			<key>repository</key>
+			<dict>
+				<key>numeric</key>
+				<dict>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>comment</key>
+							<string>0.1, -4_2.5, 6.022e23, 10E-5</string>
+							<key>match</key>
+							<string>(\B\-|\b)(?&lt;![\[\](){}\p{L}_\p{N}\p{M}]\.)[0-9][0-9_]*(?=\.[0-9]|[eE])(?:\.[0-9][0-9_]*)?(?:[eE][-+]?[0-9][0-9_]*)?\b(?!\.[0-9])</string>
+							<key>name</key>
+							<string>constant.numeric.float.decimal.swift</string>
+						</dict>
+						<dict>
+							<key>comment</key>
+							<string>-0x1.ap2_3, 0x31p-4</string>
+							<key>match</key>
+							<string>(\B\-|\b)(?&lt;![\[\](){}\p{L}_\p{N}\p{M}]\.)(0x\h[\h_]*)(?:\.\h[\h_]*)?[pP][-+]?[0-9][0-9_]*\b(?!\.[0-9])</string>
+							<key>name</key>
+							<string>constant.numeric.float.hexadecimal.swift</string>
+						</dict>
+						<dict>
+							<key>comment</key>
+							<string>0x1p, 0x1p_2, 0x1.5pa, 0x1.1p+1f, 0x1pz</string>
+							<key>match</key>
+							<string>(\B\-|\b)(?&lt;![\[\](){}\p{L}_\p{N}\p{M}]\.)(0x\h[\h_]*)(?:\.\h[\h_]*)?(?:[pP][-+]?\w*)\b(?!\.[0-9])</string>
+							<key>name</key>
+							<string>invalid.illegal.numeric.float.invalid-exponent.swift</string>
+						</dict>
+						<dict>
+							<key>comment</key>
+							<string>0x1.5w (note that 0x1.f may be a valid expression)</string>
+							<key>match</key>
+							<string>(\B\-|\b)(?&lt;![\[\](){}\p{L}_\p{N}\p{M}]\.)(0x\h[\h_]*)\.[0-9][\w.]*</string>
+							<key>name</key>
+							<string>invalid.illegal.numeric.float.missing-exponent.swift</string>
+						</dict>
+						<dict>
+							<key>comment</key>
+							<string>-.5, .2f (note that 1.-.5 may be a valid expression)</string>
+							<key>match</key>
+							<string>(?&lt;=\s|^)\-?\.[0-9][\w.]*</string>
+							<key>name</key>
+							<string>invalid.illegal.numeric.float.missing-leading-zero.swift</string>
+						</dict>
+						<dict>
+							<key>comment</key>
+							<string>0b_0_1, 0x_1p+3q</string>
+							<key>match</key>
+							<string>(\B\-|\b)0[box]_[\h_]*(?:[pPeE][+-]?\w+)?[\w.]+</string>
+							<key>name</key>
+							<string>invalid.illegal.numeric.leading-underscore.swift</string>
+						</dict>
+						<dict>
+							<key>comment</key>
+							<string>tuple positional member: not really a numeric literal, but not invalid</string>
+							<key>match</key>
+							<string>(?&lt;=[\[\](){}\p{L}_\p{N}\p{M}]\.)[0-9]+\b</string>
+						</dict>
+						<dict>
+							<key>comment</key>
+							<string>0b010, 0b1_0</string>
+							<key>match</key>
+							<string>(\B\-|\b)(?&lt;![\[\](){}\p{L}_\p{N}\p{M}]\.)0b[01][01_]*\b(?!\.[0-9])</string>
+							<key>name</key>
+							<string>constant.numeric.integer.binary.swift</string>
+						</dict>
+						<dict>
+							<key>comment</key>
+							<string>0o1, 0o7_3</string>
+							<key>match</key>
+							<string>(\B\-|\b)(?&lt;![\[\](){}\p{L}_\p{N}\p{M}]\.)0o[0-7][0-7_]*\b(?!\.[0-9])</string>
+							<key>name</key>
+							<string>constant.numeric.integer.octal.swift</string>
+						</dict>
+						<dict>
+							<key>comment</key>
+							<string>02, 3_456</string>
+							<key>match</key>
+							<string>(\B\-|\b)(?&lt;![\[\](){}\p{L}_\p{N}\p{M}]\.)[0-9][0-9_]*\b(?!\.[0-9])</string>
+							<key>name</key>
+							<string>constant.numeric.integer.decimal.swift</string>
+						</dict>
+						<dict>
+							<key>comment</key>
+							<string>0x4, 0xF_7</string>
+							<key>match</key>
+							<string>(\B\-|\b)(?&lt;![\[\](){}\p{L}_\p{N}\p{M}]\.)0x\h[\h_]*\b(?!\.[0-9])</string>
+							<key>name</key>
+							<string>constant.numeric.integer.hexadecimal.swift</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>(\B\-|\b)[0-9][\w.]*</string>
+							<key>name</key>
+							<string>invalid.illegal.numeric.other.swift</string>
+						</dict>
+					</array>
+				</dict>
+			</dict>
 		</dict>
 		<key>root</key>
 		<dict>
