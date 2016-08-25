@@ -672,6 +672,14 @@
 					<key>include</key>
 					<string>#function-declaration</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#operator-declaration</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#precedence-group-declaration</string>
+				</dict>
 			</array>
 		</dict>
 		<key>function-declaration</key>
@@ -886,7 +894,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(?:inout|static|final|lazy|mutating|nonmutating|optional|indirect|required|override|dynamic|convenience)\b</string>
+					<string>\b(?:inout|static|final|lazy|mutating|nonmutating|optional|indirect|required|override|dynamic|convenience|infix|prefix|postfix)\b</string>
 					<key>name</key>
 					<string>storage.modifier.swift</string>
 				</dict>
@@ -909,12 +917,6 @@
 					<string>\b(?:weak\b|unowned(?:\((?:un)?safe\))?)</string>
 					<key>name</key>
 					<string>keyword.other.capture-specifier.swift</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>\b(?:operator|prefix|infix|postfix|precedencegroup|higherThan|lowerThan|left|associativity|right|precedence)\b</string>
-					<key>name</key>
-					<string>keyword.other.operator.swift</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -1133,6 +1135,133 @@
 				</dict>
 			</array>
 		</dict>
+		<key>operator-declaration</key>
+		<dict>
+			<key>begin</key>
+			<string>\b(prefix|infix|postfix)?\s+(operator)\s+([/=\-+!*%&lt;&gt;&amp;|\^~.]+)\s*(?=[:{])</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>storage.modifier.swift</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.function.operator.swift</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.custom.swift</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?!\G)</string>
+			<key>name</key>
+			<string>meta.definition.operator.swift</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#operator-declaration-swift2</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#operator-declaration-swift3</string>
+				</dict>
+			</array>
+		</dict>
+		<key>operator-declaration-swift2</key>
+		<dict>
+			<key>begin</key>
+			<string>(\{)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.operator.begin.swift</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(\})</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.operator.end.swift</string>
+				</dict>
+			</dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>storage.modifier.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.operator.associativity.swift</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>\b(associativity)\s+(left|right)\b</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>storage.modifier.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>constant.numeric.integer.swift</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>\b(precedence)\s+([0-9]+)\b</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>storage.modifier.swift</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>\b(assignment)\b</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#comment</string>
+				</dict>
+			</array>
+		</dict>
+		<key>operator-declaration-swift3</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.other.inherited-class.swift</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(:)\s*([\w^\d][\w\d]*\b|\B`[\w^\d][\w\d]*`\B)</string>
+		</dict>
 		<key>overflow-operator</key>
 		<dict>
 			<key>match</key>
@@ -1190,6 +1319,107 @@
 				<dict>
 					<key>include</key>
 					<string>$self</string>
+				</dict>
+			</array>
+		</dict>
+		<key>precedence-group-declaration</key>
+		<dict>
+			<key>begin</key>
+			<string>\b(precedencegroup)\s+([\w^\d][\w\d]*\b|\B`[\w^\d][\w\d]*`\B)\s*(?=\{)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.precedencegroup.swift</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.type.precedencegroup.swift</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?!\G)</string>
+			<key>name</key>
+			<string>meta.definition.precedencegroup.swift</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>(\{)</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.precedencegroup.begin.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(\})</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.precedencegroup.end.swift</string>
+						</dict>
+					</dict>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>storage.modifier.swift</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>entity.other.inherited-class.swift</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>\b(higherThan|lowerThan)\s*:\s*([\w^\d][\w\d]*\b|\B`[\w^\d][\w\d]*`\B)</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>storage.modifier.swift</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.other.operator.associativity.swift</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>\b(associativity)\b(?:\s*:\s*(right|left)\b)?</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>storage.modifier.swift</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>constant.language.boolean.swift</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>\b(assignment)\b(?:\s*:\s*(true|false)\b)?</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>
