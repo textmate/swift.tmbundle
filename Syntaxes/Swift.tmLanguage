@@ -1111,6 +1111,14 @@
 					<key>include</key>
 					<string>#import</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#operator</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#precedencegroup</string>
+				</dict>
 			</array>
 			<key>repository</key>
 			<dict>
@@ -1258,6 +1266,368 @@
 									<string>invalid.illegal.character-not-allowed-here.swift</string>
 								</dict>
 							</array>
+						</dict>
+					</array>
+				</dict>
+				<key>operator</key>
+				<dict>
+					<key>begin</key>
+					<string>(?x)
+						(?:
+							\b(prefix|infix|postfix)
+							\s+
+						)?
+						\b
+						(operator)
+						\s+
+						(
+							(
+								(?&lt;oph&gt;									# operator-head
+									[/=\-+!*%&lt;&gt;&amp;|^~?]
+								  | [\x{00A1}-\x{00A7}]
+								  | [\x{00A9}\x{00AB}]
+								  | [\x{00AC}\x{00AE}]
+								  | [\x{00B0}-\x{00B1}\x{00B6}\x{00BB}\x{00BF}\x{00D7}\x{00F7}]
+								  | [\x{2016}-\x{2017}\x{2020}-\x{2027}]
+								  | [\x{2030}-\x{203E}]
+								  | [\x{2041}-\x{2053}]
+								  | [\x{2055}-\x{205E}]
+								  | [\x{2190}-\x{23FF}]
+								  | [\x{2500}-\x{2775}]
+								  | [\x{2794}-\x{2BFF}]
+								  | [\x{2E00}-\x{2E7F}]
+								  | [\x{3001}-\x{3003}]
+								  | [\x{3008}-\x{3030}]
+								)
+								(
+									\g&lt;oph&gt;
+								  | \.									# Invalid dot
+								  | (?&lt;opc&gt;								# operator-character
+										[\x{0300}-\x{036F}]
+									  | [\x{1DC0}-\x{1DFF}]
+									  | [\x{20D0}-\x{20FF}]
+									  | [\x{FE00}-\x{FE0F}]
+									  | [\x{FE20}-\x{FE2F}]
+									  | [\x{E0100}-\x{E01EF}]
+									)
+								)*+
+							)
+						  | ( \. ( \g&lt;oph&gt; | \g&lt;opc&gt; | \. )++ )			# Dot operators
+						)
+						\s*
+					</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>storage.modifier.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>storage.type.function.operator.swift</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.function.operator.swift</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>match</key>
+									<string>\.</string>
+									<key>name</key>
+									<string>invalid.illegal.dot-not-allowed-here.swift</string>
+								</dict>
+							</array>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(;)|$\n?|(?=//|/\*)</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.terminator.statement.swift</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>meta.definition.operator.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#swift2</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#swift3</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>((?!$|;|//|/\*)\S)+</string>
+							<key>name</key>
+							<string>invalid.illegal.character-not-allowed-here.swift</string>
+						</dict>
+					</array>
+					<key>repository</key>
+					<dict>
+						<key>swift2</key>
+						<dict>
+							<key>begin</key>
+							<string>\G(\{)</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.operator.begin.swift</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>(\})</string>
+							<key>endCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.operator.end.swift</string>
+								</dict>
+							</dict>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#comments</string>
+								</dict>
+								<dict>
+									<key>captures</key>
+									<dict>
+										<key>1</key>
+										<dict>
+											<key>name</key>
+											<string>storage.modifier.swift</string>
+										</dict>
+										<key>2</key>
+										<dict>
+											<key>name</key>
+											<string>keyword.other.operator.associativity.swift</string>
+										</dict>
+									</dict>
+									<key>match</key>
+									<string>\b(associativity)\s+(left|right)\b</string>
+								</dict>
+								<dict>
+									<key>captures</key>
+									<dict>
+										<key>1</key>
+										<dict>
+											<key>name</key>
+											<string>storage.modifier.swift</string>
+										</dict>
+										<key>2</key>
+										<dict>
+											<key>name</key>
+											<string>constant.numeric.integer.swift</string>
+										</dict>
+									</dict>
+									<key>match</key>
+									<string>\b(precedence)\s+([0-9]+)\b</string>
+								</dict>
+								<dict>
+									<key>captures</key>
+									<dict>
+										<key>1</key>
+										<dict>
+											<key>name</key>
+											<string>storage.modifier.swift</string>
+										</dict>
+									</dict>
+									<key>match</key>
+									<string>\b(assignment)\b</string>
+								</dict>
+							</array>
+						</dict>
+						<key>swift3</key>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>entity.other.inherited-class.swift</string>
+									<key>patterns</key>
+									<array>
+										<dict>
+											<key>include</key>
+											<string>#types-precedencegroup</string>
+										</dict>
+									</array>
+								</dict>
+								<key>3</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.identifier.swift</string>
+								</dict>
+								<key>4</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.identifier.swift</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>\G(:)\s*((?&lt;q&gt;`?)[\p{L}_][\p{L}_\p{N}\p{M}]*(\k&lt;q&gt;))</string>
+						</dict>
+					</dict>
+				</dict>
+				<key>precedencegroup</key>
+				<dict>
+					<key>begin</key>
+					<string>\b(precedencegroup)\s+((?&lt;q&gt;`?)[\p{L}_][\p{L}_\p{N}\p{M}]*(\k&lt;q&gt;))\s*(?=\{)</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>storage.type.precedencegroup.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.type.precedencegroup.swift</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.identifier.swift</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.identifier.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?!\G)</string>
+					<key>name</key>
+					<string>meta.definition.precedencegroup.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>\{</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.precedencegroup.begin.swift</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>\}</string>
+							<key>endCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.precedencegroup.end.swift</string>
+								</dict>
+							</dict>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#comments</string>
+								</dict>
+								<dict>
+									<key>captures</key>
+									<dict>
+										<key>1</key>
+										<dict>
+											<key>name</key>
+											<string>storage.modifier.swift</string>
+										</dict>
+										<key>2</key>
+										<dict>
+											<key>name</key>
+											<string>entity.other.inherited-class.swift</string>
+											<key>patterns</key>
+											<array>
+												<dict>
+													<key>include</key>
+													<string>#types-precedencegroup</string>
+												</dict>
+											</array>
+										</dict>
+										<key>3</key>
+										<dict>
+											<key>name</key>
+											<string>punctuation.definition.identifier.swift</string>
+										</dict>
+										<key>4</key>
+										<dict>
+											<key>name</key>
+											<string>punctuation.definition.identifier.swift</string>
+										</dict>
+									</dict>
+									<key>match</key>
+									<string>\b(higherThan|lowerThan)\s*:\s*((?&lt;q&gt;`?)[\p{L}_][\p{L}_\p{N}\p{M}]*(\k&lt;q&gt;))</string>
+								</dict>
+								<dict>
+									<key>captures</key>
+									<dict>
+										<key>1</key>
+										<dict>
+											<key>name</key>
+											<string>storage.modifier.swift</string>
+										</dict>
+										<key>2</key>
+										<dict>
+											<key>name</key>
+											<string>keyword.other.operator.associativity.swift</string>
+										</dict>
+									</dict>
+									<key>match</key>
+									<string>\b(associativity)\b(?:\s*:\s*(right|left|none)\b)?</string>
+								</dict>
+								<dict>
+									<key>captures</key>
+									<dict>
+										<key>1</key>
+										<dict>
+											<key>name</key>
+											<string>storage.modifier.swift</string>
+										</dict>
+										<key>2</key>
+										<dict>
+											<key>name</key>
+											<string>constant.language.boolean.swift</string>
+										</dict>
+									</dict>
+									<key>match</key>
+									<string>\b(assignment)\b(?:\s*:\s*(true|false)\b)?</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+				</dict>
+				<key>types-precedencegroup</key>
+				<dict>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>comment</key>
+							<string>Precedence groups in the standard library</string>
+							<key>match</key>
+							<string>\b(?:BitwiseShift|Assignment|RangeFormation|Casting|Addition|NilCoalescing|Comparison|LogicalConjunction|LogicalDisjunction|Default|Ternary|Multiplication|FunctionArrow)Precedence\b</string>
+							<key>name</key>
+							<string>support.type.swift</string>
 						</dict>
 					</array>
 				</dict>
