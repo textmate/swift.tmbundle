@@ -168,6 +168,13 @@
 			<key>name</key>
 			<string>keyword.operator.bitwise.swift</string>
 		</dict>
+		<key>boolean-literal</key>
+		<dict>
+			<key>match</key>
+			<string>\b(true|false)\b</string>
+			<key>name</key>
+			<string>constant.language.boolean.swift</string>
+		</dict>
 		<key>builtin-class-type</key>
 		<dict>
 			<key>comment</key>
@@ -546,6 +553,36 @@
 			<array>
 				<dict>
 					<key>begin</key>
+					<string>^\s*(#if|#elseif)\s+(false)\b.*$</string>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>meta.preprocessor.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>constant.language.boolean.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>^\s*(#endif)\b</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string></string>
+							<key>end</key>
+							<string>(?=^\s*#endif\b)</string>
+							<key>name</key>
+							<string>comment.block.preprocessor.swift</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
 					<string>^\s*(?:#if|#elseif)\s+</string>
 					<key>end</key>
 					<string>(?=\s*(?://|/\*))|$</string>
@@ -556,6 +593,10 @@
 						<dict>
 							<key>include</key>
 							<string>#logical-operator</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#boolean-literal</string>
 						</dict>
 						<dict>
 							<key>captures</key>
@@ -1427,10 +1468,8 @@
 					<string>#string-literal</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>\b(true|false)\b</string>
-					<key>name</key>
-					<string>constant.language.boolean.swift</string>
+					<key>include</key>
+					<string>#boolean-literal</string>
 				</dict>
 				<dict>
 					<key>match</key>
