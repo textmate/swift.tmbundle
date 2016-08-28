@@ -275,6 +275,296 @@
 				</dict>
 			</array>
 		</dict>
+		<key>builtin-functions</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>comment</key>
+					<string>Member functions in the standard library in Swift 3 which may be used with trailing closures and no parentheses</string>
+					<key>match</key>
+					<string>(?&lt;=\.)(?:s(?:ort(?:ed)?|plit)|contains|index|partition|f(?:i(?:lter|rst)|orEach|latMap)|with(?:MutableCharacters|CString|U(?:nsafe(?:Mutable(?:BufferPointer|Pointer(?:s|To(?:Header|Elements)))|BufferPointer)|TF8Buffer))|m(?:in|a(?:p|x)))(?=\s*[({])\b</string>
+					<key>name</key>
+					<string>support.function.swift</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>Member functions in the standard library in Swift 3</string>
+					<key>match</key>
+					<string>(?&lt;=\.)(?:s(?:ymmetricDifference|t(?:oreBytes|arts|ride)|ortInPlace|u(?:ccessor|ffix|btract(?:ing|InPlace|WithOverflow)?)|quareRoot|amePosition)|h(?:oldsUnique(?:Reference|OrPinnedReference)|as(?:Suffix|Prefix))|ne(?:gate(?:d)?|xt)|c(?:o(?:untByEnumerating|py(?:Bytes)?)|lamp(?:ed)?|reate)|t(?:o(?:IntMax|Opaque|UIntMax)|ake(?:RetainedValue|UnretainedValue)|r(?:uncatingRemainder|a(?:nscodedLength|ilSurrogate)))|i(?:s(?:MutableAndUniquelyReferenced(?:OrPinned)?|S(?:trictSu(?:perset(?:Of)?|bset(?:Of)?)|u(?:perset(?:Of)?|bset(?:Of)?))|Continuation|T(?:otallyOrdered|railSurrogate)|Disjoint(?:With)?|Unique(?:Reference|lyReferenced(?:OrPinned)?)|Equal|Le(?:ss(?:ThanOrEqualTo)?|adSurrogate))|n(?:sert(?:ContentsOf)?|tersect(?:ion|InPlace)?|itialize(?:Memory|From)?|dex(?:Of|ForKey)))|o(?:verlaps|bjectAt)|d(?:i(?:stance(?:To)?|vide(?:d|WithOverflow)?)|e(?:s(?:cendant|troy)|code(?:CString)?|initialize|alloc(?:ate(?:Capacity)?)?)|rop(?:First|Last))|u(?:n(?:ion(?:InPlace)?|derestimateCount|wrappedOrError)|p(?:date(?:Value)?|percased))|join(?:ed|WithSeparator)|p(?:op(?:First|Last)|ass(?:Retained|Unretained)|re(?:decessor|fix))|e(?:scape(?:d)?|n(?:code|umerate(?:d)?)|lementsEqual|xclusiveOr(?:InPlace)?)|f(?:orm(?:Remainder|S(?:ymmetricDifference|quareRoot)|TruncatingRemainder|In(?:tersection|dex)|Union)|latten|rom(?:CString(?:RepairingIllFormedUTF8)?|Opaque))|w(?:i(?:thMemoryRebound|dth)|rite(?:To)?)|l(?:o(?:wercased|ad)|e(?:adSurrogate|xicographical(?:Compare|lyPrecedes)))|a(?:ss(?:ign(?:BackwardFrom|From)?|umingMemoryBound)|d(?:d(?:ing(?:Product)?|Product|WithOverflow)?|vanced(?:By)?)|utorelease|ppend(?:ContentsOf)?|lloc(?:ate)?|bs)|r(?:ound(?:ed)?|e(?:serveCapacity|tain|duce|place(?:Range|Subrange)?|verse(?:d)?|quest(?:NativeBuffer|UniqueMutableBackingBuffer)|lease|m(?:ove(?:Range|Subrange|Value(?:ForKey)?|First|Last|A(?:tIndex|ll))?|ainder(?:WithOverflow)?)))|ge(?:nerate|t(?:Objects|Element))|m(?:in(?:imum(?:Magnitude)?|Element)|ove(?:Initialize(?:Memory|BackwardFrom|From)?|Assign(?:From)?)?|ultipl(?:y(?:WithOverflow)?|ied)|easure|a(?:ke(?:Iterator|Description)|x(?:imum(?:Magnitude)?|Element)))|bindMemory)(?=\s*\()</string>
+					<key>name</key>
+					<string>support.function.swift</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>Member functions in the standard library in Swift 2 only</string>
+					<key>match</key>
+					<string>(?&lt;=\.)(?:s(?:uperclassMirror|amePositionIn|tartsWith)|nextObject|c(?:haracterAtIndex|o(?:untByEnumeratingWithState|pyWithZone)|ustom(?:Mirror|PlaygroundQuickLook))|is(?:EmptyInput|ASCII)|object(?:Enumerator|ForKey|AtIndex)|join|put|keyEnumerator|withUnsafeMutablePointerToValue|length|getMirror|m(?:oveInitializeAssignFrom|ember))(?=\s*\()</string>
+					<key>name</key>
+					<string>support.function.swift</string>
+				</dict>
+			</array>
+		</dict>
+		<key>builtin-global-functions</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>\b(type)(\()\s*(of)(:)</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>support.function.dynamic-type.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.arguments.begin.swift</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>support.variable.parameter.swift</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.separator.argument-label.begin.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\)</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.arguments.end.swift</string>
+						</dict>
+					</dict>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#expressions</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>Global functions available in Swift 3 which may be used with trailing closures and no parentheses</string>
+					<key>match</key>
+					<string>\b(?:anyGenerator|autoreleasepool)(?=\s*[({])\b</string>
+					<key>name</key>
+					<string>support.function.swift</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>Global functions available in Swift 3</string>
+					<key>match</key>
+					<string>\b(?:s(?:tride(?:of(?:Value)?)?|izeof(?:Value)?|equence|wap)|numericCast|transcode|is(?:UniquelyReferenced(?:NonObjC)?|KnownUniquelyReferenced)|zip|d(?:ump|ebugPrint)|unsafe(?:BitCast|Downcast|Unwrap|Address(?:Of)?)|pr(?:int|econdition(?:Failure)?)|fatalError|with(?:Unsafe(?:MutablePointer|Pointer)|ExtendedLifetime|VaList)|a(?:ssert(?:ionFailure)?|lignof(?:Value)?|bs)|re(?:peatElement|adLine)|getVaList|m(?:in|ax))(?=\s*\()</string>
+					<key>name</key>
+					<string>support.function.swift</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>Global functions available in Swift 2 only</string>
+					<key>match</key>
+					<string>\b(?:s(?:ort|uffix|pli(?:ce|t))|insert|overlaps|d(?:istance|rop(?:First|Last))|join|prefix|extend|withUnsafe(?:MutablePointers|Pointers)|lazy|advance|re(?:flect|move(?:Range|Last|A(?:tIndex|ll))))(?=\s*\()</string>
+					<key>name</key>
+					<string>support.function.swift</string>
+				</dict>
+			</array>
+		</dict>
+		<key>builtin-properties</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>(?&lt;=\bProcess\.|\bCommandLine\.)(arguments|argc|unsafeArgv)</string>
+					<key>name</key>
+					<string>support.variable.swift</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>Properties in the standard library in Swift 3</string>
+					<key>match</key>
+					<string>(?&lt;=\.)(?:s(?:t(?:artIndex|ri(?:ngValue|de))|i(?:ze|gn(?:BitIndex|ificand(?:Bit(?:Count|Pattern)|Width)?|alingNaN)?)|u(?:perclassMirror|mmary|bscriptBaseAddress))|h(?:eader|as(?:hValue|PointerRepresentation))|n(?:ulTerminatedUTF8|ext(?:Down|Up)|a(?:n|tiveOwner))|c(?:haracters|ount(?:TrailingZeros)?|ustom(?:Mirror|PlaygroundQuickLook)|apacity)|i(?:s(?:S(?:ign(?:Minus|aling(?:NaN)?)|ubnormal)|N(?:ormal|aN)|Canonical|Infinite|Zero|Empty|Finite|ASCII)|n(?:dices|finity)|dentity)|owner|de(?:scription|bugDescription)|u(?:n(?:safelyUnwrapped|icodeScalar(?:s)?|derestimatedCount)|tf(?:16|8(?:Start|C(?:String|odeUnitCount))?)|intValue|ppercaseString|lp(?:OfOne)?)|p(?:i|ointee)|e(?:ndIndex|lements|xponent(?:Bit(?:Count|Pattern))?)|value(?:s)?|keys|quietNaN|f(?:irst(?:ElementAddress(?:IfContiguous)?)?|loatingPointClass)|l(?:ittleEndian|owercaseString|eastNo(?:nzeroMagnitude|rmalMagnitude)|a(?:st|zy))|a(?:l(?:ignment|l(?:ocatedElementCount|Zeros))|rray(?:PropertyIsNativeTypeChecked)?)|ra(?:dix|wValue)|greatestFiniteMagnitude|m(?:in|emory|ax)|b(?:yteS(?:ize|wapped)|i(?:nade|tPattern|gEndian)|uffer|ase(?:Address)?))\b</string>
+					<key>name</key>
+					<string>support.variable.swift</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>Properties in the standard library in Swift 2 only</string>
+					<key>match</key>
+					<string>(?&lt;=\.)(?:boolValue|disposition|end|objectIdentifier|quickLookObject|start|valueType)\b</string>
+					<key>name</key>
+					<string>support.variable.swift</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>Enum cases in the standard library - note that there is some overlap between these and the properties</string>
+					<key>match</key>
+					<string>(?&lt;=\.)(?:s(?:calarValue|i(?:ze|gnalingNaN)|o(?:und|me)|uppressed|prite|et)|n(?:one|egative(?:Subnormal|Normal|Infinity|Zero))|c(?:ol(?:or|lection)|ustomized)|t(?:o(?:NearestOr(?:Even|AwayFromZero)|wardZero)|uple|ext)|i(?:nt|mage)|optional|d(?:ictionary|o(?:uble|wn))|u(?:Int|p|rl)|p(?:o(?:sitive(?:Subnormal|Normal|Infinity|Zero)|int)|lus)|e(?:rror|mptyInput)|view|quietNaN|float|a(?:ttributedString|wayFromZero)|r(?:ectangle|ange)|generated|minus|b(?:ool|ezierPath))\b</string>
+					<key>name</key>
+					<string>support.variable.swift</string>
+				</dict>
+			</array>
+		</dict>
+		<key>builtin-types</key>
+		<dict>
+			<key>comment</key>
+			<string>Types provided in the standard library</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#builtin-class-type</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#builtin-enum-type</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#builtin-protocol-type</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#builtin-struct-type</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#builtin-typealias</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\bAny\b</string>
+					<key>name</key>
+					<string>support.type.any.swift</string>
+				</dict>
+			</array>
+			<key>repository</key>
+			<dict>
+				<key>builtin-class-type</key>
+				<dict>
+					<key>comment</key>
+					<string>Builtin class types</string>
+					<key>match</key>
+					<string>\b(Managed(Buffer|ProtoBuffer)|NonObjectiveCBase|AnyGenerator)\b</string>
+					<key>name</key>
+					<string>support.class.swift</string>
+				</dict>
+				<key>builtin-enum-type</key>
+				<dict>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>comment</key>
+							<string>CommandLine is an enum, but it acts like a constant</string>
+							<key>match</key>
+							<string>\b(?:CommandLine|Process(?=\.))\b</string>
+							<key>name</key>
+							<string>support.constant.swift</string>
+						</dict>
+						<dict>
+							<key>comment</key>
+							<string>The return type of a function that never returns</string>
+							<key>match</key>
+							<string>\bNever\b</string>
+							<key>name</key>
+							<string>support.constant.never.swift</string>
+						</dict>
+						<dict>
+							<key>comment</key>
+							<string>Enum types in the standard library in Swift 3</string>
+							<key>match</key>
+							<string>\b(?:ImplicitlyUnwrappedOptional|Representation|MemoryLayout|FloatingPointClassification|SetIndexRepresentation|SetIteratorRepresentation|FloatingPointRoundingRule|UnicodeDecodingResult|Optional|DictionaryIndexRepresentation|AncestorRepresentation|DisplayStyle|PlaygroundQuickLook|Never|FloatingPointSign|Bit|DictionaryIteratorRepresentation)\b</string>
+							<key>name</key>
+							<string>support.type.swift</string>
+						</dict>
+						<dict>
+							<key>comment</key>
+							<string>Enum types in the standard library in Swift 2 only</string>
+							<key>match</key>
+							<string>\b(?:MirrorDisposition|QuickLookObject)\b</string>
+							<key>name</key>
+							<string>support.type.swift</string>
+						</dict>
+					</array>
+				</dict>
+				<key>builtin-protocol-type</key>
+				<dict>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>comment</key>
+							<string>Protocols in the standard library in Swift 3</string>
+							<key>match</key>
+							<string>\b(?:Ra(?:n(?:domAccess(?:Collection|Indexable)|geReplaceable(?:Collection|Indexable))|wRepresentable)|M(?:irrorPath|utable(?:Collection|Indexable))|Bi(?:naryFloatingPoint|twiseOperations|directional(?:Collection|Indexable))|S(?:tr(?:ideable|eamable)|igned(?:Number|Integer)|e(?:tAlgebra|quence))|Hashable|C(?:o(?:llection|mparable)|ustom(?:Reflectable|StringConvertible|DebugStringConvertible|PlaygroundQuickLookable|LeafReflectable)|VarArg)|TextOutputStream|I(?:n(?:teger(?:Arithmetic)?|dexable(?:Base)?)|teratorProtocol)|OptionSet|Un(?:signedInteger|icodeCodec)|E(?:quatable|rror|xpressibleBy(?:BooleanLiteral|String(?:Interpolation|Literal)|NilLiteral|IntegerLiteral|DictionaryLiteral|UnicodeScalarLiteral|ExtendedGraphemeClusterLiteral|FloatLiteral|ArrayLiteral))|FloatingPoint|L(?:osslessStringConvertible|azy(?:SequenceProtocol|CollectionProtocol))|A(?:nyObject|bsoluteValuable))\b</string>
+							<key>name</key>
+							<string>support.type.swift</string>
+						</dict>
+						<dict>
+							<key>comment</key>
+							<string>Protocols in the standard library in Swift 2 only</string>
+							<key>match</key>
+							<string>\b(?:Ran(?:domAccessIndexType|geReplaceableCollectionType)|GeneratorType|M(?:irror(?:Type|PathType)|utable(?:Sliceable|CollectionType))|B(?:i(?:twiseOperationsType|directionalIndexType)|oolean(?:Type|LiteralConvertible))|S(?:tring(?:InterpolationConvertible|LiteralConvertible)|i(?:nkType|gned(?:NumberType|IntegerType))|e(?:tAlgebraType|quenceType)|liceable)|NilLiteralConvertible|C(?:ollectionType|VarArgType)|Inte(?:rvalType|ger(?:Type|LiteralConvertible|ArithmeticType))|O(?:utputStreamType|ptionSetType)|DictionaryLiteralConvertible|Un(?:signedIntegerType|icode(?:ScalarLiteralConvertible|CodecType))|E(?:rrorType|xten(?:sibleCollectionType|dedGraphemeClusterLiteralConvertible))|F(?:orwardIndexType|loat(?:ingPointType|LiteralConvertible))|A(?:nyCollectionType|rrayLiteralConvertible))\b</string>
+							<key>name</key>
+							<string>support.type.swift</string>
+						</dict>
+					</array>
+				</dict>
+				<key>builtin-struct-type</key>
+				<dict>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>comment</key>
+							<string>Structs in the standard library in Swift 3</string>
+							<key>match</key>
+							<string>\b(?:R(?:e(?:peat(?:ed)?|versed(?:RandomAccess(?:Collection|Index)|Collection|Index))|an(?:domAccessSlice|ge(?:Replaceable(?:RandomAccessSlice|BidirectionalSlice|Slice)|Generator)?))|Generator(?:Sequence|OfOne)|M(?:irror|utable(?:Ran(?:domAccessSlice|geReplaceable(?:RandomAccessSlice|BidirectionalSlice|Slice))|BidirectionalSlice|Slice)|anagedBufferPointer)|B(?:idirectionalSlice|ool)|S(?:t(?:aticString|ri(?:ng|deT(?:hrough(?:Generator|Iterator)?|o(?:Generator|Iterator)?)))|et(?:I(?:ndex|terator))?|lice)|HalfOpenInterval|C(?:haracter(?:View)?|o(?:ntiguousArray|untable(?:Range|ClosedRange)|llectionOfOne)|OpaquePointer|losed(?:Range(?:I(?:ndex|terator))?|Interval)|VaListPointer)|I(?:n(?:t(?:16|8|32|64)?|d(?:ices|ex(?:ing(?:Generator|Iterator))?))|terator(?:Sequence|OverOne)?)|Zip2(?:Sequence|Iterator)|O(?:paquePointer|bjectIdentifier)|D(?:ictionary(?:I(?:ndex|terator)|Literal)?|ouble|efault(?:RandomAccessIndices|BidirectionalIndices|Indices))|U(?:n(?:safe(?:RawPointer|Mutable(?:RawPointer|BufferPointer|Pointer)|BufferPointer(?:Generator|Iterator)?|Pointer)|icodeScalar(?:View)?|foldSequence|managed)|TF(?:16(?:View)?|8(?:View)?|32)|Int(?:16|8|32|64)?)|Join(?:Generator|ed(?:Sequence|Iterator))|PermutationGenerator|E(?:numerate(?:Generator|Sequence|d(?:Sequence|Iterator))|mpty(?:Generator|Collection|Iterator))|Fl(?:oat(?:80)?|atten(?:Generator|BidirectionalCollection(?:Index)?|Sequence|Collection(?:Index)?|Iterator))|L(?:egacyChildren|azy(?:RandomAccessCollection|Map(?:RandomAccessCollection|Generator|BidirectionalCollection|Sequence|Collection|Iterator)|BidirectionalCollection|Sequence|Collection|Filter(?:Generator|BidirectionalCollection|Sequence|Collection|I(?:ndex|terator))))|A(?:ny(?:RandomAccessCollection|Generator|BidirectionalCollection|Sequence|Hashable|Collection|I(?:ndex|terator))|utoreleasingUnsafeMutablePointer|rray(?:Slice)?))\b</string>
+							<key>name</key>
+							<string>support.type.swift</string>
+						</dict>
+						<dict>
+							<key>comment</key>
+							<string>Structs in the standard library in Swift 2 only</string>
+							<key>match</key>
+							<string>\b(?:R(?:everse(?:RandomAccess(?:Collection|Index)|Collection|Index)|awByte)|Map(?:Generator|Sequence|Collection)|S(?:inkOf|etGenerator)|Zip2Generator|DictionaryGenerator|Filter(?:Generator|Sequence|Collection(?:Index)?)|LazyForwardCollection|Any(?:RandomAccessIndex|BidirectionalIndex|Forward(?:Collection|Index)))\b</string>
+							<key>name</key>
+							<string>support.type.swift</string>
+						</dict>
+					</array>
+				</dict>
+				<key>builtin-typealias</key>
+				<dict>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>comment</key>
+							<string>Typealiases in the standard library in Swift 3</string>
+							<key>match</key>
+							<string>\b(?:Raw(?:Significand|Exponent|Value)|B(?:ooleanLiteralType|uffer|ase)|S(?:t(?:orage|r(?:i(?:ngLiteralType|de)|eam(?:1|2)))|ubSequence)|NativeBuffer|C(?:hild(?:ren)?|Bool|S(?:hort|ignedChar)|odeUnit|Char(?:16|32)?|Int|Double|Unsigned(?:Short|Char|Int|Long(?:Long)?)|Float|WideChar|Long(?:Long)?)|I(?:n(?:t(?:Max|egerLiteralType)|d(?:ices|ex(?:Distance)?))|terator)|Distance|U(?:n(?:icodeScalar(?:Type|Index|View|LiteralType)|foldFirstSequence)|TF(?:16(?:Index|View)|8Index)|IntMax)|E(?:lement(?:s)?|x(?:tendedGraphemeCluster(?:Type|LiteralType)|ponent))|V(?:oid|alue)|Key|Float(?:32|LiteralType|64)|AnyClass)\b</string>
+							<key>name</key>
+							<string>support.type.swift</string>
+						</dict>
+						<dict>
+							<key>comment</key>
+							<string>Typealiases in the standard library in Swift 2 only</string>
+							<key>match</key>
+							<string>\b(?:Generator|PlaygroundQuickLook|UWord|Word)\b</string>
+							<key>name</key>
+							<string>support.type.swift</string>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
 		<key>code-block</key>
 		<dict>
 			<key>begin</key>
@@ -840,6 +1130,22 @@
 				<dict>
 					<key>include</key>
 					<string>#operators</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#builtin-types</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#builtin-functions</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#builtin-global-functions</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#builtin-properties</string>
 				</dict>
 				<dict>
 					<key>include</key>
