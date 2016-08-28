@@ -160,13 +160,6 @@
 			<key>name</key>
 			<string>keyword.operator.bitwise.swift</string>
 		</dict>
-		<key>boolean-literal</key>
-		<dict>
-			<key>match</key>
-			<string>\b(true|false)\b</string>
-			<key>name</key>
-			<string>constant.language.boolean.swift</string>
-		</dict>
 		<key>builtin-class-type</key>
 		<dict>
 			<key>comment</key>
@@ -719,7 +712,7 @@
 						</dict>
 						<dict>
 							<key>include</key>
-							<string>#boolean-literal</string>
+							<string>#literal-boolean</string>
 						</dict>
 						<dict>
 							<key>captures</key>
@@ -1771,15 +1764,15 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#numeric-literal</string>
+					<string>#literal-numeric</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#string-literal</string>
+					<string>#literal-string</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#boolean-literal</string>
+					<string>#literal-boolean</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -1797,48 +1790,14 @@
 				</dict>
 			</array>
 		</dict>
-		<key>logical-operator</key>
+		<key>literal-boolean</key>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;![/=\-+!*%&lt;&gt;&amp;|\^~.])(!|&amp;&amp;|\|\|)(?![/=\-+!*%&lt;&gt;&amp;|\^~.])</string>
+			<string>\b(true|false)\b</string>
 			<key>name</key>
-			<string>keyword.operator.logical.swift</string>
+			<string>constant.language.boolean.swift</string>
 		</dict>
-		<key>nested-braces</key>
-		<dict>
-			<key>begin</key>
-			<string>(\{)</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.section.scope.begin.swift</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(\})</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.section.scope.end.swift</string>
-				</dict>
-			</dict>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>$self</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#nested-braces</string>
-				</dict>
-			</array>
-		</dict>
-		<key>numeric-literal</key>
+		<key>literal-numeric</key>
 		<dict>
 			<key>patterns</key>
 			<array>
@@ -1933,6 +1892,163 @@
 					<string>(\B\-|\b)[0-9][\w.]*</string>
 					<key>name</key>
 					<string>invalid.illegal.numeric.other.swift</string>
+				</dict>
+			</array>
+		</dict>
+		<key>literal-string</key>
+		<dict>
+			<key>begin</key>
+			<string>"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.swift</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>"</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.swift</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.double.swift</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.escape.swift</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(\\)[0\\tnr"']</string>
+					<key>name</key>
+					<string>constant.character.escape.swift</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.escape.swift</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(\\)u\{\h{1,8}\}</string>
+					<key>name</key>
+					<string>constant.character.escape.swift</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\\\(</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.embedded.begin.swift</string>
+						</dict>
+					</dict>
+					<key>contentName</key>
+					<string>source.swift</string>
+					<key>end</key>
+					<string>\)</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.embedded.end.swift</string>
+						</dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>source.swift</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>meta.embedded.line.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>$self</string>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>\(</string>
+							<key>comment</key>
+							<string>Nested parens</string>
+							<key>end</key>
+							<string>\)</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.escape.swift</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(\\).</string>
+					<key>name</key>
+					<string>invalid.illegal.unrecognized-escape.swift</string>
+				</dict>
+			</array>
+		</dict>
+		<key>logical-operator</key>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;![/=\-+!*%&lt;&gt;&amp;|\^~.])(!|&amp;&amp;|\|\|)(?![/=\-+!*%&lt;&gt;&amp;|\^~.])</string>
+			<key>name</key>
+			<string>keyword.operator.logical.swift</string>
+		</dict>
+		<key>nested-braces</key>
+		<dict>
+			<key>begin</key>
+			<string>(\{)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.section.scope.begin.swift</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(\})</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.section.scope.end.swift</string>
+				</dict>
+			</dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>$self</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#nested-braces</string>
 				</dict>
 			</array>
 		</dict>
@@ -2164,122 +2280,6 @@
 			<string>^(#!).*$</string>
 			<key>name</key>
 			<string>comment.line.shebang.swift</string>
-		</dict>
-		<key>string-literal</key>
-		<dict>
-			<key>begin</key>
-			<string>"</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.swift</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>"</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.swift</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>string.quoted.double.swift</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>captures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.escape.swift</string>
-						</dict>
-					</dict>
-					<key>match</key>
-					<string>(\\)[0\\tnr"']</string>
-					<key>name</key>
-					<string>constant.character.escape.swift</string>
-				</dict>
-				<dict>
-					<key>captures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.escape.swift</string>
-						</dict>
-					</dict>
-					<key>match</key>
-					<string>(\\)u\{\h{1,8}\}</string>
-					<key>name</key>
-					<string>constant.character.escape.swift</string>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>\\\(</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.section.embedded.begin.swift</string>
-						</dict>
-					</dict>
-					<key>contentName</key>
-					<string>source.swift</string>
-					<key>end</key>
-					<string>\)</string>
-					<key>endCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.section.embedded.end.swift</string>
-						</dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>source.swift</string>
-						</dict>
-					</dict>
-					<key>name</key>
-					<string>meta.embedded.line.swift</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>$self</string>
-						</dict>
-						<dict>
-							<key>begin</key>
-							<string>\(</string>
-							<key>comment</key>
-							<string>Nested parens</string>
-							<key>end</key>
-							<string>\)</string>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>captures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.escape.swift</string>
-						</dict>
-					</dict>
-					<key>match</key>
-					<string>(\\).</string>
-					<key>name</key>
-					<string>invalid.illegal.unrecognized-escape.swift</string>
-				</dict>
-			</array>
 		</dict>
 		<key>ternary-operator</key>
 		<dict>
