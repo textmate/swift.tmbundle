@@ -280,6 +280,20 @@
 				</dict>
 			</array>
 		</dict>
+		<key>builtin-precedencegroup</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>comment</key>
+					<string>Precedence groups in the standard library</string>
+					<key>match</key>
+					<string>\b(?:BitwiseShift|Assignment|RangeFormation|Casting|Addition|NilCoalescing|Comparison|LogicalConjunction|LogicalDisjunction|Default|Ternary|Multiplication|FunctionArrow)Precedence\b</string>
+					<key>name</key>
+					<string>support.type.swift</string>
+				</dict>
+			</array>
+		</dict>
 		<key>builtin-property</key>
 		<dict>
 			<key>patterns</key>
@@ -1156,6 +1170,13 @@
 				<dict>
 					<key>name</key>
 					<string>entity.other.inherited-class.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#builtin-precedencegroup</string>
+						</dict>
+					</array>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -1219,6 +1240,13 @@
 								<dict>
 									<key>name</key>
 									<string>entity.other.inherited-class.swift</string>
+									<key>patterns</key>
+									<array>
+										<dict>
+											<key>include</key>
+											<string>#builtin-precedencegroup</string>
+										</dict>
+									</array>
 								</dict>
 							</dict>
 							<key>match</key>
