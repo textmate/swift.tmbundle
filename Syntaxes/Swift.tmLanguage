@@ -1358,7 +1358,7 @@
 		<key>declaration-type</key>
 		<dict>
 			<key>begin</key>
-			<string>\b(class|struct|enum)\s+((?!\d)\w[\w\d]*\b|\B`(?!\d)\w[\w\d]*`\B)</string>
+			<string>\b(class(?!\s+(?:func|var|let)\b)|struct|enum)\s+((?!\d)\w[\w\d]*\b|\B`(?!\d)\w[\w\d]*`\B)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
