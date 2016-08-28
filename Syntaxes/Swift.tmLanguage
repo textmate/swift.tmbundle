@@ -1237,6 +1237,35 @@
 				</dict>
 			</array>
 		</dict>
+		<key>declaration-typealias</key>
+		<dict>
+			<key>begin</key>
+			<string>\b(typealias)\s+((?!\d)\w[\w\d]*\b|\B`(?!\d)\w[\w\d]*`\B)\s*(?=[&lt;=])</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other.declaration-specifier.swift</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.type.typealias.swift</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?!\G)</string>
+			<key>name</key>
+			<string>meta.definition.typealias.swift</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#generic-parameter-list</string>
+				</dict>
+			</array>
+		</dict>
 		<key>function-result</key>
 		<dict>
 			<key>begin</key>
