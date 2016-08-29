@@ -1708,9 +1708,9 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(?:class|enum|extension|protocol|struct)\b</string>
+					<string>\b(class|enum|extension|precedencegroup|protocol|struct)\b</string>
 					<key>name</key>
-					<string>storage.type.class.swift</string>
+					<string>storage.type.$1.swift</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -1755,6 +1755,12 @@
 					<string>\b(?:dynamicType|Protocol|Type)\b</string>
 					<key>name</key>
 					<string>keyword.operator.other.swift</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\bimport\b</string>
+					<key>name</key>
+					<string>keyword.control.import.swift</string>
 				</dict>
 			</array>
 		</dict>
