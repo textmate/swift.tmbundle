@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>{$1}${2: }catch ${3:MyError}${3/.+/ /}{$0}</string>
+	<key>keyEquivalent</key>
+	<string>{</string>
+	<key>name</key>
+	<string>Complete do-catch block</string>
+	<key>scope</key>
+	<string>source.swift &amp; L:punctuation.whitespace.trailing.do</string>
+	<key>uuid</key>
+	<string>0A17AEB8-7E96-4620-90B0-050A20137BC9</string>
+</dict>
+</plist>

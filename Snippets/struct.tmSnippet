@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>struct ${1:name} {
-	$2
+	<string>struct ${1:Box&lt;Wrapped&gt;}${2/.*(\S).*|.*/(?1:\: )/m}${2:MyProtocol}${3/.*(\S).*|.*/(?1: where )/m}${3:${1/.*&lt;(\w+).*&gt;.*|.*/(?1:$1\: ConformsTo)/m}} {
+	$0
 }</string>
 	<key>name</key>
 	<string>struct</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>struct</string>
+	<string>st</string>
 	<key>uuid</key>
-	<string>7A034E84-6BF5-4894-9BFF-928F80C173D9</string>
+	<string>76E0FE59-1693-4C35-91DE-999DF92C7AFF</string>
 </dict>
 </plist>

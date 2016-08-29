@@ -1473,13 +1473,22 @@
 				<key>function-initializer</key>
 				<dict>
 					<key>begin</key>
-					<string>(?&lt;!\.)\b(init[?!]?)\s*(?=\(|&lt;)</string>
+					<string>(?&lt;!\.)\b(init[?!]*(?# only one is valid, but we want the in⇥ snippet to produce something that looks good))\s*(?=\(|&lt;)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
 							<string>storage.type.function.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>match</key>
+									<string>(?&lt;=[?!])[?!]+</string>
+									<key>name</key>
+									<string>invalid.illegal.character-not-allowed-here.swift</string>
+								</dict>
+							</array>
 						</dict>
 					</dict>
 					<key>end</key>
@@ -3324,9 +3333,28 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;!\.)\b(?:while|repeat|for|in)\b</string>
+					<string>(?&lt;!\.)\b(?:while|for|in)\b</string>
 					<key>name</key>
 					<string>keyword.control.loop.swift</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.loop.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.whitespace.trailing.repeat.swift</string>
+						</dict>
+					</dict>
+					<key>comment</key>
+					<string>extra scopes for repeat-while snippet</string>
+					<key>match</key>
+					<string>(?&lt;!\.)\b(repeat)\b(\s*)</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -3336,9 +3364,28 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;!\.)\b(?:do|catch|throws?|rethrows|try)\b|\btry[?!]\B</string>
+					<string>(?&lt;!\.)\b(?:catch|throws?|rethrows|try)\b|\btry[?!]\B</string>
 					<key>name</key>
 					<string>keyword.control.exception.swift</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.exception.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.whitespace.trailing.do.swift</string>
+						</dict>
+					</dict>
+					<key>comment</key>
+					<string>extra scopes for do-catch snippet</string>
+					<key>match</key>
+					<string>(?&lt;!\.)\b(do)\b(\s*)</string>
 				</dict>
 				<dict>
 					<key>match</key>

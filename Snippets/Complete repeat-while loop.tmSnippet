@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>{$1} while ${0:condition}</string>
+	<key>keyEquivalent</key>
+	<string>{</string>
+	<key>name</key>
+	<string>Complete repeat-while loop</string>
+	<key>scope</key>
+	<string>source.swift &amp; L:punctuation.whitespace.trailing.repeat</string>
+	<key>uuid</key>
+	<string>98EE3C43-4470-48F9-8B80-FB3F53D71E87</string>
+</dict>
+</plist>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Typing Pairs: Generic Parameters</string>
+	<key>scope</key>
+	<string>source.swift &amp; (L:entity.name.type | L:entity.name.function | L:storage.type.function.init.swift)</string>
+	<key>settings</key>
+	<dict>
+		<key>smartTypingPairs</key>
+		<array>
+			<array>
+				<string>&lt;</string>
+				<string>&gt;</string>
+			</array>
+			<array>
+				<string>{</string>
+				<string>}</string>
+			</array>
+			<array>
+				<string>(</string>
+				<string>)</string>
+			</array>
+		</array>
+	</dict>
+	<key>uuid</key>
+	<string>7E7CE79B-61CD-4007-BA15-A89D8CC2E44D</string>
+</dict>
+</plist>

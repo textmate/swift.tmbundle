@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>func ${1:name}(${2:arguments}) -&gt; ${3:ReturnType} {
-	$4
+	<string>func ${1:doSomething&lt;Value&gt;}(${2:with value: Value})${3/.+/ /m}${3:${2/.*\b(throws)\b.*|.*/(?1:re)/m}throws}${4/.+/ -&gt; /m}${4:Result}${5/.*(\S).*|.*/(?1: where )/m}${5:${1/.+&lt;(\w+).*&gt;.*|.*/(?1:$1\: ConformsTo)/m}} {
+	$6
 }</string>
 	<key>name</key>
 	<string>func</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>func</string>
+	<string>fu</string>
 	<key>uuid</key>
-	<string>FC5F13CE-FB75-4486-891A-F430BA81C528</string>
+	<string>A36FDE95-9903-40D0-8EA9-2222A3CFEF1F</string>
 </dict>
 </plist>

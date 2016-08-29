@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>switch ${1:control expression} {
+	<string>switch ${1:value} {
 case ${2:pattern}:
 	$3
 }</string>
@@ -12,7 +12,7 @@ case ${2:pattern}:
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>switch</string>
+	<string>sw</string>
 	<key>uuid</key>
 	<string>DD4EAC43-BA46-499B-9A3C-88F89B1F69F7</string>
 </dict>

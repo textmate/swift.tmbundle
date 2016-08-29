@@ -7,43 +7,44 @@
 	<key>contactName</key>
 	<string>Michael Sheets</string>
 	<key>description</key>
-	<string>Programming language for Cocoa and Cocoa Touch</string>
+	<string>Swift is a general-purpose programming language developed by Apple and built for safety, clarity, and performance.</string>
 	<key>mainMenu</key>
 	<dict>
 		<key>excludedItems</key>
 		<array>
 			<string>D6FDBE1D-10BF-4328-BCC8-28EA92035954</string>
+			<string>98EE3C43-4470-48F9-8B80-FB3F53D71E87</string>
+			<string>0A17AEB8-7E96-4620-90B0-050A20137BC9</string>
 		</array>
 		<key>items</key>
 		<array>
 			<string>DDC4B4C0-5B7B-4CB2-AA3F-855F318A68FB</string>
 			<string>36D8B9E6-4FFE-41FD-AE6D-0A428CD59288</string>
 			<string>------------------------------------</string>
-			<string>DEE982C1-301B-4B87-B342-70DDECADCF8C</string>
-			<string>2335C8D4-4B1A-49B9-B5BB-8CBF4A391D13</string>
-			<string>069BB595-B201-4059-9CD2-063E693F71AB</string>
-			<string>11460F7A-FD50-4FA2-A82C-814F3DE9E2AA</string>
-			<string>FDA912E2-135B-4BB0-A959-8F405A8AAFF0</string>
-			<string>C86F6E90-7401-4237-B389-37C802DB5503</string>
-			<string>3A6272EA-780F-45F9-992C-220BFD13F430</string>
-			<string>3C5FA0FB-98CA-43BF-8A1E-8D41D3774CD6</string>
-			<string>B7288320-DA99-4876-B545-2F8CF9A57696</string>
-			<string>0A67EEAC-A906-4593-8843-B4B69392C9B0</string>
-			<string>FC5F13CE-FB75-4486-891A-F430BA81C528</string>
-			<string>36C484F7-689B-4EDE-B982-7B050618A38E</string>
-			<string>6C7FBF83-8839-4877-BE5B-4227A1812BF6</string>
-			<string>DB6DE730-31AC-4E3D-859D-1F3F5790D718</string>
-			<string>AF12B861-45EA-4F57-8CCC-6D13CFE75DE0</string>
-			<string>503F02BF-75D5-4BFF-A753-9E6EDCD66449</string>
+			<string>92E5EDED-15A5-4E35-8F5D-CB2349532694</string>
+			<string>A3BCC521-F4E9-4CB3-BE78-6567C28CF791</string>
+			<string>76E0FE59-1693-4C35-91DE-999DF92C7AFF</string>
 			<string>1E0BBD65-5086-44AC-BDCF-F3AA95B9E35E</string>
-			<string>BC0D5CAC-C47D-4AB5-BEFB-D616A4B492FB</string>
-			<string>621BE132-FBCA-41B8-A5FA-C15711EDA218</string>
-			<string>7A034E84-6BF5-4894-9BFF-928F80C173D9</string>
-			<string>C87082D9-AF67-41D9-AE32-826D65FAD2A0</string>
-			<string>DD4EAC43-BA46-499B-9A3C-88F89B1F69F7</string>
+			<string>0A67EEAC-A906-4593-8843-B4B69392C9B0</string>
+			<string>503F02BF-75D5-4BFF-A753-9E6EDCD66449</string>
 			<string>476888BD-B068-4F21-A2A6-B1503CD579F3</string>
+			<string>------------------------------------</string>
+			<string>A36FDE95-9903-40D0-8EA9-2222A3CFEF1F</string>
+			<string>AF12B861-45EA-4F57-8CCC-6D13CFE75DE0</string>
+			<string>11460F7A-FD50-4FA2-A82C-814F3DE9E2AA</string>
+			<string>C87082D9-AF67-41D9-AE32-826D65FAD2A0</string>
+			<string>------------------------------------</string>
+			<string>DB6DE730-31AC-4E3D-859D-1F3F5790D718</string>
+			<string>3A6272EA-780F-45F9-992C-220BFD13F430</string>
+			<string>DD4EAC43-BA46-499B-9A3C-88F89B1F69F7</string>
+			<string>AD5C9EAB-92D1-4DE5-A28E-7916556C29CA</string>
+			<string>------------------------------------</string>
+			<string>2335C8D4-4B1A-49B9-B5BB-8CBF4A391D13</string>
+			<string>621BE132-FBCA-41B8-A5FA-C15711EDA218</string>
+			<string>C86F6E90-7401-4237-B389-37C802DB5503</string>
 			<string>82FA9415-16CB-4BA9-A610-CDA8B36BF925</string>
 			<string>------------------------------------</string>
+			<string>1B42CDA7-76B1-4065-9B2C-F1CF3D84462F</string>
 			<string>2F648C5B-AB3D-49F3-8FAE-C597134302D7</string>
 		</array>
 		<key>submenus</key>

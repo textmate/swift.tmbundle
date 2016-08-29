@@ -5,7 +5,7 @@
 	<key>content</key>
 	<string>static var ${1:name}</string>
 	<key>name</key>
-	<string>static-var</string>
+	<string>static var</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>

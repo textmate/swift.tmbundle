@@ -3,18 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>if ${1:condition} {
-	$2
-} else {
-	$3
-}</string>
+	<string>case ${1:pattern}:$0</string>
 	<key>name</key>
-	<string>if-else</string>
+	<string>case</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>if else</string>
+	<string>ca</string>
 	<key>uuid</key>
-	<string>6C7FBF83-8839-4877-BE5B-4227A1812BF6</string>
+	<string>AD5C9EAB-92D1-4DE5-A28E-7916556C29CA</string>
 </dict>
 </plist>

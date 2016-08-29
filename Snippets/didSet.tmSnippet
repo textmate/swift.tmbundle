@@ -11,7 +11,7 @@
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>didSet</string>
+	<string>di</string>
 	<key>uuid</key>
 	<string>C86F6E90-7401-4237-B389-37C802DB5503</string>
 </dict>

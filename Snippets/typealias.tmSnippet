@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>typealias ${1:name} = ${2:name}</string>
+	<string>typealias ${1:Foo&lt;Wrapped&gt;} = ${2:Bar}${4/.*(\S).*|.*/(?1: where )/m}${4:${1/.*&lt;(\w+).*&gt;.*|.*/(?1:$1\: ConformsTo)/}}</string>
 	<key>name</key>
 	<string>typealias</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>typealias</string>
+	<string>ty</string>
 	<key>uuid</key>
 	<string>476888BD-B068-4F21-A2A6-B1503CD579F3</string>
 </dict>

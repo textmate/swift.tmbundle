@@ -3,15 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>operator ${1:type}  ${2:name} {
-	$3
-}</string>
+	<string>${1|prefix,infix,postfix|} operator ${2:&gt;&gt;=}${3/.+/ : /}${3:MultiplicationPrecedence}</string>
 	<key>name</key>
 	<string>operator</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>operator</string>
+	<string>op</string>
 	<key>uuid</key>
 	<string>503F02BF-75D5-4BFF-A753-9E6EDCD66449</string>
 </dict>

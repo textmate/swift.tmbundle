@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>init(${1:parameters}) {
-	$2
+	<string>init${1:?!&lt;Value&gt;}(${2:with value: Value})${3/.+/ /m}${3:${2/.*\b(throws)\b.*|.*/(?1:re)/m}throws}${4/.*(\S).*|.*/(?1: where )/m}${4:${1/.*&lt;(\w+).*&gt;.*|.*/(?1:$1\: ConformsTo)/m}} {
+	$5
 }</string>
 	<key>name</key>
 	<string>init</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>init</string>
+	<string>in</string>
 	<key>uuid</key>
 	<string>AF12B861-45EA-4F57-8CCC-6D13CFE75DE0</string>
 </dict>

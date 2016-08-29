@@ -5,7 +5,7 @@
 	<key>content</key>
 	<string>class var ${1:name}</string>
 	<key>name</key>
-	<string>class-var</string>
+	<string>class var</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby18 -wKU
+require ENV['TM_SUPPORT_PATH'] + '/lib/escape'
+
+input = STDIN.read
+puts %Q{\
+func #{e_sn input}${1:&lt;Value&gt;}(${2:with value: Value})${3/.+/ /m}${3:${2/.*\\b(throws)\\b.*|.*/(?1:re)/m}throws}${4/.+/ -&gt; /m}${4:Result}${5/.*(\\S).*|.*/(?1: where )/m}${5:${1/.*&lt;(\\w+).*&gt;.*|.*/(?1:$1\\: ConformsTo)/m}} {
+	$6
+}\
+}
+</string>
+	<key>input</key>
+	<string>word</string>
+	<key>keyEquivalent</key>
+	<string>$</string>
+	<key>name</key>
+	<string>New Function</string>
+	<key>outputFormat</key>
+	<string>snippet</string>
+	<key>scope</key>
+	<string>source.swift</string>
+	<key>uuid</key>
+	<string>1B42CDA7-76B1-4065-9B2C-F1CF3D84462F</string>
+</dict>
+</plist>

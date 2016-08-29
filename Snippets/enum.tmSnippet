@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>enum ${1:name} {
-	$2
+	<string>enum ${1:Box&lt;Wrapped&gt;}${2/.*(\S).*|.*/(?1:\: )/m}${2:MyProtocol}${3/.*(\S).*|.*/(?1: where )/m}${3:${1/.*&lt;(\w+).*&gt;.*|.*/(?1:$1\: ConformsTo)/m}} {
+	$0
 }</string>
 	<key>name</key>
 	<string>enum</string>
 	<key>scope</key>
 	<string>source.swift</string>
 	<key>tabTrigger</key>
-	<string>enum</string>
+	<string>en</string>
 	<key>uuid</key>
-	<string>B7288320-DA99-4876-B545-2F8CF9A57696</string>
+	<string>A3BCC521-F4E9-4CB3-BE78-6567C28CF791</string>
 </dict>
 </plist>
