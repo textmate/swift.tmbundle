@@ -1108,6 +1108,10 @@
 			<key>patterns</key>
 			<array>
 				<dict>
+					<key>include</key>
+					<string>#comment</string>
+				</dict>
+				<dict>
 					<key>captures</key>
 					<dict>
 						<key>1</key>
@@ -1152,10 +1156,6 @@
 					</dict>
 					<key>match</key>
 					<string>\b(assignment)\b</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#comment</string>
 				</dict>
 			</array>
 		</dict>
@@ -1225,6 +1225,10 @@
 					</dict>
 					<key>patterns</key>
 					<array>
+						<dict>
+							<key>include</key>
+							<string>#comment</string>
+						</dict>
 						<dict>
 							<key>captures</key>
 							<dict>
