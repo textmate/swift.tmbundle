@@ -26,6 +26,20 @@
 			<key>patterns</key>
 			<array>
 				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.swift</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>\A^(#!).*$\n?</string>
+					<key>name</key>
+					<string>comment.line.number-sign.swift</string>
+				</dict>
+				<dict>
 					<key>begin</key>
 					<string>/\*\*(?!/)</string>
 					<key>beginCaptures</key>
