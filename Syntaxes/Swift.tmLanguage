@@ -242,6 +242,10 @@
 			<array>
 				<dict>
 					<key>include</key>
+					<string>#boolean</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#numeric</string>
 				</dict>
 				<dict>
@@ -251,6 +255,13 @@
 			</array>
 			<key>repository</key>
 			<dict>
+				<key>boolean</key>
+				<dict>
+					<key>match</key>
+					<string>\b(true|false)\b</string>
+					<key>name</key>
+					<string>constant.language.boolean.swift</string>
+				</dict>
 				<key>numeric</key>
 				<dict>
 					<key>patterns</key>
