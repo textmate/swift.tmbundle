@@ -252,6 +252,20 @@
 					<key>include</key>
 					<string>#string</string>
 				</dict>
+				<dict>
+					<key>match</key>
+					<string>\bnil\b</string>
+					<key>name</key>
+					<string>constant.language.nil.swift</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>object "literals" used in playgrounds</string>
+					<key>match</key>
+					<string>\B#(colorLiteral|imageLiteral|fileLiteral)\b</string>
+					<key>name</key>
+					<string>support.function.object-literal.swift</string>
+				</dict>
 			</array>
 			<key>repository</key>
 			<dict>
