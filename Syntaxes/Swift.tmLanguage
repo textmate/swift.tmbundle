@@ -1151,6 +1151,12 @@
 					<key>include</key>
 					<string>#keywords</string>
 				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b_\b</string>
+					<key>name</key>
+					<string>support.variable.discard-value.swift</string>
+				</dict>
 			</array>
 			<key>repository</key>
 			<dict>
