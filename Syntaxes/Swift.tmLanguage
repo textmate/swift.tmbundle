@@ -2891,6 +2891,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#compound-name</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#keywords</string>
 				</dict>
 				<dict>
@@ -2999,6 +3003,66 @@
 					<string>\$[0-9]+</string>
 					<key>name</key>
 					<string>variable.other.closure-parameter.swift</string>
+				</dict>
+				<key>compound-name</key>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.function.compound-name.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.entity.swift</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.entity.swift</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>captures</key>
+									<dict>
+										<key>1</key>
+										<dict>
+											<key>name</key>
+											<string>punctuation.definition.entity.swift</string>
+										</dict>
+										<key>2</key>
+										<dict>
+											<key>name</key>
+											<string>punctuation.definition.entity.swift</string>
+										</dict>
+									</dict>
+									<key>match</key>
+									<string>(?&lt;q&gt;`?)(?!_:)[\p{L}_][\p{L}_\p{N}\p{M}]*(\k&lt;q&gt;):</string>
+									<key>name</key>
+									<string>entity.name.function.compound-name.swift</string>
+								</dict>
+							</array>
+						</dict>
+					</dict>
+					<key>comment</key>
+					<string>a reference to a function with disambiguating argument labels, such as foo(_:), foo(bar:), etc.</string>
+					<key>match</key>
+					<string>(?x)
+						((?&lt;q1&gt;`?)[\p{L}_][\p{L}_\p{N}\p{M}]*(\k&lt;q1&gt;))       		# function name
+						\(
+							(
+								(
+									((?&lt;q2&gt;`?)[\p{L}_][\p{L}_\p{N}\p{M}]*(\k&lt;q2&gt;)) 	# argument label
+									:												# colon
+								)+
+							)
+						\)
+					</string>
 				</dict>
 				<key>expression-element-list</key>
 				<dict>
