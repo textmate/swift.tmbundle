@@ -266,6 +266,56 @@
 					<key>name</key>
 					<string>support.function.object-literal.swift</string>
 				</dict>
+				<dict>
+					<key>match</key>
+					<string>\B#keyPath\b</string>
+					<key>name</key>
+					<string>support.function.key-path.swift</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\B(#selector)(\()(?:\s*(getter|setter)\s*(:))?</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>support.function.selector-reference.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.arguments.begin.swift</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>support.variable.parameter.swift</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.separator.argument-label.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\)</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.arguments.end.swift</string>
+						</dict>
+					</dict>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#expressions</string>
+						</dict>
+					</array>
+				</dict>
 			</array>
 			<key>repository</key>
 			<dict>
