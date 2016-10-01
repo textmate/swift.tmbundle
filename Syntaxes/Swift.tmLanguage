@@ -21,6 +21,77 @@
 	</array>
 	<key>repository</key>
 	<dict>
+		<key>attributes</key>
+		<dict>
+			<key>name</key>
+			<string>meta.attribute.swift</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>(@)(?&lt;q&gt;`?)[\p{L}_][\p{L}_\p{N}\p{M}]*(\k&lt;q&gt;)</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>storage.modifier.attribute.swift</string>
+						</dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.attribute.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.identifier.swift</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.identifier.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?!\G\()</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>\(</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.arguments.begin.swift</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>\)</string>
+							<key>endCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.arguments.end.swift</string>
+								</dict>
+							</dict>
+							<key>name</key>
+							<string>meta.arguments.attribute.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#expressions</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
 		<key>code-block</key>
 		<dict>
 			<key>begin</key>
@@ -570,6 +641,10 @@
 				<dict>
 					<key>include</key>
 					<string>#code-block</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#attributes</string>
 				</dict>
 				<dict>
 					<key>include</key>
