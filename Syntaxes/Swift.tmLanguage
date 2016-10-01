@@ -831,6 +831,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#closure-parameter</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#literals</string>
 				</dict>
 				<dict>
@@ -842,6 +846,16 @@
 					<string>#keywords</string>
 				</dict>
 			</array>
+			<key>repository</key>
+			<dict>
+				<key>closure-parameter</key>
+				<dict>
+					<key>match</key>
+					<string>\$[0-9]+</string>
+					<key>name</key>
+					<string>variable.other.closure-parameter.swift</string>
+				</dict>
+			</dict>
 		</dict>
 		<key>keywords</key>
 		<dict>
