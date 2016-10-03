@@ -1534,7 +1534,7 @@
 								</dict>
 							</dict>
 							<key>name</key>
-							<string>meta.definition.function.initializer.body.swift</string>
+							<string>meta.definition.function.body.swift</string>
 							<key>patterns</key>
 							<array>
 								<dict>
@@ -2504,7 +2504,7 @@
 								</dict>
 							</dict>
 							<key>name</key>
-							<string>meta.definition.type.protocol.body.swift</string>
+							<string>meta.definition.type.body.swift</string>
 							<key>patterns</key>
 							<array>
 								<dict>

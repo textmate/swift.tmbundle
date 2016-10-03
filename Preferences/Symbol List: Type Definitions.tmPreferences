@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Symbol List: Type Definitions</string>
+	<key>scope</key>
+	<string>source.swift meta.definition.type - meta.definition.type.body</string>
+	<key>settings</key>
+	<dict>
+		<key>showInSymbolList</key>
+		<true/>
+	</dict>
+	<key>uuid</key>
+	<string>7EEB4EAE-9600-436B-9825-532EDF3034A1</string>
+</dict>
+</plist>

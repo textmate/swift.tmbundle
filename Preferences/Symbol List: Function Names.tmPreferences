@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Symbol List: Function Names</string>
+	<key>scope</key>
+	<string>source.swift meta.definition.function entity.name.function</string>
+	<key>settings</key>
+	<dict>
+		<key>symbolTransformation</key>
+		<string>
+		s/^/func /;
+		s/$/()/;
+	</string>
+	</dict>
+	<key>uuid</key>
+	<string>115ADCE1-FEF7-4E32-A65A-0521D63DB27A</string>
+</dict>
+</plist>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Symbol List: Exclude Function Parameters</string>
+	<key>scope</key>
+	<string>source.swift meta.parameter-clause entity.name.function</string>
+	<key>settings</key>
+	<dict>
+		<key>showInSymbolList</key>
+		<false/>
+	</dict>
+	<key>uuid</key>
+	<string>E3D6844A-9C91-4756-ADA5-7FF13B8252D4</string>
+</dict>
+</plist>
