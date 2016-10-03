@@ -1152,6 +1152,10 @@
 					<string>#keywords</string>
 				</dict>
 				<dict>
+					<key>include</key>
+					<string>#availability-condition</string>
+				</dict>
+				<dict>
 					<key>match</key>
 					<string>\b_\b</string>
 					<key>name</key>
@@ -1160,6 +1164,77 @@
 			</array>
 			<key>repository</key>
 			<dict>
+				<key>availability-condition</key>
+				<dict>
+					<key>begin</key>
+					<string>\B(#available)(\()</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>support.function.availability-condition.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.arguments.begin.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\)</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.arguments.end.swift</string>
+						</dict>
+					</dict>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.other.platform.os.swift</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>constant.numeric.swift</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>\s*\b((?:iOS|macOS|OSX|watchOS|tvOS)(?:ApplicationExtension)?)\b(?:\s+([0-9]+(?:\.[0-9]+)*\b))</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.other.platform.all.swift</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>invalid.illegal.character-not-allowed-here.swift</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(\*)\s*(.*?)(?=[,)])</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>[^\s,)]+</string>
+							<key>name</key>
+							<string>invalid.illegal.character-not-allowed-here.swift</string>
+						</dict>
+					</array>
+				</dict>
 				<key>closure-parameter</key>
 				<dict>
 					<key>match</key>
