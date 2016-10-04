@@ -1779,7 +1779,7 @@
 				<key>import</key>
 				<dict>
 					<key>begin</key>
-					<string>\b(import)\s+</string>
+					<string>(?&lt;!\.)\b(import)\s+</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -3312,61 +3312,61 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\b(?:if|else|guard|where|switch|case|default|fallthrough)\b</string>
+					<string>(?&lt;!\.)\b(?:if|else|guard|where|switch|case|default|fallthrough)\b</string>
 					<key>name</key>
 					<string>keyword.control.branch.swift</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(?:continue|break|fallthrough|return)\b</string>
+					<string>(?&lt;!\.)\b(?:continue|break|fallthrough|return)\b</string>
 					<key>name</key>
 					<string>keyword.control.transfer.swift</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(?:while|repeat|for|in)\b</string>
+					<string>(?&lt;!\.)\b(?:while|repeat|for|in)\b</string>
 					<key>name</key>
 					<string>keyword.control.loop.swift</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\bdefer\b</string>
+					<string>(?&lt;!\.)\bdefer\b</string>
 					<key>name</key>
 					<string>keyword.control.defer.swift</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(?:do|catch|throws?|rethrows|try)\b|\btry[?!]\B</string>
+					<string>(?&lt;!\.)\b(?:do|catch|throws?|rethrows|try)\b|\btry[?!]\B</string>
 					<key>name</key>
 					<string>keyword.control.exception.swift</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(?:associatedtype|let|operator|typealias|var)\b</string>
+					<string>(?&lt;!\.)\b(?:associatedtype|let|operator|typealias|var)\b</string>
 					<key>name</key>
 					<string>keyword.other.declaration-specifier.swift</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(class|enum|extension|precedencegroup|protocol|struct)\b</string>
+					<string>(?&lt;!\.)\b(class|enum|extension|precedencegroup|protocol|struct)\b</string>
 					<key>name</key>
 					<string>storage.type.$1.swift</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(?:inout|static|final|lazy|mutating|nonmutating|optional|indirect|required|override|dynamic|convenience|infix|prefix|postfix)\b</string>
+					<string>(?&lt;!\.)\b(?:inout|static|final|lazy|mutating|nonmutating|optional|indirect|required|override|dynamic|convenience|infix|prefix|postfix)\b</string>
 					<key>name</key>
 					<string>storage.modifier.swift</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\binit[?!]|\b(?:func|init|deinit|subscript|didSet|get|set|willSet)\b</string>
+					<string>\binit[?!]|\binit\b|(?&lt;!\.)\b(?:func|deinit|subscript|didSet|get|set|willSet)\b</string>
 					<key>name</key>
 					<string>storage.type.function.swift</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(?:fileprivate|private|internal|public|open)\b</string>
+					<string>(?&lt;!\.)\b(?:fileprivate|private|internal|public|open)\b</string>
 					<key>name</key>
 					<string>keyword.other.declaration-specifier.accessibility.swift</string>
 				</dict>
@@ -3374,7 +3374,7 @@
 					<key>comment</key>
 					<string>matches weak, unowned, unowned(safe), unowned(unsafe)</string>
 					<key>match</key>
-					<string>\b(?:weak\b|unowned(?:\((?:un)?safe\))?)</string>
+					<string>(?&lt;!\.)\b(?:weak|unowned)\b|\bunowned\((?:safe|unsafe)\)</string>
 					<key>name</key>
 					<string>keyword.other.capture-specifier.swift</string>
 				</dict>
@@ -3397,7 +3397,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(?:super|self|Self)\b</string>
+					<string>(?&lt;!\.)\b(?:super|self|Self)\b</string>
 					<key>name</key>
 					<string>variable.language.swift</string>
 				</dict>
@@ -3409,7 +3409,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\bimport\b</string>
+					<string>(?&lt;!\.)\bimport\b</string>
 					<key>name</key>
 					<string>keyword.control.import.swift</string>
 				</dict>
