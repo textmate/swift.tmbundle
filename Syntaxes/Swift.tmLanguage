@@ -1137,6 +1137,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#extension</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#typealias</string>
 				</dict>
 			</array>
@@ -1333,6 +1337,93 @@
 							</array>
 						</dict>
 					</dict>
+				</dict>
+				<key>extension</key>
+				<dict>
+					<key>begin</key>
+					<string>\b(extension)\s+((?&lt;q&gt;`?)[\p{L}_][\p{L}_\p{N}\p{M}]*(\k&lt;q&gt;))</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>storage.type.$1.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.type.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#available-types</string>
+								</dict>
+							</array>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.identifier.swift</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.identifier.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?&lt;=\})</string>
+					<key>name</key>
+					<string>meta.definition.type.$1.swift</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#comments</string>
+						</dict>
+						<dict>
+							<key>comment</key>
+							<string>SE-0143: Conditional Conformances</string>
+							<key>include</key>
+							<string>#generic-where-clause</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#inheritance-clause</string>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>\{</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.type.begin.swift</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>\}</string>
+							<key>endCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.type.end.swift</string>
+								</dict>
+							</dict>
+							<key>name</key>
+							<string>meta.definition.type.body.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>$self</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 				</dict>
 				<key>function</key>
 				<dict>
