@@ -2066,7 +2066,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(?=\{|(?!\G)\bwhere\b)</string>
+					<string>(?!\G)\n|(?=[={}]|(?!\G)\bwhere\b)</string>
 					<key>name</key>
 					<string>meta.inheritance-clause.swift</string>
 					<key>patterns</key>
@@ -2075,7 +2075,7 @@
 							<key>begin</key>
 							<string>\G</string>
 							<key>end</key>
-							<string>(?=\{|(?!\G)\bwhere\b)</string>
+							<string>(?!\G)\n|(?=[={}]|(?!\G)\bwhere\b)</string>
 							<key>name</key>
 							<string>entity.other.inherited-class.swift</string>
 							<key>patterns</key>
@@ -2648,6 +2648,10 @@
 								</dict>
 								<dict>
 									<key>include</key>
+									<string>#associated-type</string>
+								</dict>
+								<dict>
+									<key>include</key>
 									<string>$self</string>
 								</dict>
 							</array>
@@ -2655,6 +2659,55 @@
 					</array>
 					<key>repository</key>
 					<dict>
+						<key>associated-type</key>
+						<dict>
+							<key>begin</key>
+							<string>\b(associatedtype)\s+((?&lt;q&gt;`?)[\p{L}_][\p{L}_\p{N}\p{M}]*(\k&lt;q&gt;))\s*</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.other.declaration-specifier.swift</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>variable.language.associatedtype.swift</string>
+								</dict>
+								<key>3</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.identifier.swift</string>
+								</dict>
+								<key>4</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.identifier.swift</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>(?!\G)\n|(?=[;}]|$)</string>
+							<key>name</key>
+							<string>meta.definition.associatedtype.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#inheritance-clause</string>
+								</dict>
+								<dict>
+									<key>comment</key>
+									<string>SE-0142: Permit where clauses to constrain associated types</string>
+									<key>include</key>
+									<string>#generic-where-clause</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#typealias-assignment</string>
+								</dict>
+							</array>
+						</dict>
 						<key>protocol-method</key>
 						<dict>
 							<key>begin</key>
@@ -3253,7 +3306,7 @@
 				<key>typealias</key>
 				<dict>
 					<key>begin</key>
-					<string>\b(typealias)\s+((?&lt;q&gt;`?)[\p{L}_][\p{L}_\p{N}\p{M}]*(\k&lt;q&gt;))\s*(?=[&lt;=])</string>
+					<string>\b(typealias)\s+((?&lt;q&gt;`?)[\p{L}_][\p{L}_\p{N}\p{M}]*(\k&lt;q&gt;))\s*</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -3278,7 +3331,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(?!\G)</string>
+					<string>(?!\G)\n|(?=;|$)</string>
 					<key>name</key>
 					<string>meta.definition.typealias.swift</string>
 					<key>patterns</key>
@@ -3286,6 +3339,32 @@
 						<dict>
 							<key>include</key>
 							<string>#generic-parameter-clause</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#typealias-assignment</string>
+						</dict>
+					</array>
+				</dict>
+				<key>typealias-assignment</key>
+				<dict>
+					<key>begin</key>
+					<string>(=)\s*</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator.assignment.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?!\G)</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#available-types</string>
 						</dict>
 					</array>
 				</dict>
