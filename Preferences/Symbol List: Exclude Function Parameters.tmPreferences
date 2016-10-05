@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Symbol List: Exclude Function Parameters</string>
 	<key>scope</key>
-	<string>source.swift meta.parameter-clause entity.name.function</string>
+	<string>source.swift meta.parameter-clause entity.name.function, source.swift meta.attribute.objc entity.name.function, source.swift entity.name.function.compound-name</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
