@@ -2428,6 +2428,14 @@
 								<dict>
 									<key>begin</key>
 									<string>=</string>
+									<key>beginCaptures</key>
+									<dict>
+										<key>0</key>
+										<dict>
+											<key>name</key>
+											<string>keyword.operator.assignment.swift</string>
+										</dict>
+									</dict>
 									<key>comment</key>
 									<string>a parameter's default value</string>
 									<key>end</key>
