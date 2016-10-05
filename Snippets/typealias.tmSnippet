@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>typealias ${1:Foo&lt;Wrapped&gt;} = ${2:Bar}${4/.*(\S).*|.*/(?1: where )/m}${4:${1/.*&lt;(\w+).*&gt;.*|.*/(?1:$1\: ConformsTo)/}}</string>
+	<string>typealias ${1:Foo&lt;Value&gt;} = ${2:Bar&lt;Key, Value&gt;}</string>
 	<key>name</key>
 	<string>typealias</string>
 	<key>scope</key>
