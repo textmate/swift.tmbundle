@@ -1463,7 +1463,7 @@
 										  | [\x{FE20}-\x{FE2F}]
 										  | [\x{E0100}-\x{E01EF}]
 										)
-									)*?
+									)*
 								)
 							  | ( \. ( \g&lt;oph&gt; | \g&lt;opc&gt; | \. )+ )			# Dot operators
 							)
@@ -2021,7 +2021,7 @@
 													  | [\x{FE20}-\x{FE2F}]
 													  | [\x{E0100}-\x{E01EF}]
 													)
-												)*?
+												)*
 											)
 										  | ( \. ( \g&lt;oph&gt; | \g&lt;opc&gt; | \. )+ )			# Dot operators
 										)
@@ -2754,7 +2754,7 @@
 		  										  | [\x{FE20}-\x{FE2F}]
 		  										  | [\x{E0100}-\x{E01EF}]
 		  										)
-		  									)*?
+		  									)*
 		  								)
 		  							  | ( \. ( \g&lt;oph&gt; | \g&lt;opc&gt; | \. )+ )			# Dot operators
 		  							)
