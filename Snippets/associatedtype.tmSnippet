@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>associatedtype ${1:Foo}${2/.*(\S).*|.*/(?1:\: )/m}${2:ConformsTo}${3/.*(\S).*|.*/(?1: = )/m}${3:Default}</string>
+	<key>name</key>
+	<string>associatedtype</string>
+	<key>scope</key>
+	<string>source.swift</string>
+	<key>tabTrigger</key>
+	<string>as</string>
+	<key>uuid</key>
+	<string>42893CE6-0D28-434E-9775-AA4D9E1C56B5</string>
+</dict>
+</plist>
