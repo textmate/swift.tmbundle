@@ -1882,11 +1882,11 @@
 									<array>
 										<dict>
 											<key>begin</key>
-											<string>\G</string>
+											<string>\G\s*</string>
+											<key>contentName</key>
+											<string>entity.other.inherited-class.swift</string>
 											<key>end</key>
 											<string>(?=\s*[,&gt;{};\n])</string>
-											<key>name</key>
-											<string>entity.other.inherited-class.swift</string>
 											<key>patterns</key>
 											<array>
 												<dict>
