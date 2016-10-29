@@ -3339,14 +3339,23 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(?!\G)\n|(?=;|$)</string>
+					<string>(?!\G)\n|(?=;|//|/\*|$)</string>
 					<key>name</key>
 					<string>meta.definition.typealias.swift</string>
 					<key>patterns</key>
 					<array>
 						<dict>
-							<key>include</key>
-							<string>#generic-parameter-clause</string>
+							<key>begin</key>
+							<string>\G(?=&lt;)</string>
+							<key>end</key>
+							<string>(?!\G)</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#generic-parameter-clause</string>
+								</dict>
+							</array>
 						</dict>
 						<dict>
 							<key>include</key>
@@ -3367,7 +3376,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(?!\G)</string>
+					<string>(?!\G)\n|(?=;|//|/\*|$)</string>
 					<key>patterns</key>
 					<array>
 						<dict>
