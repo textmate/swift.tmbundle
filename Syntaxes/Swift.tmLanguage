@@ -1804,7 +1804,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(?!\G)\n|(?=[&gt;{};\n])</string>
+					<string>(?!\G)$|(?=[&gt;{};\n])</string>
 					<key>name</key>
 					<string>meta.generic-where-clause.swift</string>
 					<key>patterns</key>
@@ -2066,27 +2066,101 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(?!\G)\n|(?=[={}]|(?!\G)\bwhere\b)</string>
+					<string>(?!\G)$|(?=[={}]|(?!\G)\bwhere\b)</string>
 					<key>name</key>
 					<string>meta.inheritance-clause.swift</string>
 					<key>patterns</key>
 					<array>
 						<dict>
 							<key>begin</key>
+							<string>\bclass\b</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>storage.type.class.swift</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>(?=[={}]|(?!\G)\bwhere\b)</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#comments</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#more-types</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>begin</key>
 							<string>\G</string>
 							<key>end</key>
-							<string>(?!\G)\n|(?=[={}]|(?!\G)\bwhere\b)</string>
+							<string>(?!\G)$|(?=[={}]|(?!\G)\bwhere\b)</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#comments</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#inherited-type</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#more-types</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>repository</key>
+					<dict>
+						<key>inherited-type</key>
+						<dict>
+							<key>begin</key>
+							<string>(?=[`\p{L}_])</string>
+							<key>end</key>
+							<string>(?!\G)</string>
 							<key>name</key>
 							<string>entity.other.inherited-class.swift</string>
 							<key>patterns</key>
 							<array>
 								<dict>
 									<key>include</key>
-									<string>#available-types</string>
+									<string>#type-identifier</string>
 								</dict>
 							</array>
 						</dict>
-					</array>
+						<key>more-types</key>
+						<dict>
+							<key>begin</key>
+							<string>,\s*</string>
+							<key>end</key>
+							<string>(?!\G)(?!//|/\*)|(?=[,={}]|(?!\G)\bwhere\b)</string>
+							<key>name</key>
+							<string>meta.inheritance-list.more-types</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#comments</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#inherited-type</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#more-types</string>
+								</dict>
+							</array>
+						</dict>
+					</dict>
 				</dict>
 				<key>operator</key>
 				<dict>
@@ -2626,6 +2700,12 @@
 							<string>#inheritance-clause</string>
 						</dict>
 						<dict>
+							<key>comment</key>
+							<string>SE-0142: Permit where clauses to constrain associated types</string>
+							<key>include</key>
+							<string>#generic-where-clause</string>
+						</dict>
+						<dict>
 							<key>begin</key>
 							<string>\{</string>
 							<key>beginCaptures</key>
@@ -2695,7 +2775,7 @@
 								</dict>
 							</dict>
 							<key>end</key>
-							<string>(?!\G)\n|(?=[;}]|$)</string>
+							<string>(?!\G)$|(?=[;}]|$)</string>
 							<key>name</key>
 							<string>meta.definition.associatedtype.swift</string>
 							<key>patterns</key>
@@ -3265,40 +3345,40 @@
 				</dict>
 				<key>type-identifier</key>
 				<dict>
+					<key>begin</key>
+					<string>((?&lt;q&gt;`?)[\p{L}_][\p{L}_\p{N}\p{M}]*(\k&lt;q&gt;))\s*</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>meta.type-name.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#builtin-types</string>
+								</dict>
+							</array>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.identifier.swift</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.identifier.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?!&lt;)</string>
 					<key>patterns</key>
 					<array>
 						<dict>
-							<key>captures</key>
-							<dict>
-								<key>0</key>
-								<dict>
-									<key>patterns</key>
-									<array>
-										<dict>
-											<key>include</key>
-											<string>#builtin-types</string>
-										</dict>
-									</array>
-								</dict>
-								<key>1</key>
-								<dict>
-									<key>name</key>
-									<string>punctuation.definition.identifier.swift</string>
-								</dict>
-								<key>2</key>
-								<dict>
-									<key>name</key>
-									<string>punctuation.definition.identifier.swift</string>
-								</dict>
-							</dict>
-							<key>match</key>
-							<string>(?&lt;q&gt;`?)[\p{L}_][\p{L}_\p{N}\p{M}]*(\k&lt;q&gt;)</string>
-							<key>name</key>
-							<string>meta.type-name.swift</string>
-						</dict>
-						<dict>
 							<key>begin</key>
-							<string>(?!\G)(?=&lt;)</string>
+							<string>(?=&lt;)</string>
 							<key>end</key>
 							<string>(?!\G)</string>
 							<key>patterns</key>
@@ -3339,7 +3419,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(?!\G)\n|(?=;|//|/\*|$)</string>
+					<string>(?!\G)$|(?=;|//|/\*|$)</string>
 					<key>name</key>
 					<string>meta.definition.typealias.swift</string>
 					<key>patterns</key>
@@ -3376,7 +3456,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(?!\G)\n|(?=;|//|/\*|$)</string>
+					<string>(?!\G)$|(?=;|//|/\*|$)</string>
 					<key>patterns</key>
 					<array>
 						<dict>
