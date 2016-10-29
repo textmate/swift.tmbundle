@@ -2385,12 +2385,12 @@
 								<key>1</key>
 								<dict>
 									<key>name</key>
-									<string>entity.name.function.swift</string>
+									<string>variable.parameter.function.swift</string>
 								</dict>
 								<key>2</key>
 								<dict>
 									<key>name</key>
-									<string>variable.parameter.function.swift</string>
+									<string>entity.name.function.swift</string>
 								</dict>
 								<key>3</key>
 								<dict>
