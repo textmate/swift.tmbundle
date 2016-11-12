@@ -3640,7 +3640,7 @@
 					<key>match</key>
 					<string>\$[0-9]+</string>
 					<key>name</key>
-					<string>variable.other.closure-parameter.swift</string>
+					<string>variable.language.closure-parameter.swift</string>
 				</dict>
 				<key>compound-name</key>
 				<dict>
