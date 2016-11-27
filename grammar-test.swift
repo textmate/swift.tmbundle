@@ -208,4 +208,9 @@ tuple.0, tuple.42
 "nested: \(1+"string"+2)"
 print("nested: \(1+"string"+2)")
 
-associatedtype, class, deinit, enum, extension, func, import, init, inout, let, operator, $123, precedencegroup, protocol, struct, subscript, typealias, var, fileprivate, internal, private, public, static, defer, if, guard, do, repeat, else, for, in, while, return, break, continue, as?, fallthrough, switch, case, default, where, catch, as, Any, false, is, nil, rethrows, super, self, Self, throw, true, try, throws, nil
+associatedtype, class, deinit, enum, extension, func, import, init, inout,
+let, operator, $123, precedencegroup, protocol, struct, subscript, typealias,
+var, fileprivate, internal, private, public, static, defer, if, guard, do,
+repeat, else, for, in, while, return, break, continue, as?, fallthrough,
+switch, case, default, where, catch, as, Any, false, is, nil, rethrows,
+super, self, Self, throw, true, try, throws, nil
