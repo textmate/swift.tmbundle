@@ -86,6 +86,7 @@ protocol Foo {
   associatedtype T: Equatable = Int
   func f<T: P3>(_: T) where T.A == Self.A, T.A: C // trailing comment still allows where to end
   func functionBodyNotAllowedHere<T>() throws -> Int {}
+  init(norHere: Int) throws {}
 }
 protocol Foo: Equatable {}
 protocol Foo: Equatable, Indexable {}
@@ -95,6 +96,8 @@ protocol SE0142 {
   associatedtype Iterator : IteratorProtocol
   associatedtype SubSequence : Sequence where SubSequence.Iterator.Element == Iterator.Element
 }
+protocol Foo { init(x: Int) }
+func bar() { /* this is valid */ }
 
 enum Foo {
   case foo

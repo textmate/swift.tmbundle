@@ -2738,6 +2738,10 @@
 								</dict>
 								<dict>
 									<key>include</key>
+									<string>#protocol-initializer</string>
+								</dict>
+								<dict>
+									<key>include</key>
 									<string>#associated-type</string>
 								</dict>
 								<dict>
@@ -2795,6 +2799,90 @@
 								<dict>
 									<key>include</key>
 									<string>#typealias-assignment</string>
+								</dict>
+							</array>
+						</dict>
+						<key>protocol-initializer</key>
+						<dict>
+							<key>begin</key>
+							<string>(?&lt;!\.)\b(init[?!]*(?# only one is valid, but we want the in⇥ snippet to produce something that looks good))\s*(?=\(|&lt;)</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>storage.type.function.swift</string>
+									<key>patterns</key>
+									<array>
+										<dict>
+											<key>match</key>
+											<string>(?&lt;=[?!])[?!]+</string>
+											<key>name</key>
+											<string>invalid.illegal.character-not-allowed-here.swift</string>
+										</dict>
+									</array>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>$|(?=;|//|/\*|\})</string>
+							<key>name</key>
+							<string>meta.definition.function.initializer.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#comments</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#generic-parameter-clause</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#parameter-clause</string>
+								</dict>
+								<dict>
+									<key>match</key>
+									<string>\b(?:throws|rethrows)\b</string>
+									<key>name</key>
+									<string>keyword.control.exception.swift</string>
+								</dict>
+								<dict>
+									<key>comment</key>
+									<string>Swift 3: generic constraints after the parameters and return type</string>
+									<key>include</key>
+									<string>#generic-where-clause</string>
+								</dict>
+								<dict>
+									<key>begin</key>
+									<string>\{</string>
+									<key>beginCaptures</key>
+									<dict>
+										<key>0</key>
+										<dict>
+											<key>name</key>
+											<string>punctuation.section.function.begin.swift</string>
+										</dict>
+									</dict>
+									<key>end</key>
+									<string>\}</string>
+									<key>endCaptures</key>
+									<dict>
+										<key>0</key>
+										<dict>
+											<key>name</key>
+											<string>punctuation.section.function.end.swift</string>
+										</dict>
+									</dict>
+									<key>name</key>
+									<string>invalid.illegal.function-body-not-allowed-in-protocol.swift</string>
+									<key>patterns</key>
+									<array>
+										<dict>
+											<key>include</key>
+											<string>$self</string>
+										</dict>
+									</array>
 								</dict>
 							</array>
 						</dict>
