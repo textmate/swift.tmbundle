@@ -1806,7 +1806,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(?!\G)$|(?=[&gt;{};\n])</string>
+					<string>(?!\G)$|(?=[&gt;{};\n]|//|/\*)</string>
 					<key>name</key>
 					<string>meta.generic-where-clause.swift</string>
 					<key>patterns</key>
@@ -1827,7 +1827,7 @@
 							<key>begin</key>
 							<string>\G|,\s*</string>
 							<key>end</key>
-							<string>(?=[,&gt;{};\n])</string>
+							<string>(?=[,&gt;{};\n]|//|/\*)</string>
 							<key>patterns</key>
 							<array>
 								<dict>
@@ -1854,7 +1854,7 @@
 										</dict>
 									</dict>
 									<key>end</key>
-									<string>(?=\s*[,&gt;{};\n])</string>
+									<string>(?=\s*[,&gt;{};\n]|//|/\*)</string>
 									<key>name</key>
 									<string>meta.generic-where-clause.same-type-requirement.swift</string>
 									<key>patterns</key>
@@ -1877,7 +1877,7 @@
 										</dict>
 									</dict>
 									<key>end</key>
-									<string>(?=\s*[,&gt;{};\n])</string>
+									<string>(?=\s*[,&gt;{};\n]|//|/\*)</string>
 									<key>name</key>
 									<string>meta.generic-where-clause.conformance-requirement.swift</string>
 									<key>patterns</key>
@@ -1888,7 +1888,7 @@
 											<key>contentName</key>
 											<string>entity.other.inherited-class.swift</string>
 											<key>end</key>
-											<string>(?=\s*[,&gt;{};\n])</string>
+											<string>(?=\s*[,&gt;{};\n]|//|/\*)</string>
 											<key>patterns</key>
 											<array>
 												<dict>

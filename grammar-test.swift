@@ -84,6 +84,7 @@ protocol Foo {
   associatedtype T: Equatable
   associatedtype T = Int
   associatedtype T: Equatable = Int
+  func f<T: P3>(_: T) where T.A == Self.A, T.A: C // trailing comment still allows where to end
   func functionBodyNotAllowedHere<T>() throws -> Int {}
 }
 protocol Foo: Equatable {}
