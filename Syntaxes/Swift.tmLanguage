@@ -4327,56 +4327,50 @@
 									<string>constant.character.escape.unicode.swift</string>
 								</dict>
 								<dict>
-									<key>captures</key>
+									<key>begin</key>
+									<string>\\\(</string>
+									<key>beginCaptures</key>
 									<dict>
-										<key>1</key>
+										<key>0</key>
 										<dict>
 											<key>name</key>
 											<string>punctuation.section.embedded.begin.swift</string>
 										</dict>
-										<key>2</key>
-										<dict>
-											<key>name</key>
-											<string>source.swift</string>
-											<key>patterns</key>
-											<array>
-												<dict>
-													<key>include</key>
-													<string>#root</string>
-												</dict>
-											</array>
-										</dict>
-										<key>5</key>
+									</dict>
+									<key>contentName</key>
+									<string>source.swift</string>
+									<key>end</key>
+									<string>(\))</string>
+									<key>endCaptures</key>
+									<dict>
+										<key>0</key>
 										<dict>
 											<key>name</key>
 											<string>punctuation.section.embedded.end.swift</string>
 										</dict>
-										<key>6</key>
+										<key>1</key>
 										<dict>
 											<key>name</key>
 											<string>source.swift</string>
 										</dict>
 									</dict>
-									<key>match</key>
-									<string>(?x)
-										(\\\()							# Opening
-										(
-											(?&lt;parens&gt;
-												(
-													[^()"]				# Anything except parens
-												  | \(					# Matched pairs of parens
-													\g&lt;parens&gt;			#  …that can be nested
-													\)
-												  | "					# Strings
-													([^\\]|\\.)*		# Contents allowing for escapes
-													"
-												)*
-											)
-										)
-										((\)))							# Closing
-									</string>
 									<key>name</key>
 									<string>meta.embedded.line.swift</string>
+									<key>patterns</key>
+									<array>
+										<dict>
+											<key>include</key>
+											<string>$self</string>
+										</dict>
+										<dict>
+											<key>begin</key>
+											<string>\(</string>
+											<key>comment</key>
+											<string>Nested parens</string>
+											<key>end</key>
+											<string>\)</string>
+										</dict>
+									</array>
 								</dict>
 								<dict>
 									<key>match</key>
