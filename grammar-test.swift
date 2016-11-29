@@ -5,7 +5,7 @@
 /**/thatWasATinyBlockComment()
 /* block comments /* can be nested, */ like this! */noLongerAComment()
 
-import Foo
+import Foo   // whitespace ok
 import Foo.Submodule
 import func Foo.Submodule.`func`
 import func Control.Monad.>>=

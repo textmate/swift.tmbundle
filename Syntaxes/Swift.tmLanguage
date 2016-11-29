@@ -2040,9 +2040,9 @@
 								</dict>
 								<dict>
 									<key>begin</key>
-									<string>(?!;|$|//|/\*)</string>
+									<string>(?!\s*(;|$|//|/\*))</string>
 									<key>end</key>
-									<string>(?=;|$|//|/\*)</string>
+									<string>(?=\s*(;|$|//|/\*))</string>
 									<key>name</key>
 									<string>invalid.illegal.character-not-allowed-here.swift</string>
 								</dict>
