@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>import ${1|Foundation,Cocoa,UIKit,CoreGraphics,WebKit|}</string>
+	<key>name</key>
+	<string>import</string>
+	<key>scope</key>
+	<string>source.swift</string>
+	<key>tabTrigger</key>
+	<string>im</string>
+	<key>uuid</key>
+	<string>E1CFACE6-1265-4053-B3D2-1A5701D8DD6C</string>
+</dict>
+</plist>
