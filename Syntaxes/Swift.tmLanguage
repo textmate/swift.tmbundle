@@ -4373,6 +4373,53 @@
 					<array>
 						<dict>
 							<key>begin</key>
+							<string>"""</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.string.begin.swift</string>
+								</dict>
+							</dict>
+							<key>comment</key>
+							<string>SE-0168: Multi-Line String Literals</string>
+							<key>end</key>
+							<string>"""</string>
+							<key>endCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.string.end.swift</string>
+								</dict>
+							</dict>
+							<key>name</key>
+							<string>string.quoted.double.block.swift</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>match</key>
+									<string>\G.+(?=""")|\G.+</string>
+									<key>name</key>
+									<string>invalid.illegal.content-after-opening-delimiter.swift</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#string-guts</string>
+								</dict>
+								<dict>
+									<key>comment</key>
+									<string>Allow \("""...""") to appear inside a block string</string>
+									<key>match</key>
+									<string>\S((?!\\\().)*(?=""")</string>
+									<key>name</key>
+									<string>invalid.illegal.content-before-closing-delimiter.swift</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>begin</key>
 							<string>"</string>
 							<key>beginCaptures</key>
 							<dict>
@@ -4393,7 +4440,7 @@
 								</dict>
 							</dict>
 							<key>name</key>
-							<string>string.quoted.double.swift</string>
+							<string>string.quoted.double.single-line.swift</string>
 							<key>patterns</key>
 							<array>
 								<dict>
@@ -4402,6 +4449,19 @@
 									<key>name</key>
 									<string>invalid.illegal.returns-not-allowed.swift</string>
 								</dict>
+								<dict>
+									<key>include</key>
+									<string>#string-guts</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+					<key>repository</key>
+					<dict>
+						<key>string-guts</key>
+						<dict>
+							<key>patterns</key>
+							<array>
 								<dict>
 									<key>match</key>
 									<string>\\[0\\tnr"']</string>
@@ -4468,7 +4528,7 @@
 								</dict>
 							</array>
 						</dict>
-					</array>
+					</dict>
 				</dict>
 			</dict>
 		</dict>
