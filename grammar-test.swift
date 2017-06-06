@@ -208,6 +208,12 @@ tuple.0, tuple.42
 "nested: \(1+"string"+2)"
 print("nested: \(1+"string"+2)")
 
+let SE0168 = """   illegal
+        my, what a large…
+    \(1 + foo(x: 4))
+        …string you have!
+    illegal"""
+
 associatedtype, class, deinit, enum, extension, func, import, init, inout,
 let, operator, $123, precedencegroup, protocol, struct, subscript, typealias,
 var, fileprivate, internal, private, public, static, defer, if, guard, do,

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>commands</key>
+	<array>
+		<dict>
+			<key>command</key>
+			<string>moveForward:</string>
+		</dict>
+		<dict>
+			<key>command</key>
+			<string>moveForward:</string>
+		</dict>
+		<dict>
+			<key>command</key>
+			<string>moveForward:</string>
+		</dict>
+	</array>
+	<key>keyEquivalent</key>
+	<string>"</string>
+	<key>name</key>
+	<string>Inside Block String: Overtype Closing """</string>
+	<key>scope</key>
+	<string>source.swift string.quoted.double.block punctuation.definition.string.end</string>
+	<key>uuid</key>
+	<string>92793A4A-36FB-40F7-B556-B5721ACCD71A</string>
+</dict>
+</plist>

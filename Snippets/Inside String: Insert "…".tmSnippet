@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>"$0"</string>
+	<key>keyEquivalent</key>
+	<string>"</string>
+	<key>name</key>
+	<string>Inside String: Insert "…"</string>
+	<key>scope</key>
+	<string>source.swift string.quoted.double.single-line punctuation.definition.string.end &amp; L:punctuation.definition.string.begin</string>
+	<key>uuid</key>
+	<string>6868A133-F63A-4CF9-8943-394BD8758048</string>
+</dict>
+</plist>
