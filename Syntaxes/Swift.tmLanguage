@@ -4405,6 +4405,12 @@
 									<string>invalid.illegal.content-after-opening-delimiter.swift</string>
 								</dict>
 								<dict>
+									<key>match</key>
+									<string>\\\s*\n</string>
+									<key>name</key>
+									<string>constant.character.escape.newline.swift</string>
+								</dict>
+								<dict>
 									<key>include</key>
 									<string>#string-guts</string>
 								</dict>
