@@ -919,7 +919,7 @@
 								</dict>
 							</dict>
 							<key>match</key>
-							<string>\b(os)\s*(\()\s*(?:(macOS|OSX|iOS|tvOS|watchOS|Android|Linux|FreeBSD|Windows|PS4)|\w+)\s*(\))</string>
+							<string>\b(os)\s*(\()\s*(?:(macOS|OSX|iOS|tvOS|watchOS|Android|Linux|FreeBSD|Windows|PS4|Fuchsia)|\w+)\s*(\))</string>
 						</dict>
 						<dict>
 							<key>begin</key>
