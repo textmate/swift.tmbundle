@@ -386,8 +386,10 @@
 			<key>patterns</key>
 			<array>
 				<dict>
+					<key>comment</key>
+					<string>The simpler (?&lt;=\bProcess\.|\bCommandLine\.) breaks VS Code / Atom, see https://github.com/textmate/swift.tmbundle/issues/29</string>
 					<key>match</key>
-					<string>(?&lt;=\bProcess\.|\bCommandLine\.)(arguments|argc|unsafeArgv)</string>
+					<string>(?&lt;=^Process\.|\WProcess\.|^CommandLine\.|\WCommandLine\.)(arguments|argc|unsafeArgv)</string>
 					<key>name</key>
 					<string>support.variable.swift</string>
 				</dict>
