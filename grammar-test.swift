@@ -22,7 +22,7 @@ import func Control.Monad.>>=
 #elseif compiler(<5) || canImport(Foundation) || targetEnvironment(simulator) || targetEnvironment(UIKitForMac)
 #endif
 #sourceLocation(file: "foo", line: 123) // a comment
-if #available(macOS 10.12, iOS 9.1.2, *) {}
+if #available(macOS 10.12, iOS 9.1.2, UIKitForMac 1, *) {}
 #selector(MyClass.func)
 #selector(getter: MyClass.func) #selector(setter: MyClass.func)
 #keyPath(self.parent.name)
