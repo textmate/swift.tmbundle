@@ -77,7 +77,7 @@
 								</dict>
 							</dict>
 							<key>match</key>
-							<string>\b((?:iOS|macOS|OSX|watchOS|tvOS)(?:ApplicationExtension)?)\b(?:\s+([0-9]+(?:\.[0-9]+)*\b))?</string>
+							<string>\b(swift|(?:iOS|macOS|OSX|watchOS|tvOS|UIKitForMac)(?:ApplicationExtension)?)\b(?:\s+([0-9]+(?:\.[0-9]+)*\b))?</string>
 						</dict>
 						<dict>
 							<key>begin</key>
@@ -924,8 +924,35 @@
 							<string>\b(os)\s*(\()\s*(?:(macOS|OSX|iOS|tvOS|watchOS|Android|Linux|FreeBSD|Windows|PS4)|\w+)\s*(\))</string>
 						</dict>
 						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.other.condition.swift</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.parameters.begin.swift</string>
+								</dict>
+								<key>3</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.type.module.swift</string>
+								</dict>
+								<key>4</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.parameters.end.swift</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>\b(canImport)\s*(\()([\p{L}_][\p{L}_\p{N}\p{M}]*)(\))</string>
+						</dict>
+						<dict>
 							<key>begin</key>
-							<string>\b(swift)\s*(\()</string>
+							<string>\b(targetEnvironment)\s*(\()</string>
 							<key>beginCaptures</key>
 							<dict>
 								<key>1</key>
@@ -953,7 +980,43 @@
 							<array>
 								<dict>
 									<key>match</key>
-									<string>&gt;=</string>
+									<string>\b(simulator|UIKitForMac)\b</string>
+									<key>name</key>
+									<string>support.constant.platform.environment.swift</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>\b(swift|compiler)\s*(\()</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.other.condition.swift</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.parameters.begin.swift</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>(\))|$</string>
+							<key>endCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.parameters.end.swift</string>
+								</dict>
+							</dict>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>match</key>
+									<string>&gt;=|&lt;</string>
 									<key>name</key>
 									<string>keyword.operator.comparison.swift</string>
 								</dict>
@@ -3705,7 +3768,7 @@
 								</dict>
 							</dict>
 							<key>match</key>
-							<string>\s*\b((?:iOS|macOS|OSX|watchOS|tvOS)(?:ApplicationExtension)?)\b(?:\s+([0-9]+(?:\.[0-9]+)*\b))</string>
+							<string>\s*\b((?:iOS|macOS|OSX|watchOS|tvOS|UIKitForMac)(?:ApplicationExtension)?)\b(?:\s+([0-9]+(?:\.[0-9]+)*\b))</string>
 						</dict>
 						<dict>
 							<key>captures</key>

@@ -19,9 +19,10 @@ import func Control.Monad.>>=
 #else // a comment
   thisIsCode() // a comment
 #elseif os(macOS) || os(Linux) || foo_flag || arch(x86_64) && 1+2 && swift(>=4.2.6) //a comment
+#elseif compiler(<5) || canImport(Foundation) || targetEnvironment(simulator) || targetEnvironment(UIKitForMac)
 #endif
 #sourceLocation(file: "foo", line: 123) // a comment
-if #available(macOS 10.12, iOS 9.1.2, *) {}
+if #available(macOS 10.12, iOS 9.1.2, UIKitForMac 1, *) {}
 #selector(MyClass.func)
 #selector(getter: MyClass.func) #selector(setter: MyClass.func)
 #keyPath(self.parent.name)
@@ -33,6 +34,7 @@ __FILE__, __LINE__, __FUNCTION__, __DSO_HANDLE__
 
 @available(
   macOS 1.2, macOSApplicationExtension 1.2, OSX, tvOS 1.4, iOS, watchOS,
+  swift 5, UIKitForMac,
   introduced, introduced: 1,
   deprecated, deprecated: 1,
   obsoleted, obsoleted: 1,
@@ -105,6 +107,7 @@ enum Foo {
   case foo,
   bar
   case foo(Int), bar(val: Int, labelNotAllowed val2: Int), baz(val: Int)
+  case foo(_ x: Int)
   indirect case foo
   case rawValue = 42, xx = "str", xx = true, xx = [too, complex], xx
 }
