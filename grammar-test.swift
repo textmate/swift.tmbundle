@@ -206,16 +206,49 @@ foo(
 tuple.0, tuple.42
 0b12.5, 0xG
 
-"string \(interpolation)"
-"string \(1 + foo(x: 4))"
-"nested: \(1+"string"+2)"
-print("nested: \(1+"string"+2)")
+print("a\0b\nc\u{1}d \(interpolation) a \(1 + foo(x: 4)) nested: \(1+"string"+2) x"#)
+print(#"raw: a\0b\nc\u{1}d \(interpolation) a \(1 + foo(x: 4)) nested: \(1+"string"+2) x"##)
+print(#"raw: a\#0b\#nc\#u{1}d \#(interpolation) a \#(1 + foo(x: 4)) nested: \#(1+"string"+2) x"##)
+print(##"raw: a\#0b\#nc\#u{1}d \#(interpolation) a \#(1 + foo(x: 4)) nested: \#(1+"string"+2) x"###)
+print(##"raw: a\##0b\##nc\##u{1}d \##(interpolation) a \##(1 + foo(x: 4)) nested: \##(1+"string"+2) x"###)
+
+"invalid newline
+"
+#"invalid newline
+"#
+##"invalid newline
+"##
 
 let SE0168 = """   illegal
         my, what a large…
     \(1 + foo(x: 4))
+    \("""
+      more \( """
+        s
+      """)
+    """)
         …string you have!
     illegal"""
+let SE0168 = #"""   illegal
+        my, what a large…
+    \#(1 + foo(x: 4))
+    \#(#"""
+      more \#( #"""
+        s
+      """#)
+    """#)
+        …string you have!
+    illegal"""#
+let SE0168 = ##"""   illegal
+        my, what a large…
+    \#(1 + foo(x: 4))
+    \#(#"""
+      more \#( #"""
+        s
+      """#)
+    """#)
+        …string you have!
+    illegal"""##
 
 associatedtype, class, deinit, enum, extension, func, import, init, inout,
 let, operator, $123, precedencegroup, protocol, struct, subscript, typealias,
