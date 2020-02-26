@@ -806,37 +806,6 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>^\s*(#)(if|elseif)\s+(false)\b.*?(?=$|//|/\*)</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>meta.preprocessor.conditional.swift</string>
-						</dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.preprocessor.swift</string>
-						</dict>
-						<key>2</key>
-						<dict>
-							<key>name</key>
-							<string>keyword.control.preprocessor.conditional.swift</string>
-						</dict>
-						<key>3</key>
-						<dict>
-							<key>name</key>
-							<string>constant.language.boolean.swift</string>
-						</dict>
-					</dict>
-					<key>contentName</key>
-					<string>comment.block.preprocessor.swift</string>
-					<key>end</key>
-					<string>(?=^\s*(#(elseif|else|endif)\b))</string>
-				</dict>
-				<dict>
-					<key>begin</key>
 					<string>^\s*(#)(if|elseif)\s+</string>
 					<key>captures</key>
 					<dict>
