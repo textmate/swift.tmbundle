@@ -4239,7 +4239,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\B(?:#file|#line|#column|#function|#dsohandle)\b|\b(?:__FILE__|__LINE__|__COLUMN__|__FUNCTION__|__DSO_HANDLE__)\b</string>
+					<string>\B(?:#file|#filePath|#line|#column|#function|#dsohandle)\b|\b(?:__FILE__|__FILE_NAME__|__LINE__|__COLUMN__|__FUNCTION__|__DSO_HANDLE__)\b</string>
 					<key>name</key>
 					<string>support.variable.swift</string>
 				</dict>
