@@ -23,6 +23,29 @@
 	</array>
 	<key>repository</key>
 	<dict>
+		<key>async-throws</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>invalid.illegal.await-must-precede-throws.swift</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.exception.swift</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.async.swift</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>\b(?:(throws\s+async|rethrows\s+async)|(throws|rethrows)|(async))\b</string>
+		</dict>
 		<key>attributes</key>
 		<dict>
 			<key>patterns</key>
@@ -1235,6 +1258,12 @@
 						</dict>
 						<dict>
 							<key>match</key>
+							<string>\basync\b</string>
+							<key>name</key>
+							<string>keyword.control.async.swift</string>
+						</dict>
+						<dict>
+							<key>match</key>
 							<string>\b(?:throws|rethrows)\b</string>
 							<key>name</key>
 							<string>keyword.control.exception.swift</string>
@@ -1594,10 +1623,8 @@
 							<string>#function-result</string>
 						</dict>
 						<dict>
-							<key>match</key>
-							<string>\b(?:throws|rethrows)\b</string>
-							<key>name</key>
-							<string>keyword.control.exception.swift</string>
+							<key>include</key>
+							<string>#async-throws</string>
 						</dict>
 						<dict>
 							<key>comment</key>
@@ -1678,10 +1705,8 @@
 							<string>#parameter-clause</string>
 						</dict>
 						<dict>
-							<key>match</key>
-							<string>\b(?:throws|rethrows)\b</string>
-							<key>name</key>
-							<string>keyword.control.exception.swift</string>
+							<key>include</key>
+							<string>#async-throws</string>
 						</dict>
 						<dict>
 							<key>comment</key>
@@ -2468,13 +2493,18 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(\))</string>
+					<string>(\))(?:\s*(async)\b)?</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
 							<string>punctuation.definition.parameters.end.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.async.swift</string>
 						</dict>
 					</dict>
 					<key>name</key>
@@ -2917,10 +2947,8 @@
 									<string>#parameter-clause</string>
 								</dict>
 								<dict>
-									<key>match</key>
-									<string>\b(?:throws|rethrows)\b</string>
-									<key>name</key>
-									<string>keyword.control.exception.swift</string>
+									<key>include</key>
+									<string>#async-throws</string>
 								</dict>
 								<dict>
 									<key>comment</key>
@@ -3053,10 +3081,8 @@
 									<string>#function-result</string>
 								</dict>
 								<dict>
-									<key>match</key>
-									<string>\b(?:throws|rethrows)\b</string>
-									<key>name</key>
-									<string>keyword.control.exception.swift</string>
+									<key>include</key>
+									<string>#async-throws</string>
 								</dict>
 								<dict>
 									<key>comment</key>
@@ -4088,14 +4114,32 @@
 							<string>punctuation.section.tuple.begin.swift</string>
 						</dict>
 					</dict>
+					<key>comment</key>
+					<string>correctly matching closure expressions is too hard (depends on trailing "in") so we just tack on some basics to the end of parenthesized-expression</string>
 					<key>end</key>
-					<string>\)</string>
+					<string>(\))\s*((?:\b(?:async|throws|rethrows)\s)*)</string>
 					<key>endCaptures</key>
 					<dict>
-						<key>0</key>
+						<key>1</key>
 						<dict>
 							<key>name</key>
 							<string>punctuation.section.tuple.end.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>match</key>
+									<string>\brethrows\b</string>
+									<key>name</key>
+									<string>invalid.illegal.rethrows-only-allowed-on-function-declarations.swift</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#async-throws</string>
+								</dict>
+							</array>
 						</dict>
 					</dict>
 					<key>patterns</key>
@@ -4186,6 +4230,23 @@
 					<string>(?&lt;!\.)\bdefer\b</string>
 					<key>name</key>
 					<string>keyword.control.defer.swift</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>invalid.illegal.try-must-precede-await.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.await.swift</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(?&lt;!\.)\b(?:(await\s+try)|(await)\b)</string>
 				</dict>
 				<dict>
 					<key>match</key>

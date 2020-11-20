@@ -93,8 +93,9 @@ protocol Foo {
   associatedtype T = Int
   associatedtype T: Equatable = Int
   func f<T: P3>(_: T) where T.A == Self.A, T.A: C // trailing comment still allows where to end
-  func functionBodyNotAllowedHere<T>() throws -> Int {}
-  init(norHere: Int) throws {}
+  func functionBodyNotAllowedHere<T>() async throws -> Int {}
+  init(norHere: Int) async throws {}
+  init(norHere: Int) throws async {}
 }
 protocol Foo: Equatable {}
 protocol Foo: Equatable, Indexable {}
@@ -148,6 +149,34 @@ func ++<T>(arg: Int){}
 func < <T>(arg: Int){}
 func  <<T>(arg: Int){}
 func <+<<T>(arg: Int){}
+
+// MARK: async/await
+func foo() async {
+  let x = await y
+  let z = async  // async is only a contextual keyword
+  let newURL = await server.redirectURL(for: url)
+  let (data, response) = try await session.dataTask(with: newURL)
+  let (data, response) = await try session.dataTask(with: newURL) // not allowed
+  let (data, response) = await (try session.dataTask(with: newURL)) // ok
+}
+func foo() async -> Int {}
+func foo() async throws -> (Int, String) {}
+func foo() throws async -> (Int, String) {}
+func foo() async rethrows {}
+func foo() rethrows async {}
+init() throws async {}
+struct FunctionTypes {
+  var syncNonThrowing: () -> Void
+  var syncThrowing: () throws -> Void
+  var asyncNonThrowing: () async -> Void
+  var asyncThrowing: () async throws -> Void = x
+}
+let closure = { _ = await getInt() } // implicitly async
+let closure = { (x: Int) async -> Int in 42 } // explicitly async
+let closure = { (x: Int) throws -> Int in 42 }
+let closure = { (x: Int) rethrows -> Int in 42 }
+let closure = { (x: Int) async throws -> Int in 42 }
+let closure = { (x: Int) throws async -> Int in 42 }
 
 init(arg: Value) {}
 init<T>(arg: Value) {}
