@@ -1184,6 +1184,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#typed-variable-declaration</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#import</string>
 				</dict>
 				<dict>
@@ -1234,6 +1238,12 @@
 							<string>\b(?:throws|rethrows)\b</string>
 							<key>name</key>
 							<string>keyword.control.exception.swift</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>\bsome\b</string>
+							<key>name</key>
+							<string>keyword.operator.type.opaque.swift</string>
 						</dict>
 						<dict>
 							<key>match</key>
@@ -3619,6 +3629,32 @@
 					</dict>
 					<key>end</key>
 					<string>(?!\G)$|(?=;|//|/\*|$)</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#available-types</string>
+						</dict>
+					</array>
+				</dict>
+				<key>typed-variable-declaration</key>
+				<dict>
+					<key>begin</key>
+					<string>(?x)
+						\b(let|var)\b\s+
+						(?&lt;q&gt;`?)[\p{L}_][\p{L}_\p{N}\p{M}]*(\k&lt;q&gt;)\s*
+						:
+					</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.declaration-specifier.swift</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?=$|[={])</string>
 					<key>patterns</key>
 					<array>
 						<dict>
