@@ -74,8 +74,8 @@ func foo(
 
 func opaqueTypes() -> some View {}
 struct Foo {
-  let some: Int = 42
-  var body: some View {}
+  let some: Int? = .some(42)
+  var body: some View
 }
 
 // MARK: Type definitions
