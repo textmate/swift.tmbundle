@@ -72,6 +72,12 @@ func foo(
   metatype: Foo.Type, x: Foo.Protocol
 ){}
 
+func opaqueTypes() -> some View {}
+struct Foo {
+  let some: Int? = .some(42)
+  var body: some View
+}
+
 // MARK: Type definitions
 
 struct Foo { }
