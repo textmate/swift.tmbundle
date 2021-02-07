@@ -4246,7 +4246,7 @@
 					<key>comment</key>
 					<string>matches weak, unowned, unowned(safe), unowned(unsafe)</string>
 					<key>match</key>
-					<string>(?&lt;!\.)\b(?:weak|unowned)\b|\bunowned\((?:safe|unsafe)\)</string>
+					<string>(?&lt;!\.)\bunowned\((?:safe|unsafe)\)|(?&lt;!\.)\b(?:weak|unowned)\b</string>
 					<key>name</key>
 					<string>keyword.other.capture-specifier.swift</string>
 				</dict>
