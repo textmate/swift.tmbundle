@@ -3789,7 +3789,7 @@
 				<key>availability-condition</key>
 				<dict>
 					<key>begin</key>
-					<string>\B(#available)(\()</string>
+					<string>\B(#(?:un)?available)(\()</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>

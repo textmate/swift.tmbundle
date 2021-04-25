@@ -23,6 +23,7 @@ import func Control.Monad.>>=
 #endif
 #sourceLocation(file: "foo", line: 123) // a comment
 if #available(macOS 10.12, iOS 9.1.2, UIKitForMac 1, *) {}
+if #unavailable(iOS 13, *) { loadMainWindow() }
 #selector(MyClass.func)
 #selector(getter: MyClass.func) #selector(setter: MyClass.func)
 #keyPath(self.parent.name)
