@@ -122,6 +122,20 @@ enum Foo {
 typealias Foo = Bar
 typealias Foo<T> = Bar<T, Int> // comment
 
+// MARK: Actors
+
+actor BankAccount {
+  let accountNumber: Int
+  var balance: Double
+  init(accountNumber: Int, initialDeposit: Double) {
+    self.accountNumber = accountNumber
+    self.balance = initialDeposit
+  }
+}
+@objc actor MyActor {
+  let accountNumber: Int
+}
+
 // MARK: Extensions
 
 extension T {}

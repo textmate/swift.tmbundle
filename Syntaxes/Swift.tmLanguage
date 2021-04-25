@@ -2031,7 +2031,7 @@
 					<array>
 						<dict>
 							<key>begin</key>
-							<string>\G(?!;|$|//|/\*)(?:(typealias|struct|class|enum|protocol|var|func)\s+)?</string>
+							<string>\G(?!;|$|//|/\*)(?:(typealias|struct|class|actor|enum|protocol|var|func)\s+)?</string>
 							<key>beginCaptures</key>
 							<dict>
 								<key>1</key>
@@ -3131,7 +3131,7 @@
 					<array>
 						<dict>
 							<key>begin</key>
-							<string>\b(class(?!\s+(?:func|var|let)\b)|struct)\s+((?&lt;q&gt;`?)[\p{L}_][\p{L}_\p{N}\p{M}]*(\k&lt;q&gt;))</string>
+							<string>\b(class(?!\s+(?:func|var|let)\b)|struct|actor)\s+((?&lt;q&gt;`?)[\p{L}_][\p{L}_\p{N}\p{M}]*(\k&lt;q&gt;))</string>
 							<key>beginCaptures</key>
 							<dict>
 								<key>1</key>
@@ -4281,7 +4281,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;!\.)\b(class|enum|extension|precedencegroup|protocol|struct)\b</string>
+					<string>(?&lt;!\.)\b(class|enum|extension|precedencegroup|protocol|struct|actor)\b</string>
 					<key>name</key>
 					<string>storage.type.$1.swift</string>
 				</dict>
