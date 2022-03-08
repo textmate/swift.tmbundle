@@ -3667,13 +3667,18 @@
 				<dict>
 					<key>begin</key>
 					<string>(?x)
-						\b(let|var)\b\s+
+						\b(?:(async)\b\s+)?(let|var)\b\s+
 						(?&lt;q&gt;`?)[\p{L}_][\p{L}_\p{N}\p{M}]*(\k&lt;q&gt;)\s*
 						:
 					</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.async.swift</string>
+						</dict>
+						<key>2</key>
 						<dict>
 							<key>name</key>
 							<string>keyword.other.declaration-specifier.swift</string>
@@ -4274,8 +4279,25 @@
 					<string>(?&lt;!\.)\b(do)\b(\s*)</string>
 				</dict>
 				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.async.swift</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.declaration-specifier.swift</string>
+						</dict>
+					</dict>
 					<key>match</key>
-					<string>(?&lt;!\.)\b(?:associatedtype|let|operator|typealias|var)\b</string>
+					<string>(?&lt;!\.)\b(?:(async)\b\s+)?(let|var)\b</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?&lt;!\.)\b(?:associatedtype|operator|typealias)\b</string>
 					<key>name</key>
 					<string>keyword.other.declaration-specifier.swift</string>
 				</dict>

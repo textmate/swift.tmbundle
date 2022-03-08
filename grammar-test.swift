@@ -173,6 +173,8 @@ func foo() async {
   let (data, response) = try await session.dataTask(with: newURL)
   let (data, response) = await try session.dataTask(with: newURL) // not allowed
   let (data, response) = await (try session.dataTask(with: newURL)) // ok
+  async let dog = getDoggo()
+  async let pup: Dog = getDoggo()
 }
 func foo() async -> Int {}
 func foo() async throws -> (Int, String) {}
