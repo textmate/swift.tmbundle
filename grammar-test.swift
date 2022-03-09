@@ -176,6 +176,10 @@ func foo() async {
   async let dog = getDoggo()
   async let pup: Dog = getDoggo()
 }
+callMe { // async closure
+  async let hello = greet()
+  return await hello
+}
 func foo() async -> Int {}
 func foo() async throws -> (Int, String) {}
 func foo() throws async -> (Int, String) {}
