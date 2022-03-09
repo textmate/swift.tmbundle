@@ -3667,7 +3667,7 @@
 				<dict>
 					<key>begin</key>
 					<string>(?x)
-						\b(?:(async)\b\s+)?(let|var)\b\s+
+						\b(?:(async)\s+)?(let|var)\b\s+
 						(?&lt;q&gt;`?)[\p{L}_][\p{L}_\p{N}\p{M}]*(\k&lt;q&gt;)\s*
 						:
 					</string>
@@ -4293,7 +4293,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?&lt;!\.)\b(?:(async)\b\s+)?(let|var)\b</string>
+					<string>(?&lt;!\.)\b(?:(async)\s+)?(let|var)\b</string>
 				</dict>
 				<dict>
 					<key>match</key>
