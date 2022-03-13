@@ -1282,7 +1282,7 @@
 						</dict>
 						<dict>
 							<key>match</key>
-							<string>\binout\b</string>
+							<string>\b(?:inout|isolated)\b</string>
 							<key>name</key>
 							<string>storage.modifier.swift</string>
 						</dict>
@@ -1542,6 +1542,7 @@
 					<key>begin</key>
 					<string>(?x)
 						\b
+						(?:(nonisolated)\s+)?
 						(func)
 						\s+
 						(
@@ -1588,19 +1589,24 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>storage.type.function.swift</string>
+							<string>storage.modifier.swift</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.function.swift</string>
+							<string>storage.type.function.swift</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.identifier.swift</string>
+							<string>entity.name.function.swift</string>
 						</dict>
 						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.identifier.swift</string>
+						</dict>
+						<key>5</key>
 						<dict>
 							<key>name</key>
 							<string>punctuation.definition.identifier.swift</string>
@@ -4295,11 +4301,16 @@
 						<key>2</key>
 						<dict>
 							<key>name</key>
+							<string>storage.modifier.swift</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
 							<string>keyword.other.declaration-specifier.swift</string>
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?&lt;!\.)\b(?:(async)\s+)?(let|var)\b</string>
+					<string>(?&lt;!\.)\b(?:(?:(async)|(nonisolated))\s+)?(let|var)\b</string>
 				</dict>
 				<dict>
 					<key>match</key>

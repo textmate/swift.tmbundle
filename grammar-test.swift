@@ -136,6 +136,12 @@ actor BankAccount {
 }
 @objc actor MyActor {
   let accountNumber: Int
+  nonisolated let accountNumber: Int
+}
+extension BankAccount {
+  func deposit(amount: Double, to account: isolated BankAccount)
+  nonisolated func safeAccountNumberDisplayString() -> String
+  nonisolated var description: String {}
 }
 
 // MARK: Extensions
