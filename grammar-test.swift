@@ -28,7 +28,7 @@ if #unavailable(iOS 13, *) { loadMainWindow() }
 #selector(getter: MyClass.func) #selector(setter: MyClass.func)
 #keyPath(self.parent.name)
 #colorLiteral(), #imageLiteral(), #fileLiteral()
-#file, #line, #function, #dsohandle
+#file, #line, #function, #dsohandle, #filePath
 __FILE__, __LINE__, __FUNCTION__, __DSO_HANDLE__
 
 // MARK: Attributes
