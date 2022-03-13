@@ -176,7 +176,7 @@
 								</dict>
 							</dict>
 							<key>match</key>
-							<string>(?:(\*)|\b(deprecated|unavailable)\b)\s*(.*?)(?=[,)])</string>
+							<string>(?:(\*)|\b(deprecated|unavailable|noasync)\b)\s*(.*?)(?=[,)])</string>
 						</dict>
 					</array>
 				</dict>

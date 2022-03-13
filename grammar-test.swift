@@ -36,6 +36,7 @@ __FILE__, __LINE__, __FUNCTION__, __DSO_HANDLE__
 @available(
   macOS 1.2, macOSApplicationExtension 1.2, OSX, tvOS 1.4, iOS, watchOS,
   swift 5, UIKitForMac,
+  noasync,
   introduced, introduced: 1,
   deprecated, deprecated: 1,
   obsoleted, obsoleted: 1,
