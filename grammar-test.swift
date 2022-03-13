@@ -165,6 +165,20 @@ func < <T>(arg: Int){}
 func  <<T>(arg: Int){}
 func <+<<T>(arg: Int){}
 
+// MARK: SE-0335 Existential `any`
+let p1: P = S() // error
+let p2: any P = S() // okay
+
+let pq1: P & Q = S() // error
+let pq2: any P & Q = S() // okay
+let pObject: any AnyObject & P = C()
+let existentialMetatype: any P.Type = S.self
+let compositionMetatype: any (P & Q).Type = S.self
+let protocolMetatype: (any P).Type = (any P).self
+typealias AnyP = any P
+
+let any = any // any is still usable as an identifier
+
 // MARK: async/await
 func foo() async {
   let x = await y

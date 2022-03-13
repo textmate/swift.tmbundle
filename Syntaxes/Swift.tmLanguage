@@ -1276,6 +1276,12 @@
 						</dict>
 						<dict>
 							<key>match</key>
+							<string>\bany\b</string>
+							<key>name</key>
+							<string>keyword.operator.type.existential.swift</string>
+						</dict>
+						<dict>
+							<key>match</key>
 							<string>\binout\b</string>
 							<key>name</key>
 							<string>storage.modifier.swift</string>
