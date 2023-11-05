@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This repository is not actively maintained. See [jtbandes/swift-tmlanguage](https://github.com/jtbandes/swift-tmlanguage) for the latest Swift grammar.
+
 # Installation
 
 You can install this bundle in TextMate by opening the preferences and going to the bundles tab. After installation it will be automatically updated for you.
